@@ -1,0 +1,4 @@
+Laboratorio #06 – NamedQueries
+Construir una clase llamada TestNamedQuery que dentro de su método main utilice una Named Query denominada “obtenerAutosCaros”, la cual obtenga los autos con precio mayor a $10.000.
+
+Informar los autos que resultaron de la consulta

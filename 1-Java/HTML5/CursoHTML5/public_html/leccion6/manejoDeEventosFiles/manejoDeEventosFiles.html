@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Manejo de Eventos API File HTML5</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+        <script>
+            $(document).ready(function () {
+                var archivo = null;
+                var reader = null;
+
+                $("#archivo").change(manejoArchivos);
+                $("#iniciarLectura").click(iniciarLectura);
+                $("#detenerLectura").click(detenerLectura);
+                
+                function reiniciarValores(){
+                    $("#progreso").empty();
+                    $("#leyendo").text(0);
+                    $("#progressBar").val(0);
+                }
+
+                function manejoArchivos(e) {
+                    reiniciarValores();
+                    archivo = e.target.files[0];
+                    
+                    $("#nombre_archivo").html(archivo.name + ", Tamaño: " + archivo.size);
+                };
+                
+                function iniciarLectura(evento){
+                    reiniciarValores();
+                    if(archivo != null){
+                        reader = new FileReader();
+                        
+                        //Evento onloadstart
+                        reader.onloadstart = function(evento){
+                            $("#progreso").append("<p>Inició la lectura del archivo (onloadstart)</p>");
+                        };
+                        
+                        //Evento onloadend
+                        reader.onloadend = function(evento){
+                            $("#progreso").append("<p>Terminó la lectura del archivo (onladend)</p>");
+                        };
+                        
+                        //Evento onload
+                        reader.onload = function(evento){
+                            $("#contador").append("<p>Lectura del archivo: 100%</p>");
+                            $("#progeso").append("<p>Lectura del archivo completado (onload)</p>");
+                        };
+                        
+                        //Evento onprogress
+                        reader.onprogress = function(evento){
+                            if(evento.lengthComputable){
+                                var calculo = Math.round((evento.loaded / evento.total) * 100);
+                                $("#leyendo").text(calculo);
+                                $("#progressBar").val(calculo);
+                            }
+                        };
+                        
+                        //Evento onerror
+                        reader.onerror = function(evento){
+                            $("#progreso").append("<p>Ocurrió un error con el archivo (onerror)</p>");
+                        };
+                        
+                        //Evento onabort
+                        reader.onabort = function (evento){
+                            $("#progreso").append("<p>La lectura se abortó (onabort)</p>");
+                        };
+                        
+                        //Leemos archivo
+                        reader.readAsBinaryString(archivo);
+                    }else{
+                        alert("Debes seleccionar un archivo");
+                    }
+                };
+                
+                function detenerLectura(){
+                    if(reader){
+                        reader.abort();
+                    }
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Manejo Eventos Archivos HTML5</h1>
+        <form>
+            <label for="archivo">Selecciona un archivo</label>
+            <input type="file" name="archivo" id="archivo"/>
+        </form>
+        <p>Nombre archivo: <span id="nombre_archivo"></span></p>
+        <p>Leer el contenido del archivo:</p>
+        <button id="iniciarLectura">Iniciar Lectura</button>
+        <button id="detenerLectura">Detener Lectura</button>
+        <p>Progreso de la lectura: %<span id="leyendo"></span></p>
+        <progress id="progressBar" value="0" max="100"></progress>
+        <div id="progreso"></div>
+    </body>
+</html>

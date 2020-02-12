@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Circulos con Canvas</title>
+        <meta charset="UTF-8">
+        <script src="../../libs/jquery-min.js"></script>
+        <script src="../../libs/modernizr-custom.js"></script>        
+        <script>
+            $(document).ready(function () {
+                if (Modernizr.canvas) {
+                    //alert("Tu navegador SI soporta Canvas");
+                } else {
+                    alert("Tu navegador NO soporta Canvas");
+                    return;
+                }
+
+                var canvas = document.getElementById("canvas1");
+                var context = canvas.getContext("2d");
+                //Punto central del canvas
+                var centroX = canvas.width / 2;
+                var centroY = canvas.height / 2;
+                var radio = 50;
+
+                context.beginPath(); //Comenzar a dibujar cualquier elemento excepto el rectangulo que es nativo en canvas
+                context.arc(centroX, centroY, radio, 0, 2 * Math.PI, false);
+                context.lineWidth = 5;
+                context.strokeStyle = "yellow";
+                context.stroke();
+                context.fillStyle = "yellowgreen";
+                context.fill();
+
+                //Circulo 0.5 radian (90 grados) sentido horario
+                context.beginPath(); //Comenzar a dibujar cualquier elemento excepto el rectangulo que es nativo en canvas
+                context.arc(60, 60, radio, 0, 0.5 * Math.PI, false);
+                context.strokeStyle = "black";
+                context.stroke();
+                
+                //Circulo 180 grados, sentido horario
+                context.beginPath();
+                context.arc(300, 60, radio, 0, 1 * Math.PI, false);
+                context.stroke();
+                
+                //Circulo 0.5 radianes en el sentido contrario
+                context.beginPath();
+                context.arc(500, 60, radio, 0, -0.5 * Math.PI, true);
+                context.stroke();
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Circulos con Canvas</h1>
+        <canvas id="canvas1" width="600" height="400" style="border: dotted gray 1px;">
+            Tu navegador no soporta Canvas
+        </canvas>
+    </body>
+</html>

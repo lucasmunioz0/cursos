@@ -1,0 +1,15 @@
+Seguir atentamente el tutorial y consultar las dudas que fuesen necesarias. Prepare la base
+de datos y ejecute el main.
+
+--Script de base de datos MySQL--
+CREATE SCHEMA javaseweb;
+
+USE javaseweb;
+
+CREATE TABLE personas (
+    id int auto_increment not null,
+    nombre varchar(255) not null,
+    apellido varchar(255) not null,
+    edad int,
+    CONSTRAINT pk_personas PRIMARY KEY (id)
+);

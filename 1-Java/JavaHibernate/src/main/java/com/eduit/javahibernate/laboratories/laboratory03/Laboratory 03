@@ -1,0 +1,18 @@
+Laboratorio 3
+Utilizando como base el proyecto construido en los laboratorios anteriores y aplicando los conceptos vistos en clase realizar las siguientes consultas utilizando HQL:
+
+Obtener e informar por consola:
+
+1.Todos los autos ordenados en forma descendente por fecha de venta.
+2.Los autos con fecha de venta entre 2002-01-01 y 2003-01-01.
+3.Los autos modelo 2000.
+4.Los autos cuya marca comienza con la letra C.
+5.Los autos con precio mayor a 15000.
+6.La cantidad total de autos.
+7.La cantidad total de marcas diferentes.
+8.El precio más alto.
+9.El promedio de precios.
+10.El monto total de venta agrupado por marca
+11.Producto cartesiano entre autos y concesionarios
+
+Modificar la tabla Autos agregando las columnas necesarias para realizar las consultas.

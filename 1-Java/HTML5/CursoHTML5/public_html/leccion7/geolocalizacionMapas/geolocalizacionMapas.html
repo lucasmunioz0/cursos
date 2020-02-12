@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Deteción de Geolocalización</title>
+        <meta charset="UTF-8">
+        <script src="js/jquery-min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <link rel="stylesheet" href="css/estilos.css">
+        <script>
+            $(document).ready(function () {
+                var mapa = null;
+                var mapaMarcador = null;
+
+                if (Modernizr.geolocation) {
+                    //alert("Tu navegador SI soporta Geolocalizacón.");
+                    navigator.geolocation.watchPosition(mostrar_coordenadas, mostrarErrores, {maximumAge: 1000, timeout: 300000, enabledHighAccuracy: true});
+                } else {
+                    alert("Tu navegador NO soporta Geolocalizacón.");
+                    return;
+                }
+
+                function mostrar_coordenadas(posicion) {
+                    var latitud = posicion.coords.latitude;
+                    var longitud = posicion.coords.longitude;
+
+                    var gmPosition = new google.maps.LatLng(latitud, longitud);
+                    if (mapa == null) {
+                        var opciones = {center: gmPosition, zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP};
+                        mapa = new google.maps.Map(document.getElementById("resultado"), opciones);
+                        mapaMarcador = new google.maps.Marker({position: gmPosition, title: "Estás aquí!"});
+                        mapaMarcador.setMap(mapa);
+                    } else {
+                        mapa.panTo(gmPosition);
+                        mapaMarcador.setPosition(gmPosition);
+                    }
+                }
+
+                function mostrarErrores(error) {
+                    switch (error.code) {
+                        case error.PERMISSION_DENIED:
+                            alert("Permiso denegado.");
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            alert("No se pudo recuperar la posición.");
+                            break;
+                        case error.TIMEOUT:
+                            alert("Tiempo de espera agotado");
+                            break;
+                        default:
+                            alert("Error desconocido de Geolocalización: " + error.code);
+                    }
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div id="resultado"></div>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+Especificación
+Armar la clase Domicilio con los siguientes atributos:
+● calle, String
+● numero, int
+● localidad, String
+Armar un constructor que reciba 3 parámetros (calle, numero y localidad)
+Armar la clase Persona con los siguientes atributos:
+● nombre, de tipo String
+● apellido, de tipo String
+● domicilio, de tipo Domicilio
+● edad, del tipo int
+Construir la clase Main y dentro del método main realizar lo siguiente:
+● Instanciar una persona y darle valores a sus atributos.
+● Informar los valores de los atributos de la persona y del domicilio donde vive la
+persona

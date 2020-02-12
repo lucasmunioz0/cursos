@@ -1,0 +1,12 @@
+Crear y configurar un nuevo proyecto para ser desarrollado con Hibernate.
+
+Construir la clase Auto con los atributos:
+
+Long id;
+String marca;
+String modelo;
+Construir la tabla necesaria en MySQL.
+
+Mapear la clase Auto.
+
+Crear una clase con un método Main desde el cual se pueda insertar un auto, modificar un auto, borrar un auto y obtener todos los autos.

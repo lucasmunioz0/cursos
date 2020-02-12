@@ -1,0 +1,15 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 05-oct-2019, 21:42:51
+    Author     : lucas
+*/
+#zona_arrastrar{
+    width: 300px;
+    height: 200px;
+    color: gray;
+    border: 5px dashed grey;
+}

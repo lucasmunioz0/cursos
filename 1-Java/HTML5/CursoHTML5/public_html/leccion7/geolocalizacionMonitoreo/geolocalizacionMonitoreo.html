@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Deteción de Geolocalización</title>
+        <meta charset="UTF-8">
+        <script src="js/jquery-min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+        <script>
+            $(document).ready(function (){
+                if(Modernizr.geolocation){
+                    //alert("Tu navegador SI soporta Geolocalizacón.");
+                    navigator.geolocation.watchPosition(mostrar_coordenadas, mostrarErrores, {maximumAge: 1000, timeout: 300000, enabledHighAccuracy:true});
+                }else{
+                    alert("Tu navegador NO soporta Geolocalizacón.");
+                    return;
+                }
+            });
+            
+            function mostrar_coordenadas(posicion){
+                $("#resultado").html("");
+                var latitud = posicion.coords.latitude;
+                var longitud = posicion.coords.longitude;
+                
+                $("#resultado").append("<p>Latitud: " + latitud + "</p>");
+                $("#resultado").append("<p>Longitud: " + longitud + "</p>");
+            }
+            
+            function mostrarErrores(error){
+                switch(error.code){
+                    case error.PERMISSION_DENIED:
+                        alert("Permiso denegado.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert("No se pudo recuperar la posición.");
+                        break;
+                    case error.TIMEOUT:
+                        alert("Tiempo de espera agotado");
+                        break;
+                    default:
+                        alert("Error desconocido de Geolocalización: " + error.code);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Detección de Geolocalización</h1>
+        <div id="resultado"></div>
+    </body>
+</html>

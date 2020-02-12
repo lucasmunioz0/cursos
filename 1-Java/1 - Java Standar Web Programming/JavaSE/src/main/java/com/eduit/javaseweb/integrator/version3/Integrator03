@@ -1,0 +1,4 @@
+Continuar el ejercicio integrador de la clase 7.
+Agregar en ProductoDao el siguiente método:
+public static List<Producto> getProductos() throws CafeStoreException
+El objetivo de este método es devovler una colección de objetos producto.

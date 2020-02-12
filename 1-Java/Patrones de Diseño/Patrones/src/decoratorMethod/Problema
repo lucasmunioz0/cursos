@@ -1,0 +1,66 @@
+3 etapas por las cuales paso la programación.
+Transaction Script: Cobol por ejemplo, siempre estaba líado a un verbo, dar de alta, calcular. Divir los programas en
+procedimientos. Cada una de esos procedimientos, se resumía en una transacción.
+Table Model: Focalizarse en los datos, hacer incapié en el diseño del modelo de datos y luego los procedimientos.
+Domain Driver Design (Libro): Modelar un modelo de objetos perfecto y luego pensar en que tablas necesito.
+
+Aplicación con TIPOS (Clases) de usuarios:
+UsuarioComun
+UsuarioAdmin
+
+Acciones:
+-Logearse
+
+Soluciones:
+1) Crear clase Usuario tenga un método login
+class Usuario{
+    String tipo
+
+    public Usuario(String tipo){
+        this.tipo = tipo;
+    }
+
+    login(){
+        if(tipo == "Admin"){
+            
+        }
+    }
+}
+
+2) Crear clase Usuario como abstracta
+abstract class Usuario {
+    private 
+
+
+    abstract void login(){}
+}
+
+class UsuarioComun extends Usuario{
+    void login(){
+        YYYY
+    }
+}
+
+class UsuarioAdmin extends Usuario{
+    void login(){
+        XXXX
+    }
+}
+
+3) Crear clase concreta
+class UsuarioComun {
+    void login(){
+        YYYY
+    }
+}
+
+class UsuarioAdmin extends UsuarioComun{
+    void login(){
+        XXXX
+    }
+}
+
+Todas son correctas, depende de la situación.
+Opción 1: Cuando el login es identico para todos los usuarios, en esos casos es mejor tener 1 sola clase.
+Opción 2: Cuando el "if" es más complicado, la mejor opción es la 2.
+La opción 3 es el peor caso, debido a que las clases padres siempre tienen que ser abstractas.

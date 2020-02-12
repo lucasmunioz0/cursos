@@ -1,0 +1,32 @@
+Ejercicio #1
+Tome como base para este ejercicio las fuentes del integrador anterior (Clase 4). Todos los ejercicios
+deberán ser realizados mediantes la clase PreparedStatement.
+Recuerde al crear las tablas necesarias que las claves primarias deben ser autoincrementales.
+Ud. deberá crear la clase ProductoDAO con los siguientes métodos:
+1) public static void inserta(Producto producto)
+Inserta un producto en la base de datos.
+Este método debe lanzar las siguientes excepciones:
+a) Una excepción genérica por si surge algún error inesperado.
+b) Una excepción descriptiva si se intenta insertar 2 productos con la misma descripción.
+2) public static void modificá (Producto producto)
+Modifica el precio y la descripción a partir de su id.
+Este método debe lanzar las siguientes excepciones:
+a) Una excepción genérica por si surge algún error inesperado.
+b) Una excepción descriptiva si el producto no existe.
+3) public static void elimina (int id)
+Elimina un producto a partir de su id.
+Este método debe lanzar las siguientes excepciones:
+a) Una excepción genérica por si surge algún error inesperado.
+b) Una excepción descriptiva si el producto no existe.
+4) public static Producto getProducto(int id)
+Busca un producto a partir de su id.
+a) Una excepción genérica por si surge algún error inesperado.
+b) Una excepción descriptiva si el producto no existe.
+
+--Script--
+CREATE TABLE productos (
+	id int auto_increment not null,
+    precio decimal not null,
+    descripcion varchar(255) not null,
+    constraint pk_productos primary key (id)
+);

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/maven_hijo_jar/maven_hijo_jar.iml" filepath="$PROJECT_DIR$/maven_hijo_jar/maven_hijo_jar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven_hijo_webapp/maven_hijo_webapp.iml" filepath="$PROJECT_DIR$/maven_hijo_webapp/maven_hijo_webapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven_padre.iml" filepath="$PROJECT_DIR$/maven_padre.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,25 @@
+El objetivo de este laboratorio es utilizar en un solo lab todos los temas vistos sobre threads hasta el momento.
+
+La idea es implementar un tablero de con la siguiente interfaz gráfica:
+
+
+
+
+Este tablero contiene una serie de contadores independientes entre ellos, los cuales pueden operarse en forma individual (arrancar, frenar, parar …);
+
+Cada contador al iniciarse comienza a contabilizar en forma incremental ascendente números enteros comenzando desde el 1.
+
+
+El tablero tiene que tener opciones para:
+
+iniciar el contador
+parar definitivamente el contador
+suspender / resumir el contador utilizando suspend() / resume()
+suspender / resumir el contador utilizando wait() / notify()
+posibilidad de setear la prioridad de cada contador en forma individual
+posibilidad de setear la pausa en milisegundos de cada contador
+
+Para poder lograr este objetivo, es evidente que por cada contador vamos a tener q tener una instancia de una clase  clase llamada Contador, que sea thread y que se encargue de ir incrementando el valor entero del contador y actualizar la interfaz gráfica.
+
+
+Tenemos que considerar también que necesitamos guardarnos una referencia a cada instancia de contador para poder realizar las tareas de los otros botones.

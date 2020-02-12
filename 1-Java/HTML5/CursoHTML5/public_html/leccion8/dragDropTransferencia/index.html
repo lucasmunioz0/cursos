@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Transferencia Datos Drag And Drop</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/estilos.css">
+        <script src="../../libs/jquery-min.js"></script>
+        <script src="../../libs/modernizr-2.6.2/modernizr.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                if (Modernizr.draganddrop) {
+                    //document.getElementById("img1").addEventListener("dragstart", manejoDragStart, false);
+                    $(".imagenes").bind("dragstart", manejoDragStart);
+                    //$("#img1").bind("dragstart", manejoDragStart);
+                    //$("#img2").bind("dragstart", manejoDragStart);
+                    //$("#img3").bind("dragstart", manejoDragStart);
+                    //$("#img4").bind("dragstart", manejoDragStart);
+
+                    $("#zona_arrastrar").bind({
+                        "dragover": manejoDragOver,
+                        "drop": manejoDrop
+                    });
+                } else {
+                    alert("Tu navegador no soporta Drag and Drop");
+                    return false;
+                }
+
+                //$.event.props.push('dataTransfer'); //Antes de JS 3
+                $.event.addProp('dataTransfer'); //A partir de JS 3
+
+                function manejoDragStart(evento) {
+                    $("#msg_eventos").html("Inicio del evento Arrastrar: " + evento.target.id);
+                    evento.dataTransfer.setData('text/html', this.id);
+                }
+
+                function manejoDragOver(evento) {
+                    evento.stopPropagation();
+                    evento.preventDefault();
+                    $("#msg_eventos").html("Manejo dragover en: " + evento.target.id);
+                }
+
+                function manejoDrop(evento) {
+                    evento.stopPropagation();
+                    evento.preventDefault();
+                    $("#msg_eventos").html("Manejo drop en: " + evento.target.id);
+                    var idImgSel = evento.dataTransfer.getData('text/html');
+                    $("#elementos").append(idImgSel + " ");
+
+                    evento.target.appendChild(document.getElementById(idImgSel));
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Transferencia Datos Drag and Drop</h1>
+        <div id="msg_eventos"></div>
+        <figure>
+            <img class="imagenes" ondragover="return false;" id="img1" draggable="true" src="../recursos/laptop.png" alt="laptop"/>
+            <img class="imagenes" id="img3" draggable="true" src="../recursos/monitor.png" alt="monitor"/>
+            <img class="imagenes" id="img2" draggable="true" src="../recursos/berenjena.png" alt="berenjena"/>
+            <img class="imagenes" id="img4" draggable="true" src="../recursos/pimiento.png" alt="pimiento"/>
+            <figcaption>Imágenes a arrastrar</figcaption>
+        </figure>
+        <div id="zona_arrastrar">Arrastra la imagen aquí:</div>
+        <p>Elementos seleccionados:</p>
+        <div id="elementos"></div>    
+    </body>
+</html>

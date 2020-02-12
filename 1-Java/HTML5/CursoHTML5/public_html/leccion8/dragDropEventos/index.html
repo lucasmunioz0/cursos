@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Detección de Drag And Drop</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/estilos.css">
+        
+        <script src="../../libs/jquery-min.js"></script>
+        <script src="../../libs/modernizr-2.6.2/modernizr.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                if(Modernizr.draganddrop){
+                    //document.getElementById("img1").addEventListener("dragstart", manejoDragStart, false);
+                    $("#img1").bind("dragstart", manejoDragStart);
+                }else{
+                    alert("Tu navegador no soporta Drag and Drop");
+                    return false;
+                }
+                
+                function manejoDragStart(evento){
+                    $("#msg_eventos").html("Inicio del evento Arrastrar: " + evento.target.id);
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Detección de Drag and Drop</h1>
+        <div id="msg_eventos"></div>
+        <img id="img1" draggable="true" src="../recursos/laptop.png" alt="laptop"/> 
+        <div id="zona_arrastrar">Arrastra la imagen aquí:</div>
+    </body>
+</html>

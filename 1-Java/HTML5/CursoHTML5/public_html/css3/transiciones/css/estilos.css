@@ -1,0 +1,54 @@
+#contenedor div{
+    background: gold;
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#contenedor{
+    width: 600px;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    border: dashed gray;
+}
+
+#uno:hover{
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: red;
+}
+
+#dos:hover{
+    -moz-transform: translate(0px, 15px);
+    -webkit-transform: translate(0px, 15px);
+    transform: translate(0px, 15px);
+}
+
+#tres:hover{
+    -moz-transform: skew(20deg);
+    -webkit-transform: skew(20deg);
+    transform: skew(20deg);
+}
+
+#cuatro:hover{
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+#cinco:hover{
+    -moz-transform: scale(1.2) skew(20deg);
+    -webkit-transform: scale(1.2) skew(20deg);
+    transform: scale(1.2) skew(20deg);
+    -moz-transform-origin: center bottom;
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+    
+}

@@ -1,0 +1,176 @@
+.wrapper{
+    position: relative;
+    float: left;
+    left: 0px;
+    width: 700px;
+    margin-bottom: 10px;
+}
+
+.left1{
+    display: table;
+    position: relative;
+    float: left;
+    left: 5px;
+    width: 140px;
+    height: 100px;
+    border: 1px dashed grey;
+    padding: 5px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.left2{
+    display: table;
+    position: relative;
+    float: left;
+    left: 15px;
+    width: 140px;
+    height: 100px;
+    border: 1px dashed grey;
+    padding: 5px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.left3{
+    display: table;
+    position: relative;
+    float: left;
+    left: 25px;
+    width: 140px;
+    height: 100px;
+    border: 1px dashed grey;
+    padding: 5px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.left4{
+    display: table;
+    position: relative;
+    float: left;
+    left: 35px;
+    width: 140px;
+    height: 100px;
+    border: 1px dashed grey;
+    padding: 5px;
+    text-align: center;
+    line-height: 20px;
+}
+
+body{
+    border-width: 0px;
+    padding: 0px;
+    margin: 0px;
+    font-size: 90%;
+    color: white;
+}
+
+h1{
+    color: red;
+}
+
+span{
+    display: table-cell;
+    vertical-align: middle;    
+}
+
+/*Definición de colores*/
+#div1{
+    background: #00FFFF;
+    color: grey;
+}
+
+#div2{
+    background: #FF0; /*#FFFF00*/
+    color: grey;
+}
+
+#div3{
+    background: rgb(198, 226, 255);
+    color: grey;
+}
+
+#div4{
+    background: rgb(0%, 20%, 80%);
+    color: grey;
+}
+
+#div5{
+    background: chocolate; 
+}
+
+#div6{
+    /*
+    1: color al 100%
+    0.5: color al 50%
+    0.0: color al 0%;
+    */
+    background: rgb(198,226,255);
+    background: rgba(198,226,255,0.25);
+    color: grey;
+}
+
+#div7{
+    background: rgb(198,226,255);
+    background: rgba(0%,20%,80%,0.5);
+}
+
+#div8{
+    background: hsl(270,90%,60%);
+}
+
+#div9{
+    background: hsla(270,90%,60%, 0.5);
+}
+
+#div10{
+    background: chocolate;
+    opacity: 0.5;
+}
+
+#div11{
+    color: gray;
+}
+
+img:hover{
+    opacity: 0.5;
+}
+
+#div12{
+    background: url(../../../images/globalmentoring.jpg) no-repeat;
+    background-color: rgb(234,98,14);
+}
+
+div.transbox{
+    background-color: #FFF;
+    opacity: 0.6;
+}
+
+div.transbox p{
+    margin-top: 55px;
+    font-size: 80%;
+    color: #000;
+}
+
+#div13{
+    /*Safari o chrome*/
+    /*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(109,0,25,1)), to(rgba(200,3,31,1)));*/
+    /*Estándar*/
+    background: linear-gradient(rgba(200,3,41,1), rgba(109,0,25,1));
+}
+
+#div14{
+    /*Estándar*/
+    background: linear-gradient(to right, #2F2727, #1A82F7, #2F2727, #1A82F7, #2F2727);
+}
+
+#div15{
+    /*Estándar*/
+    background: radial-gradient(circle, #1A82F7, #2F2727);
+}
+
+#div16{
+    /*Estándar*/
+    background: radial-gradient(closest-corner at 80% 20%, #1A82F7, #2F2727);
+}

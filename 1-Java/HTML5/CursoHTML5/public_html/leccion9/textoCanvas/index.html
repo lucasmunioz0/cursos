@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Texto Canvas</title>
+        <meta charset="UTF-8">
+        <script src="../../libs/jquery-min.js"></script>
+        <script src="../../libs/modernizr-custom.js"></script>        
+        <script>
+            $(document).ready(function () {
+                if (Modernizr.canvas) {
+                    //alert("Tu navegador SI soporta Canvas");
+                } else {
+                    alert("Tu navegador NO soporta Canvas");
+                    return;
+                }
+
+                var canvas = document.getElementById("canvas1");
+                var context = canvas.getContext("2d");
+                var texto = "Hola Mundo";
+                context.font = "italic 50pt Calibri";
+                context.fillStyle = "yellowgreen";
+                context.strokeStyle = "gray";
+                context.fillText(texto, 130, 100);
+                context.strokeText(texto, 130, 100);
+                
+                context.font = "50px Verdana";
+                var gradiente = context.createLinearGradient(0, 0, canvas.width, 0);
+                gradiente.addColorStop("0", "magenta");
+                gradiente.addColorStop("0.5", "blue");
+                gradiente.addColorStop("1", "red");
+                context.fillStyle = gradiente;
+                context.fillText("! Hola con Canvas !", 40, 200);
+                //context.strokeText("! Hola con Canvas !", 40, 200);
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Texto Canvas</h1>
+        <canvas id="canvas1" width="600" height="400" style="border: dotted gray 1px;">
+            Tu navegador no soporta Canvas
+        </canvas>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animaciones Canvas</title>
+        <meta charset="UTF-8">
+        <script src="../../libs/jquery-min.js"></script>
+        <script src="../../libs/modernizr-custom.js"></script>        
+        <script>
+            var x = 0, y = 150, anchoRectangulo = 40;
+            var direccion = "derecha";
+            
+            $(document).ready(function () {
+                if (Modernizr.canvas) {
+                    //alert("Tu navegador SI soporta Canvas");
+                } else {
+                    alert("Tu navegador NO soporta Canvas");
+                    return;
+                }
+                
+                animar();
+            });
+            
+            function animar(){
+                var canvas = document.getElementById("canvas1");
+                var context = canvas.getContext("2d");
+                context.clearRect(0,0,canvas.width, canvas.height);
+                context.strokeStyle = "yellow";
+                context.fillStyle = "yellowgreen";
+                context.lineWidth = 5;
+                context.fillRect(x, y, anchoRectangulo, anchoRectangulo);
+                context.strokeRect(x, y, anchoRectangulo, anchoRectangulo);
+                
+                actualizarDibujo();
+                setTimeout("animar()", 1);
+            }
+            
+            function actualizarDibujo(){
+                definirDireccion();
+                if(direccion == "derecha"){
+                    x++;
+                }else{
+                    x--;
+                }
+            }
+            
+            function definirDireccion(){
+                var canvas = document.getElementById("canvas1");
+                if(x == 0){
+                    direccion = "derecha";
+                }else if(x == (canvas.width - anchoRectangulo)){
+                    direccion = "izquierda";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Animaciones Canvas</h1>
+        <canvas id="canvas1" width="600" height="400" style="border: dotted gray 1px;">
+            Tu navegador no soporta Canvas
+        </canvas>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+Ud esta haciendo una parte de un software que se trata de una calculadora para chicos que recién
+comienzan a utilizar las matemáticas. Por ello, hay que hacer algunas validaciones, como por ejemplo, en
+la resta hay que asegurarse que el número resultante sea siempre positivo ya que los pequeños aún no
+manejan los negativos.
+Crear la clase calculadora con los siguientes métodos:
+public int sumar (int a, int b)
+Este método debe lanzar una excepción con un mensaje descriptivo si algún argumento es menor a 0 o
+mayor a 1000
+public int restar (int a, int b)
+Este método debe lanzar una excepción con un mensaje descriptivo si algún argumento es menor a 0 o si
+el resultado es menor a 0.

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Líneas con Canvas</title>
+        <meta charset="UTF-8">
+        <script src="../../libs/jquery-min.js"></script>
+        <script src="../../libs/modernizr-custom.js"></script>        
+        <script>
+            $(document).ready(function () {
+                if (Modernizr.canvas) {
+                    //alert("Tu navegador SI soporta Canvas");
+                } else {
+                    alert("Tu navegador NO soporta Canvas");
+                    return;
+                }
+
+                var canvas = document.getElementById("canvas1");
+                var context = canvas.getContext("2d");
+
+                context.beginPath();
+                context.moveTo(10, 10);
+                context.lineTo(100, 100);
+                context.stroke();
+
+                context.lineTo(200, 10);
+                context.closePath(); //Cierra la trayectoria iniciada
+                context.stroke();
+                context.fill();
+
+                context.save(); //Guarda el estado de las propiedades establecidas antes de llamar al save();
+                context.fillStyle = "yellowgreen";
+                context.strokeStyle = "yellow";
+                context.lineWidth = 10;
+                context.beginPath();
+                context.moveTo(200, 200);
+                context.lineTo(200, 350);
+                context.lineTo(250, 350);
+                context.closePath();
+                context.stroke();
+                context.fill();
+
+                //Restauración de la configuración de cualquier propiedad de Canvas
+                context.restore();
+                context.beginPath();
+                context.moveTo(300, 200);
+                context.lineTo(400, 200);
+                context.lineTo(400, 250);
+                context.closePath();
+                context.stroke();
+                context.fill();
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Líneas con Canvas</h1>
+        <canvas id="canvas1" width="600" height="400" style="border: dotted gray 1px;">
+            Tu navegador no soporta Canvas
+        </canvas>
+    </body>
+</html>

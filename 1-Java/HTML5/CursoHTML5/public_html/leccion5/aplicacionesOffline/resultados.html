@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Mostrar resultados</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+        <script type="text/javascript">
+            if (Modernizr.localstorage) {
+                $(document).ready(function () {
+                    if (sessionStorage.getItem("listado")) {
+                        $("#mensaje").html("<h3>Datos almacenados en Session Storage</h3>");
+                        $("#resultado").text(sessionStorage.getItem("listado"));
+                    } else {
+                        $("#mensaje").text("No hay datos en Session Storage");
+                    }
+                });
+            } else {
+                alert("Lo lamentamos, tu navegador no soporta Session Storage");
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Resultados</h1>
+        
+        <div id="mensaje"></div>
+        <div id="resultado"></div>
+        <a href="sessionStorage.html">Regresar al inicio</a>
+    </body>
+</html>

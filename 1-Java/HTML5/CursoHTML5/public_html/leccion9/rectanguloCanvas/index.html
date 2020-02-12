@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rectángulo con Canvas</title>
+        <meta charset="UTF-8">
+        <script src="../../libs/jquery-min.js"></script>
+        <script src="../../libs/modernizr-custom.js"></script>        
+        <script>
+            $(document).ready(function (){
+                if(Modernizr.canvas){
+                    //alert("Tu navegador SI soporta Canvas");
+                }else{
+                    alert("Tu navegador NO soporta Canvas");
+                    return;
+                }
+                
+                var context = $("#canvas1")[0].getContext("2d");
+                context.strokeStyle = "yellow";
+                context.lineWidth = 7;
+                context.strokeRect(10,10,200,100);
+                context.fillStyle = "yellowgreen";
+                context.fillRect(10,10,200,100);
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Rectángulo con Canvas</h1>
+        <canvas id="canvas1" width="600" height="400" style="border: dotted gray 1px;">
+            Tu navegador no soporta Canvas
+        </canvas>
+    </body>
+</html>

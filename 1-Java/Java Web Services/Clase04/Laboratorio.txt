@@ -1,0 +1,8 @@
+Laboratorio 1
+
+1- Crear un Web Service Rest, con un proyecto java web, que reciba como parámetro un String y devuelva el mismo String concatenado a “Saludos desde EducacionIT”.
+
+1.1- Consumir el WS desde el SoapUI.
+
+1.2- Crear un proyecto web llamado Consumidor y mostrar el resultado del Web Service en la consola.
+

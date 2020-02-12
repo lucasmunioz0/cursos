@@ -1,0 +1,11 @@
+CACHE MANIFEST
+
+CACHE: 
+aplicacionesOffline/aplicacionOffline.html
+aplicacionesOffline/resultados.html
+aplicacionesOffline/js/libs/jquery-min.js
+aplicacionesOffline/js/libs/modernizr-custom.js
+aplicacionesOffline/imagenes/logotipo_offline.png
+
+FALLBACK:
+aplicacionesOffline/imagenes/locotipo.png aplicacionesOffline/imagenes/logotipo_offline.png

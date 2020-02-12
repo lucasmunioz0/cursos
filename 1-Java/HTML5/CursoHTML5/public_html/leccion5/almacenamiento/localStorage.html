@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Manejo de LocalStorage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+        <script type="text/javascript">
+            if (Modernizr.localstorage) {
+                $(document).ready(function () {
+                    var lista = $("#lista");
+                    $(lista).blur(function () {
+                        localStorage.setItem("listado", lista.html());
+                        //location.reload();
+                    });
+
+                    if (localStorage.getItem("listado")) {
+                        $("#mensaje").html("<h3>Datos almacenados en Local Storage</h3>");
+                        $("#lista").html(localStorage.getItem("listado"));
+                        $("#resultado").text(localStorage.getItem("listado"));
+                    } else {
+                        $("#mensaje").text("No hay datos en Local Storage");
+                    }
+
+                    $("#limpiar").click(function () {
+                        localStorage.removeItem("listado");
+                        //localStorage.clear(); -> Esto borra todas las llaves de las aplicaciones.
+                        //location.reload();
+                    });
+                    
+                    window.addEventListener("storage", escucharEvento, false);
+                    
+                    function escucharEvento(e){
+                        alert("Evento generado localStorage " + e.storageArea.listado);
+                        //location.reload();
+                    }
+                });
+            } else {
+                alert("Lo lamentamos, tu navegador no soporta Local Storage");
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Manejo de Local Storage</h1>
+        <div>
+            <ul id="lista" contenteditable="true">
+                <li></li>
+            </ul>
+        </div>
+        <input type="button" id="limpiar" value="Limpiar"/>
+        <div id="mensaje"></div>
+        <div id="resultado"></div>
+    </body>
+</html>

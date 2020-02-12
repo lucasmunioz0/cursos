@@ -1,0 +1,627 @@
+{
+	"info": {
+		"_postman_id": "4a650592-2b7c-4b7b-8ec7-795da1452ecb",
+		"name": "Personal",
+		"description": "Personal projects.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Intraway",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f787d1d2-207b-40a6-b19f-504bbaab4934",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse (responseBody);",
+									"postman.setEnvironmentVariable ('TOKEN-ID', jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"admin\", \"password\":\"qwerty\"}"
+						},
+						"url": {
+							"raw": "http://localhost:7070/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7070",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users (JSON)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8b7a034a-0392-4cbf-8d69-7bf57f832782",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									" ",
+									"var contentTypeExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+									" ",
+									"tests[\"Has Content-Type\"] = contentTypeExists;",
+									" ",
+									"if (contentTypeExists) {",
+									"   ",
+									"   tests[\"Content-Type is application/json\"] = responseHeaders[\"Content-Type\"].has(\"application/json\");",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-TYPE",
+								"value": "json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN-ID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:7070/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7070",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users (XML)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2f56eba-5c40-46ec-87c7-20ea32418eca",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									" ",
+									"var contentTypeExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+									" ",
+									"tests[\"Has Content-Type\"] = contentTypeExists;",
+									" ",
+									"if (contentTypeExists) {",
+									"   ",
+									"   tests[\"Content-Type is application/xml\"] = responseHeaders[\"Content-Type\"].has(\"application/xml\");",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "X-API-TYPE",
+								"value": "xml",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN-ID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:7070/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7070",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id (JSON)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c7f427a5-1057-4dda-bc30-b2c11f9d9ded",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									" ",
+									"var contentTypeExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+									" ",
+									"tests[\"Has Content-Type\"] = contentTypeExists;",
+									" ",
+									"if (contentTypeExists) {",
+									"   ",
+									"   tests[\"Content-Type is application/json\"] = responseHeaders[\"Content-Type\"].has(\"application/json\");",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-API-TYPE",
+								"value": "json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN-ID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:7070/api/users/10001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7070",
+							"path": [
+								"api",
+								"users",
+								"10001"
+							]
+						},
+						"description": "Example, user id: 10001"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id (XML)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ec62cb33-5c41-4d96-9ca7-ff8a960a981f",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									" ",
+									"var contentTypeExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+									" ",
+									"tests[\"Has Content-Type\"] = contentTypeExists;",
+									" ",
+									"if (contentTypeExists) {",
+									"   ",
+									"   tests[\"Content-Type is application/xml\"] = responseHeaders[\"Content-Type\"].has(\"application/xml\");",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/xml"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/xml"
+							},
+							{
+								"key": "X-API-TYPE",
+								"type": "text",
+								"value": "xml"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN-ID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:7070/api/users/10001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7070",
+							"path": [
+								"api",
+								"users",
+								"10001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User (JSON)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "59a9b767-77fe-4a95-bf05-ffefa8db08b7",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"var contentTypeExists = responseHeaders.hasOwnProperty(\"Location\");",
+									" ",
+									"tests[\"Has Content-Type\"] = contentTypeExists;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-TYPE",
+								"value": "json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN-ID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"Raul\",\n  \"firstName\": \"Pena\",\n  \"lastName\": \"Simpson\",\n  \"email\": \"raul.pena@gmail.com\",\n  \"password\": \"qwerty\",\n  \"phone\": \"+5491151489281\",\n  \"userStatus\": \"Active\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:7070/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7070",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User (XML)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "59a9b767-77fe-4a95-bf05-ffefa8db08b7",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/xml"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/xml"
+							},
+							{
+								"key": "X-API-TYPE",
+								"value": "xml",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN-ID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<User userName=\"bmurray\" firstName=\"Bill\" lastName=\"Murray\" email=\"bill.murray@gmail.com\" password=\"qwerty\" phone=\"+123123789\" userStatus=\"Active\"/>"
+						},
+						"url": {
+							"raw": "http://localhost:7070/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7070",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a User (JSON)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3a7de49a-e9b7-4f46-9508-9a57c98b5c66",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									" ",
+									"var contentTypeExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+									" ",
+									"tests[\"Has Content-Type\"] = contentTypeExists;",
+									" ",
+									"if (contentTypeExists) {",
+									"   ",
+									"   tests[\"Content-Type is application/json\"] = responseHeaders[\"Content-Type\"].has(\"application/json\");",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-API-TYPE",
+								"value": "json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN-ID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"anahasapeemapetilon\",\n  \"firstName\": \"Apu\",\n  \"lastName\": \"Nahasapeemapetilon\",\n  \"email\": \"a.nahasapeemapetilon@gmail.com\",\n  \"password\": \"qwerty\",\n  \"phone\": \"+121212121234\",\n  \"userStatus\": \"Active\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:7070/api/users/10001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7070",
+							"path": [
+								"api",
+								"users",
+								"10001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a User (XML)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3a7de49a-e9b7-4f46-9508-9a57c98b5c66",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									" ",
+									"var contentTypeExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+									" ",
+									"tests[\"Has Content-Type\"] = contentTypeExists;",
+									" ",
+									"if (contentTypeExists) {",
+									"   ",
+									"   tests[\"Content-Type is application/xml\"] = responseHeaders[\"Content-Type\"].has(\"application/xml\");",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/xml"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/xml"
+							},
+							{
+								"key": "X-API-TYPE",
+								"type": "text",
+								"value": "xml"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN-ID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<User userName=\"bmurray\" firstName=\"Bill\" lastName=\"Murray\" email=\"bill.murray@gmail.com\" password=\"qwerty\" phone=\"+123123789\" userStatus=\"Active\"/>"
+						},
+						"url": {
+							"raw": "http://localhost:7070/api/users/10002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7070",
+							"path": [
+								"api",
+								"users",
+								"10002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "04b51c89-f007-4ebc-9b1b-8625b145405a",
+								"exec": [
+									"tests[\"Status code is 204\"] = responseCode.code === 204;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{TOKEN-ID}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:7070/api/users/10001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7070",
+							"path": [
+								"api",
+								"users",
+								"10001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

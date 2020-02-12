@@ -1,0 +1,173 @@
+swagger: 2.0
+info:
+  description: "User API specification"
+  version: 1.0.0
+  title: User API
+  license:
+    name: MIT
+tags:
+  - name: users
+    description: Access to Nubicall
+schemes:
+  - http
+paths:
+  /users:
+    post:
+      tags:
+        - users
+      summary: Create User
+      description: Create New User
+      operationId: createUser
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: Created user object
+          required: false
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        201:
+          description: "User Created"
+          headers:
+            Location:
+              description: New User Location
+              type: string
+          schema:
+            $ref: '#/definitions/Response'
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: '#/definitions/Response'
+  /users/{username}:
+    get:
+      tags:
+        - users
+      summary: Get User
+      description: Retrieve the user by username
+      operationId: findUserByUsername
+      parameters:
+        - in: path
+          name: username
+          description: "The name that needs to be fetched."
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Retrieve User"
+          schema:
+            $ref: '#/definitions/User'
+        404:
+          description: "User Not Found"
+          schema:
+            $ref: '#/definitions/Response'
+    put:
+      tags:
+        - users
+      summary: Modify Complete User
+      description: Updates all the properties of the user sent
+      operationId: modifyUser
+      parameters:
+        - in: path
+          name: username
+          description: "The name that needs to be modified."
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: false
+          description: "User object to update"
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        200:
+          description: "User Modified"
+          schema:
+            $ref: '#/definitions/Response'
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: '#/definitions/Response'
+        404:
+          description: "User Not Found"
+          schema:
+            $ref: '#/definitions/Response'
+    delete:
+      tags:
+        - users
+      summary: Delete User
+      operationId: deleteUser
+      parameters:
+        - in: path
+          name: username
+          description: "The name that needs to be deleted."
+          required: true
+          type: string
+      responses:
+        200:
+          description: "User Deleted"
+          schema:
+            $ref: '#/definitions/Response'
+        404:
+          description: "User Not Found"
+          schema:
+            $ref: '#/definitions/Response'
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+definitions:
+    Response:
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          description: Universally Unique TX Identifier
+          example:
+            123e4567-e89b-12d3-a456-426655440000
+        message:
+          type: string
+          description: Short Result Description
+    User:
+      properties:
+        username:
+          type: string
+          description:  User Nick
+          example:
+            nacho
+        firstName:
+          type: string
+          description: User First Name
+          example:
+            Ignacio
+        lastName:
+          type: string
+          description: User Last Name
+          example:
+            Galieri
+        email:
+          type: string
+          format: email
+          description: User e-mail
+        password:
+          type: string
+          format: password
+          description: User Password
+          example:
+            Nub1C4llSup3RS3GuR0
+        phone:
+          type: string
+          description: User Phone Number
+          example:
+            555-5555
+        userStatus:
+          type: string
+          enum:
+            - Active
+            - Blocked
+          description: User Status
+      xml:
+        name: User

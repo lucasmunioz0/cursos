@@ -1,0 +1,35 @@
+#contenedor div{
+    background: aqua;
+    padding: 10px;
+    width: 40px;
+    margin: 10px;
+}
+
+#contenedor{
+    width: 500px;
+    height: 300px;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    border: dashed gray;
+
+    /*    -moz-box-orient: vertical;
+        -webkit-box-orient: vertical;
+        box-orient: vertical;*/
+    /*    -moz-box-direction: reverse;
+        -webkit-box-direction: reverse;
+        box-direction: reverse;*/
+    -moz-box-align: center;
+    -webkit-box-align: center;
+    box-align: center;
+
+    -moz-box-pack: justify;
+    -webkit-box-pack: justify;
+    box-pack: justify;
+}
+
+#uno, #dos, #tres, #cuatro, #cinco{
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+}

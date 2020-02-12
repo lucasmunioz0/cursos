@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Manejo de Session Storage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+        <script type="text/javascript">
+            if (Modernizr.localstorage) {
+                $(document).ready(function () {
+                    var lista = $("#lista");
+                    $(lista).blur(function () {
+                        sessionStorage.setItem("listado", lista.html());
+                        location.reload();
+                    });
+
+                    if (sessionStorage.getItem("listado")) {
+                        $("#mensaje").html("<h3>Datos almacenados en Session Storage</h3>");
+                        $("#lista").html(sessionStorage.getItem("listado"));
+                        $("#resultado").text(sessionStorage.getItem("listado"));
+                    } else {
+                        $("#mensaje").text("No hay datos en Session Storage");
+                    }
+
+                    $("#limpiar").click(function () {
+                        sessionStorage.removeItem("listado");
+                        location.reload();
+                    });
+                });
+            } else {
+                alert("Lo lamentamos, tu navegador no soporta Session Storage");
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Manejo de Session Storage</h1>
+        <div>
+            <ul id="lista" contenteditable="true">
+                <li></li>
+            </ul>
+        </div>
+        <input type="button" id="limpiar" value="Limpiar"/>
+        <div id="mensaje"></div>
+        <div id="resultado"></div>
+        <a href="resultados.html">Mostrar resultados almacenados</a>
+    </body>
+</html>

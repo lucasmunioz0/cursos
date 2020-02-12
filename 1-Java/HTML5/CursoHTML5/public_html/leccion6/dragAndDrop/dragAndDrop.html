@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Drag and Drop de archivos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilos.css"/> 
+        <script src="js/jquery-min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+        <script>
+            $(document).ready(function () {
+                if (window.FileReader && Modernizr.draganddrop) {
+
+                } else {
+                    alert("tu navegador NO soporta API o Drag&Drop");
+                }
+                ;
+                $("#zona_arrastrar").bind({
+                    "drop": manejoDrop,
+                    "dragover": manejoDragOver
+                });
+
+                function manejoDrop(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+
+                    //JQuery envuelve el evento original
+                    var dataTransfer = e.dataTransfer || (e.originalEvent && e.originalEvent.dataTransfer);
+                    var archivos = e.target.files || (dataTransfer && dataTransfer.files);
+                    $("#salida").html("");
+                    for (var i = 0; i < archivos.length; i++){
+                        var info = "<p>" + (i+1) + ") Nombre: " + archivos[i].name + ", Tamaño: " + archivos[i].size + ", Tipo MIME: " + archivos[i].type + "</p>";
+                        $("#salida").append(info);
+                    }
+                };
+
+                function manejoDragOver(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+            });
+
+        </script>
+    </head>
+    <body>
+        <h1>Uso de Drag and Drop para manejo de Archivos</h1>
+        <form>
+            <label>Selecciona uno o varios archivos</label>
+            <p>Arrastra tus archivos aqui</p>
+            <div id="zona_arrastrar"></div>
+            <p>Resultado:</p>
+            <div id="resultado"></div>
+        </form>
+    </body>
+</html>

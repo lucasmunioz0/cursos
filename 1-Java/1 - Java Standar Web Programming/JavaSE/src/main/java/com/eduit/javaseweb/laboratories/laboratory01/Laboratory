@@ -1,0 +1,7 @@
+Ejercicio #1
+Construir un vector de enteros llamado vecNumeros e inicializarlo con los números 11, -22, 33, -44, 55,
+-66, 77, -88, 99.
+Acumular la suma de los valores positivos en una variable totalPositivos.
+Acumular la suma de los valores negativos en una variable totalNegativos.
+Imprimir en pantalla:
+● los valores de totalPositivos y totalNegativos

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Deteción de Geolocalización</title>
+        <meta charset="UTF-8">
+        <script src="js/jquery-min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+        <script>
+            $(document).ready(function (){
+                if(Modernizr.geolocation){
+                    //alert("Tu navegador SI soporta Geolocalizacón.");
+                    navigator.geolocation.getCurrentPosition(mostrar_coordenadas);
+                }else{
+                    alert("Tu navegador NO soporta Geolocalizacón.");
+                    return;
+                }
+            });
+            
+            function mostrar_coordenadas(posicion){
+                var latitud = posicion.coords.latitude;
+                var longitud = posicion.coords.longitude;
+                
+                $("#resultado").append("<p>Latitud: " + latitud + "</p>");
+                $("#resultado").append("<p>Longitud: " + longitud + "</p>");
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Detección de Geolocalización</h1>
+        <div id="resultado"></div>
+    </body>
+</html>

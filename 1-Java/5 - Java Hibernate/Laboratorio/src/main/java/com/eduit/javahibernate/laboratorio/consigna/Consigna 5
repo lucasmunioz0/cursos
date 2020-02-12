@@ -1,0 +1,7 @@
+Laboratorio #05 – Paginación
+Crear una clase llamada TestPaginacion que contenga un método con la siguiente firma:
+
+public static List obtenerAutosConPaginacion(Session s, int registroInicial, int cantidad)
+
+El método debe retornar los autos desde el registro inicial (de acuerdo al parámetro registroInicial) y según el parámetro cantidad.
+Dentro del método main informar grupos de registros agrupados en un tamaño de página de 5 registros, junto con el número de registro.

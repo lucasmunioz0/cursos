@@ -1,0 +1,17 @@
+Se solicita implementar el clásico problema de sincronización de hilos “Productor / Consumidor” en Java. Para lograr esto es necesario tener las clases:  
+Producto
+Productor
+Consumidor
+
+La idea en este problema es que el productor genera productos y los deja disponible para el consumidor los consuma.
+
+El problema radica en que tanto productores como consumidores están trabajando en forma paralela, es necesario sincronizar estas tareas de forma tal que:
+
+el consumidor no trate de consumir si no hay productor
+el productor no produzca hasta que no se haya consumido el producto anterior
+
+Para lograr el objetivo es necesario que:
+
+Las clases Consumidor y Productor sean threads o runnables
+El acceso al Producto se haga en forma sincronizada utilizando los métodos wait / notify de 
+forma tal de que cuando el Producto está produciendo el consumidor “espera” y viceversa, cuando el Consumidor está “consumiendo”, el Productor espera. 

@@ -1,0 +1,21 @@
+Sobre el proyecto construido en el laboratorio 1:
+
+Construir la clase Concesionario con los atributos:
+
+Long id;
+String nombre;
+String direccion;
+Construir la tabla necesaria en MySQL.
+
+Mapear la clase Concesionario con la tabla creada.
+
+Crear dentro de Concesionario métodos estáticos para:
+
+Obtener todos los concesionarios.
+Obtener un concesionario buscando por ID.
+Crear dentro de Concesionario métodos de instancia para:
+
+Insertar un concesionario.
+Actualizar un concesionario.
+Eliminar un concesionario.
+Crear una clase Test con un método Main para probar todos los métodos desarrollados en la clase Concesionario.

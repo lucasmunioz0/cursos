@@ -1,0 +1,5 @@
+package templateMethod;
+
+class Alumno {
+
+}

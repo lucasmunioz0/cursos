@@ -1,0 +1,29 @@
+1) Crear la clase Persona con los siguientes atributos:
+Es una clase abstracta
+id: int
+nombre, apellido: String
+telefono: Telefono
+domicilio: Domicilio
+2) Clase Telefono
+id:int
+Tipo y numero: String
+3) Clase Domicilio
+id;int
+Calle, localidad: string
+numero: int
+4) Cliente (Hereda de Persona)
+numeroCliente: int
+5) Producto
+id;int
+precio: double
+descripción: String
+Todas las clases deben tener:
+Dos constructores: uno vacío y otro con todos los parámetros.
+Método toString definido.
+Instanciar un objeto de cada tipo y mostrar los valores de sus atributos en el main
+BONUS: el siguiente ejercicio es un desafío para aquellas personas que han logrado terminar el ejercicio
+anterior de manera rápida
+Crear un método en Persona llamado “public String getNombreCompleto()”. La misión del método es que
+devuelva el nombre y apellido de la persona con la primer letra en mayúscula y el resto en minúscula. Por
+ejemplo, si la persona posee en sus atributos nombre = “juan” y apellido = “PEREZ”, el método
+getNombreCompleto debe devolver: “Juan, Perez”.

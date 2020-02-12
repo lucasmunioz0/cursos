@@ -1,0 +1,14 @@
+Laboratorio #04 - Queries Parametrizadas
+Crear una clase llamada TestQueriesParametrizadas que contenga un método con la siguiente firma:
+
+public static List obtenerAutosSegunCriterio(Session s, String unModelo, String unaMarca)
+
+El método deberá retornar los autos correspondientes al modelo y a la marca pasados como parámetros. Dentro del método,
+construir una consulta parametrizada con HQL que reciba como parámetro el modelo y la marca del auto y obtenga todos los autos correspondientes a esos parámetros.
+
+El método deberá aceptar búsquedas no absolutas, es decir deberá permitir obtener los autos tal que:
+
+su modelo termine con “04” (representando al 2004)
+su marca comience con “Chev” (representando a Chevrolet)
+si recibe en marca y modelo los valores “” (strings vacíos) o null deberá traer todos los autos
+Realizar la prueba del método anterior dentro del método main de esta clase.

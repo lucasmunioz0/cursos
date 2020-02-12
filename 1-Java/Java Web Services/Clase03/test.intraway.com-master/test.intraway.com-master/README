@@ -1,0 +1,60 @@
+
+The intraway.com is a microservice that management the 
+CRUD operations over the user resource.
+
+
+Building from sources
+=========
+
+The build requires a Java 8 JDK as JAVA_HOME.
+
+The build requires a Maven as M2_HOME.
+
+You will need [Git](https://git-scm.com/) to obtain the [source](https://github.com/raulgpena/test.intraway.com/).
+
+
+Compile and run
+=========
+
+* Compile the app, go to the root path and execute the following command: mvn clean package
+
+* Run the following command: java -jar target/intraway.com-1.0.0.jar
+
+Compile and run using docker
+=========
+
+* Install [Docker](https://www.docker.com/) 
+
+* Compile the app, go to the root path and execute the following command: mvn clean package
+
+* Run the following command: docker build -t raulgpena/intraway:1.0.0
+
+* Run the following command: docker run -p 7070:7070 --name intraway -d raulgpena/intraway:1.0.0
+
+
+Setup (Custom)
+------------------------
+
+There is a file called application.properties located inside  
+
+    APP_H0ME/src/main/resource
+
+This file contains the following sections:
+
+1. Application configurations: General properties.
+2. Logging operations: Loggers setup.
+3. JPA: Database configurations.
+4. API configurations: Rest service setup.
+
+
+Documentation
+==========================================
+* Static: local folder: ${PROJECT}/api-docs
+* Dynamic: http://localhost:7070/api/swagger-ui.html
+
+Testing
+==========================================
+* Inside the folder src/test/resource there is a project postman, 
+  that contain the script of the postman setup for testing.
+
+* The service use a H2 database.  

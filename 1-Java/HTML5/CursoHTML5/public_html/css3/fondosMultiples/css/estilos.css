@@ -1,0 +1,24 @@
+#contenedor{
+    width: 600px;
+    height: 400px;
+    position: relative;
+    background-repeat: no-repeat;
+    /*Varios fondos separados por coma*/
+    background-image: url(../../../images/espigas_mg.jpg), 
+                      url(../../../images/espigas_mg.jpg), 
+                      url(../../../images/espigas_mg.jpg), 
+                      url(../../../images/espigas_mg.jpg);
+    background-position: 200px, 100px, 40px, 0px;
+}
+
+.texto{
+    position: absolute;
+    bottom: 10px;
+    left: 170px;
+    padding: 5px 10px;
+    font-size: 20px;
+    opacity: 0.7;
+    background: #ABC;
+    color: white;
+    border-radius: 10px;
+}

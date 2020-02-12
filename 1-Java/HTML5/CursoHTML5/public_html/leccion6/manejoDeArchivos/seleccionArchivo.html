@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+        <script>
+            $(document).ready(function () {
+                if (window.FileReader && Modernizr.draganddrop) {
+                    alert("Tu navegador SI soporte API file o Drag&Drop");
+                } else {
+                    alert("tu navegador NO soporta API o Drag&Drop");
+                }
+                
+                $("#archivo").change(manejoArchivos);
+
+                function manejoArchivos(e) {
+                    alert("Has seleccionado: " + e.target.files[0].name);
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Selección de un archivo</h1>
+        </header>
+        <form>
+            <label>Selecciona un archivo</label>
+            <input type="file" name="archivo" id="archivo"/>
+        </form>
+    </body>
+</html>

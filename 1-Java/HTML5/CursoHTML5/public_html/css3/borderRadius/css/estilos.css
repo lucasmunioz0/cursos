@@ -1,0 +1,53 @@
+#contenedor div{
+    background: yellowgreen;
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+}
+
+#contenedor{
+    width: 600px;
+    /*height: 300px;*/
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    border: dashed gray;
+}
+
+#uno{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#dos{
+    /*Redondeado por un lado y casi recto por el otro*/
+    -webkit-border-radius: 3px/15px;
+    -moz-border-radius: 3px/15px;
+    border-radius: 3px/15px;
+}
+
+#tres{
+    -webkit-border-radius: 5px/80px;
+    -moz-border-radius: 5px/80px;
+    border-radius: 5px/80px;
+}
+
+#cuatro{
+    /*Orden: top-left top-right bottom-right bottom-left*/
+    -webkit-border-radius: 0 30px 0 30px;
+    -moz-border-radius: 0 30px 0 30px;
+    border-radius: 0 30px 0 30px;
+}
+
+#cinco{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    
+    /*Valores de la sombra: right down blur color*/
+    -webkit-box-shadow: 3px 3px 4px gray;
+    -moz-box-shadow: 3px 3px 4px gray;
+    box-shadow: 3px 3px 4px gray;
+}

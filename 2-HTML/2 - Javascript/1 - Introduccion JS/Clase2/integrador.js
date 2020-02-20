@@ -2,6 +2,9 @@ function ejercicio01() {
     var fecha = new Date();
     var dia = fecha.getDay();
     switch (dia) {
+        case 0:
+            alert("Hoy es: domingo!");
+            break;
         case 1:
             alert("Hoy es: lunes!");
             break;
@@ -19,9 +22,6 @@ function ejercicio01() {
             break;
         case 6:
             alert("Hoy es: sabado!");
-            break;
-        case 7:
-            alert("Hoy es: domingo!");
             break;
     }
 }
@@ -48,4 +48,10 @@ function integrador() {
         titulo.innerHTML = "Hola " + usuario + " bienvenido a nuestra aplicación.";
         errorMsg.innerHTML = "";
     }
+}
+
+function test(){
+    var parrafos = document.querySelector("p");
+    parrafos.innerHTML = "Hola";
+    alert(parrafos);
 }

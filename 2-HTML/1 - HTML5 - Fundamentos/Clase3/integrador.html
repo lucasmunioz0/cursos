@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <title>Laboratorio Clase 3</title>
+    <style>
+        body {
+            font-family: 'Cabin', sans-serif;
+            margin: 0;
+            padding-left: 10px;
+        }
+        
+        #btn{
+            border-width: 1;
+            border-style: dotted;
+            border-color: lightgray;
+            background-color: green;
+            color: white;
+            width: 200px;
+            height: 40px;
+        }
+        main{
+            width: 500px;
+        }
+        label{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Contacto</h1>
+    </header>
+    <main>
+        <form action="post">
+            <label for="name">Nombre </label>
+            <br />
+            <input type="text" name="name">
+            <br />
+            <label for="email">Email </label>
+            <br />
+            <input type="email" name="email">
+            <br />
+            <label for="origen">Origen</label>
+            <br />
+            <select name="origen">
+                <option value="sectora">Sector A</option>
+                <option value="sectora">Sector B</option>
+                <option value="sectora">Sector C</option>
+                <option value="sectora">Sector D</option>
+            </select>
+            <br />
+            <label for="comment">Comentario</label>
+            <br />
+            <textarea name="comment" cols="22" rows="10"></textarea>
+            <br>
+            <label for="comment">Estado Civil</label>
+            <br>
+            Casado<input type="radio" name="gender" value="c">
+            Soltero<input type="radio" name="gender" value="s">
+            <br>
+            <br>
+            Acepta Terminos y condiciones <input type="checkbox" name="tyc">
+            <br>
+            <input type="submit" value="Enviar" id="btn">
+        </form>
+    </main>
+</body>
+
+</html>

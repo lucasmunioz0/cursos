@@ -49,9 +49,3 @@ function integrador() {
         errorMsg.innerHTML = "";
     }
 }
-
-function test(){
-    var parrafos = document.querySelector("p");
-    parrafos.innerHTML = "Hola";
-    alert(parrafos);
-}

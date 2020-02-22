@@ -11,7 +11,6 @@ function armarTabla(){
     });
     tabla += "</tbody></table>";
     document.querySelector("#tableEmpleados").innerHTML = tabla;
-    return tabla;
 }
 
 function agregar(){
@@ -35,3 +34,5 @@ function limpiarDatos(){
     document.querySelector("#edad").value = "";
     document.querySelector("#error").innerHTML = "";
 }
+
+armarTabla();

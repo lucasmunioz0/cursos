@@ -5,8 +5,8 @@ function login(){
     var acceso = false;
     if(rol == "admin" && usuario == "pepe" && clave == "123"){
         alert("Hola " + usuario + " bienvenido al sistema");
-        window.location = "empleados.html";
+        window.location = "paginas/empleados.html";
     }else{
-        window.location = "error.html";
+        window.location = "paginas/error.html";
     }
 }

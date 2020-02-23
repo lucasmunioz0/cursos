@@ -10,6 +10,7 @@
         <ul>
             <li>
                 <a href="leccion288/index.jsp">Lección 288 - Hola Mundo</a>
+                <a href="leccion295/index.jsp">Lección 295 - Hola Mundo</a>
             </li>
         </ul>
     </body>

@@ -291,6 +291,6 @@ public class ListadoPersonas extends javax.swing.JFrame {
         DefaultTableModel dm = (DefaultTableModel) tblAlumnos.getModel();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dm);
         tblAlumnos.setRowSorter(tr);        
-        tr.setRowFilter(RowFilter.regexFilter(text, 0, 1));
+        tr.setRowFilter(RowFilter.regexFilter(text, 1, 2));
     }
 }

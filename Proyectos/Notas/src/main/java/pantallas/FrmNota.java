@@ -322,13 +322,13 @@ public class FrmNota extends javax.swing.JFrame {
         boolean encontrado = false;
         DefaultTableModel model = (DefaultTableModel) tblNotas.getModel();
 
-        for (Vector vector : model.getDataVector()) {
-            if (vector.get(0).equals(nota.getIdNota())) {
-                vector.set(1, nota.getValor());
-                vector.set(2, nota.getTrimestre());
+        for (int i = 0; i < model.getRowCount(); i++) {
+            if(model.getValueAt(i, 0).equals(nota.getIdNota())){
+                model.setValueAt(nota.getValor(), i, 1);
+                model.setValueAt(nota.getTrimestre(), i, 2);
                 encontrado = true;
                 break;
-            }
+            }            
         }
 
         if (!encontrado) {

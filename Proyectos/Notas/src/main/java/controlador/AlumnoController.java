@@ -32,12 +32,6 @@ public class AlumnoController {
 
     public void verDetalleNotas(Long id) {
         Persona personaABuscar = service.getById(new Persona(id));
-//        for (Persona persona : personas){
-//            if(persona.getDni().equals(dni)){
-//                personaABuscar = persona;
-//                break;
-//            }
-//        }
         NotaController notaController = new NotaController();
         notaController.mostrarPantalla(personaABuscar);
     }

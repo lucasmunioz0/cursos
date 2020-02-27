@@ -17,7 +17,9 @@ public class AlumnoService implements IServiceBase<Persona>{
 
     @Override
     public List<Persona> findAll() {
-        return dao.findAll();
+        List<Persona> alumnos = dao.findAll();
+        alumnos.forEach(alumno -> alumno.setNotas(daoNota.getNotasByAlumno(alumno)));
+        return alumnos;
     }
 
     @Override

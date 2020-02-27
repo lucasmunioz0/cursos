@@ -9,7 +9,6 @@ package pantallas;
 import controlador.AlumnoController;
 import entidades.Persona;
 import entidades.Trimestre;
-import java.util.Comparator;
 import java.util.List;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -103,14 +102,14 @@ public class ListadoPersonas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "DNI", "Alumno", "Promedio T1", "Promedio T2", "Promedio T3", "Promedio General"
+                "#", "DNI", "Alumno", "Promedio T1", "Promedio T2", "Promedio T3", "Promedio General"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                true, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -203,8 +202,8 @@ public class ListadoPersonas extends javax.swing.JFrame {
     private void tblAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlumnosMouseClicked
         if(evt.getClickCount() == 2){
             int index = tblAlumnos.getSelectedRow();
-            String dni = (String) tblAlumnos.getValueAt(index, 0);
-            controller.verDetalleNotas(dni);
+            Long idAlumno = (Long) tblAlumnos.getValueAt(index, 0);
+            controller.verDetalleNotas(idAlumno);
         }
     }//GEN-LAST:event_tblAlumnosMouseClicked
 
@@ -276,6 +275,7 @@ public class ListadoPersonas extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblAlumnos.getModel();
         model.getDataVector().removeAllElements();
         personas.forEach(persona -> {
+            Long idPersona = persona.getIdPersona();
             String dni = persona.getDni();
             String nombre = persona.getNombreCompleto();
             String promedioT1 = persona.calcularPromedioTrimestralStr(Trimestre.PRIMERO);
@@ -283,7 +283,7 @@ public class ListadoPersonas extends javax.swing.JFrame {
             String promedioT3 = persona.calcularPromedioTrimestralStr(Trimestre.TERCERO);
             String promedioGeneral = persona.calcularPromedioGeneralStr();
             
-            model.addRow(new Object[]{dni, nombre, promedioT1, promedioT2, promedioT3, promedioGeneral});
+            model.addRow(new Object[]{idPersona, dni, nombre, promedioT1, promedioT2, promedioT3, promedioGeneral});
         });
     }
 

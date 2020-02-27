@@ -9,22 +9,15 @@ import java.util.Arrays;
 import java.util.List;
 import pantallas.ListadoPersonas;
 import pantallas.FrmNota;
+import servicios.AlumnoService;
 
 public class AlumnoController {
-    private List<Persona> personas;
     private List<Trimestre> trimestres;
     private ListadoPersonas pantalla;
+    private AlumnoService service;
     
     public AlumnoController(){
-        final Persona p1 = new Persona("Lucas", "Muñoz", "37627180");
-        final Persona p2 = new Persona("Luis", "Perez", "37627182");
-        final Persona p3 = new Persona("Maria", "Jose", "37627183");
-        final Persona p4 = new Persona("Pedro", "Castro", "37627184");
-        personas = new ArrayList<>(4);
-        personas.add(p1);
-        personas.add(p2);
-        personas.add(p3);
-        personas.add(p4);
+        service = new AlumnoService();
         trimestres = Arrays.asList(Trimestre.values());
     }
     
@@ -34,18 +27,18 @@ public class AlumnoController {
     }
 
     public List<Persona> getAlumnos() {
-        return personas;
+        return service.findAll();
     }
 
-
-    public void verDetalleNotas(String dni) {
-        Persona personaABuscar = null;
-        for (Persona persona : personas){
-            if(persona.getDni().equals(dni)){
-                personaABuscar = persona;
-                break;
-            }
-        }
-        NotaController nota = new NotaController(personaABuscar);
+    public void verDetalleNotas(Long id) {
+        Persona personaABuscar = service.getById(new Persona(id));
+//        for (Persona persona : personas){
+//            if(persona.getDni().equals(dni)){
+//                personaABuscar = persona;
+//                break;
+//            }
+//        }
+        NotaController notaController = new NotaController();
+        notaController.mostrarPantalla(personaABuscar);
     }
 }

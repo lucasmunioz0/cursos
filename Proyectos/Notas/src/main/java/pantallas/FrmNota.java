@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pantallas;
 
 import controlador.NotaController;
@@ -10,7 +5,9 @@ import entidades.Nota;
 import entidades.Persona;
 import entidades.Trimestre;
 import java.util.List;
+import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import utils.TextUtil;
 
 /**
@@ -21,37 +18,22 @@ public class FrmNota extends javax.swing.JFrame {
 
     private NotaController controller;
     private Persona persona;
-    private Nota seleccionada;
 
     public FrmNota(NotaController controller) {
         this.controller = controller;
         initComponents();
         this.setLocationRelativeTo(null);
-    }
-
-    public void setController(NotaController controller) {
-        this.controller = controller;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-        lblAlumno.setText(persona.toString());
-        cargarNotas();
-    }
-
-    public void cargarNotas() {
-        DefaultTableModel model = (DefaultTableModel) tblNotas.getModel();
-        model.getDataVector().removeAllElements();
-        persona.getNotas().forEach(nota -> {
-            model.addRow(new Object[]{nota.getValor(), nota.getTrimestre()});
-        });
+        txtIdNota.setVisible(false);
+        DefaultTableModel dm = (DefaultTableModel) tblNotas.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dm);
+        tblNotas.setRowSorter(tr);
     }
 
     /**
      * Creates new form Notas
      */
     public FrmNota() {
-        initComponents();
+        this(null);
     }
 
     /**
@@ -74,6 +56,7 @@ public class FrmNota extends javax.swing.JFrame {
         pnlNotas = new javax.swing.JPanel();
         spnlNotas = new javax.swing.JScrollPane();
         tblNotas = new javax.swing.JTable();
+        txtIdNota = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Notas");
@@ -141,20 +124,17 @@ public class FrmNota extends javax.swing.JFrame {
 
         tblNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Nota", "Trimestre"
+                "#", "Nota", "Trimestre"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Float.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.Float.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -178,13 +158,16 @@ public class FrmNota extends javax.swing.JFrame {
             pnlNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNotasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spnlNotas)
+                .addComponent(spnlNotas, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlNotasLayout.setVerticalGroup(
             pnlNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spnlNotas, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(spnlNotas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
         );
+
+        txtIdNota.setEditable(false);
+        txtIdNota.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -198,8 +181,10 @@ public class FrmNota extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblAlumno)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 530, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAlumno)
+                            .addComponent(txtIdNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnVolver)))
                 .addContainerGap())
         );
@@ -210,7 +195,9 @@ public class FrmNota extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAlumno)
                     .addComponent(btnVolver))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtIdNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlAgregarNota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -226,33 +213,32 @@ public class FrmNota extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         try {
+            Long idNota = Long.parseLong(txtIdNota.getText());
             Float valor = Float.parseFloat(txtNota.getText());
-            Trimestre trimestre = (Trimestre) cmbTrimestres.getSelectedItem();
-            if(seleccionada != null){
-                seleccionada.setValor(valor);
-                seleccionada.setTrimestre(trimestre);
-                seleccionada = null;
-                cargarNotas();
-            }else{
-                Nota nota = new Nota(valor, trimestre);
-                this.controller.addNota(nota);
+            if(valor < 0 || valor > 10){
+                return;
             }
-        }catch(NumberFormatException e){            
+            Trimestre trimestre = (Trimestre) cmbTrimestres.getSelectedItem();
+            Nota nota = new Nota(idNota, valor, trimestre, persona);
+            controller.insertOrUpdate(nota);
+            actualizarTabla(nota);
+            txtIdNota.setText("0");
+        } catch (NumberFormatException e) {
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void txtNotaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNotaKeyTyped
-        if(!TextUtil.esNumero(evt.getKeyChar())) {
+        if (!TextUtil.esNumero(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNotaKeyTyped
 
     private void tblNotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNotasMouseClicked
-        if(evt.getClickCount() == 2){
-            int filaSeleccionada = tblNotas.getSelectedRow();
-            seleccionada = persona.getNotas().get(filaSeleccionada);
-            txtNota.setText(String.valueOf(seleccionada.getValor()));
-            cmbTrimestres.setSelectedIndex(seleccionada.getTrimestre().ordinal());
+        if (evt.getClickCount() == 2) {
+            int fila = tblNotas.getSelectedRow();
+            txtIdNota.setText(tblNotas.getValueAt(fila, 0).toString());
+            txtNota.setText(String.valueOf(tblNotas.getValueAt(fila, 1)));
+            cmbTrimestres.setSelectedIndex(Trimestre.valueOf(tblNotas.getValueAt(fila, 2).toString().toUpperCase()).ordinal());
         }
     }//GEN-LAST:event_tblNotasMouseClicked
 
@@ -305,11 +291,50 @@ public class FrmNota extends javax.swing.JFrame {
     private javax.swing.JPanel pnlNotas;
     private javax.swing.JScrollPane spnlNotas;
     private javax.swing.JTable tblNotas;
+    private javax.swing.JTextField txtIdNota;
     private javax.swing.JTextField txtNota;
     // End of variables declaration//GEN-END:variables
 
     public void setTrimestres(List<Trimestre> trimestres) {
         cmbTrimestres.removeAllItems();
         trimestres.forEach(cmbTrimestres::addItem);
+    }
+
+    public void setController(NotaController controller) {
+        this.controller = controller;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+        lblAlumno.setText(persona.toString());
+        cargarNotas();
+    }
+
+    public void cargarNotas() {
+        DefaultTableModel model = (DefaultTableModel) tblNotas.getModel();
+        model.getDataVector().removeAllElements();
+        persona.getNotas().forEach(nota -> {
+            model.addRow(new Object[]{nota.getIdNota(), nota.getValor(), nota.getTrimestre()});
+        });
+    }
+
+    private void actualizarTabla(Nota nota) {
+        boolean encontrado = false;
+        DefaultTableModel model = (DefaultTableModel) tblNotas.getModel();
+
+        for (Vector vector : model.getDataVector()) {
+            if (vector.get(0).equals(nota.getIdNota())) {
+                vector.set(1, nota.getValor());
+                vector.set(2, nota.getTrimestre());
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            model.addRow(new Object[]{nota.getIdNota(), nota.getValor(), nota.getTrimestre()});
+        }
+        
+        tblNotas.repaint();
     }
 }

@@ -1,31 +1,39 @@
 package entidades;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Persona {
-
+    private Long idPersona;
     private String nombre;
     private String apellido;
     private String dni;
+    private boolean baja;
     private List<Nota> notas;
 
-    public Persona(String nombre, String apellido, String dni) {
+    public Persona(Long id, String nombre, String apellido, String dni, boolean baja) {
+        this.idPersona = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.baja = baja;
         this.notas = new ArrayList<>();
     }
 
+    public Persona(String nombre, String apellido, String dni, boolean baja) {
+        this(null, nombre, apellido, dni, baja);
+    }
+
     public Persona() {
-        this(null, null, null);
+        this(null, null, null, false);
+    }
+
+    public Persona(Long id) {
+        this(id, null, null, null, false);
     }
 
     public String getNombre() {
@@ -52,8 +60,28 @@ public class Persona {
         this.dni = dni;
     }
 
+    public Long getIdPersona() {
+        return idPersona;
+    }
+
+    public void setId(Long id) {
+        this.idPersona = id;
+    }
+
+    public boolean isBaja() {
+        return baja;
+    }
+
+    public void setBaja(boolean baja) {
+        this.baja = baja;
+    }
+
     public List<Nota> getNotas(Trimestre trimestre) {
         return notas.stream().filter(nota -> nota.getTrimestre().equals(trimestre)).collect(Collectors.toList());
+    }
+
+    public void setNotas(List<Nota> notas) {
+        this.notas = notas;
     }
 
     public void addNota(Nota nota) {
@@ -103,8 +131,8 @@ public class Persona {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 17 * hash + Objects.hashCode(this.dni);
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.idPersona);
         return hash;
     }
 
@@ -120,7 +148,7 @@ public class Persona {
             return false;
         }
         final Persona other = (Persona) obj;
-        if (!Objects.equals(this.dni, other.dni)) {
+        if (!Objects.equals(this.idPersona, other.idPersona)) {
             return false;
         }
         return true;

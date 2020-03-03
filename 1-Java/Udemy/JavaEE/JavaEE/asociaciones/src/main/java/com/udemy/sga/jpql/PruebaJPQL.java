@@ -24,7 +24,7 @@ public class PruebaJPQL {
         Iterator i = null;
         Object[] tupla = null;
         List<String> nombres = null;
-        List<Usuario> usuario = null;
+        List<Usuario> usuarios = null;
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SgaPU");
         EntityManager em = emf.createEntityManager();
@@ -100,10 +100,37 @@ public class PruebaJPQL {
         jpql = "FROM Persona p WHERE p.idPersona BETWEEN 1 AND 5";
         personas = em.createQuery(jpql).getResultList();
         mostrarPersonas(personas);
+        
+        log.debug("\n13.Uso de ordenamiento.");
+        jpql = "FROM Persona p WHERE p.idPersona > 1 ORDER BY p.nombre DESC, p.apellido ASC";
+        personas = em.createQuery(jpql).getResultList();
+        mostrarPersonas(personas);
+        
+        log.debug("\n14.Uso de subquery.");
+        jpql = "FROM Persona p WHERE p.idPersona IN (SELECT MIN(p1.idPersona) FROM Persona p1)";
+        personas = em.createQuery(jpql).getResultList();
+        mostrarPersonas(personas);
+        
+        log.debug("\n15.Uso de join con lazy loading.");
+        jpql = "SELECT u FROM Usuario u join u.persona p";
+        usuarios = em.createQuery(jpql).getResultList();
+        //em.close();
+        mostrarUsuarios(usuarios);
+        
+        log.debug("\n16.Uso de join con eager loading.");
+        jpql = "SELECT u FROM Usuario u left join fetch u.persona p";
+        usuarios = em.createQuery(jpql).getResultList();
+        em.close();
+        mostrarUsuarios(usuarios);
     }
 
     private static void mostrarPersonas(List<Persona> personas) {
         log.debug("\n\t\tPersonas");
         personas.forEach(log::debug);
+    }
+    
+    private static void mostrarUsuarios(List<Usuario> usuarios) {
+        log.debug("\n\t\tPersonas");
+        usuarios.forEach(log::debug);
     }
 }

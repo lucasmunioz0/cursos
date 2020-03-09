@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlTransient;
 
 
 @Entity
@@ -15,6 +18,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Persona.findByApellido", query = "SELECT p FROM Persona p WHERE p.apellido = :apellido"),
     @NamedQuery(name = "Persona.findByEmail", query = "SELECT p FROM Persona p WHERE p.email = :email"),
     @NamedQuery(name = "Persona.findByTelefono", query = "SELECT p FROM Persona p WHERE p.telefono = :telefono")})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -32,6 +36,8 @@ public class Persona implements Serializable {
     private String email;
     @Size(max = 45)
     private String telefono;
+    
+    @XmlTransient
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     private List<Usuario> usuarioList;
 

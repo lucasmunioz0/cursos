@@ -2,14 +2,17 @@ package com.udemy.sga.services;
 
 import com.udemy.sga.dal.PersonaDao;
 import com.udemy.sga.domain.Persona;
+import com.udemy.sga.soap.PersonaServicesWS;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.jws.WebService;
 
 @Stateless
-public class PersonaServiceImpl implements PersonaService{
+@WebService(endpointInterface = "com.udemy.sga.soap.PersonaServicesWS")
+public class PersonaServiceImpl implements PersonaService, PersonaServicesWS{
     @Inject
     private PersonaDao dao;
     
@@ -50,4 +53,9 @@ public class PersonaServiceImpl implements PersonaService{
     public void delete(Persona persona) {
         dao.delete(persona);
     }    
+
+    @Override
+    public List<Persona> listarPersonas() {
+        return dao.findAll();
+    }
 }

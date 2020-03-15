@@ -13,8 +13,8 @@ public class ClientePersonaService {
         
         Client cliente = ClientBuilder.newClient(config);
         
-        WebTarget webTarget = cliente.target("http://localhost:8080/sga-websecurity").path("/personas");
-        Persona persona = webTarget.path("/2").request(MediaType.APPLICATION_XML).get(Persona.class);
+        WebTarget webTarget = cliente.target("http://localhost:8080/sga-websecurity/personas");
+        Persona persona = webTarget.request(MediaType.APPLICATION_XML).get(Persona.class);
         System.out.println("Persona recuperada:" + persona);
     }
 }

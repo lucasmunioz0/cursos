@@ -29,13 +29,6 @@ public class PersonaBean {
     public void inicializar(){
         this.personas = personaService.findAll();
         log.debug("Personas recuperadas \n" + personas);
-        for (Persona persona : personas) {
-            try {
-                Thread.sleep(1000L);
-            } catch (InterruptedException ex) {
-                java.util.logging.Logger.getLogger(PersonaBean.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
         this.personaSeleccionada = new Persona();
     }
     

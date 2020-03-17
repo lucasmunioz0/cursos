@@ -1,0 +1,62 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    height: 5000px;
+}
+
+h1 {
+    background-color: lightblue;
+    width: 600px;
+    height: 80px;
+    border-width: 4px;
+    border-style: solid;
+}
+
+h2 {
+    background-color: #fe0000;
+    width: 400px;
+    height: 120px;
+}
+
+a {
+    background-color: rgb(69, 40, 172);
+    color: #ffffff;
+    width: 600px;
+    height: 100px;
+}
+
+p {
+    width: 500px;
+}
+
+.spacing {
+    border: 10px solid black;
+    margin: 40px;
+    margin-left: 40px;
+}
+
+.spacing-2 {
+    border: 10px solid green;
+    margin: 100px 300px 0 30px;
+}
+
+.background {
+    border: 3px solid purple;
+    margin: 100px;
+    padding: 100px 40px;
+    width: 150px;
+    color: yellow;
+    background-image: url("https://image.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-600w-407021107.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 600px auto;
+}
+
+.background h4 {
+    margin: 0;
+}
+
+.parallax {
+    height: 400px;
+    border: 1px solid green;
+}

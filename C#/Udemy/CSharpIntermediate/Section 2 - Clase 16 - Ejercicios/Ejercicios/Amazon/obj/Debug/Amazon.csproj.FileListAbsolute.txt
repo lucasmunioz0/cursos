@@ -1,0 +1,5 @@
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\Section 2 - Clase 16 - Ejercicios\Ejercicios\Amazon\bin\Debug\Amazon.dll
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\Section 2 - Clase 16 - Ejercicios\Ejercicios\Amazon\bin\Debug\Amazon.pdb
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\Section 2 - Clase 16 - Ejercicios\Ejercicios\Amazon\obj\Debug\Amazon.csprojResolveAssemblyReference.cache
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\Section 2 - Clase 16 - Ejercicios\Ejercicios\Amazon\obj\Debug\Amazon.dll
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\Section 2 - Clase 16 - Ejercicios\Ejercicios\Amazon\obj\Debug\Amazon.pdb

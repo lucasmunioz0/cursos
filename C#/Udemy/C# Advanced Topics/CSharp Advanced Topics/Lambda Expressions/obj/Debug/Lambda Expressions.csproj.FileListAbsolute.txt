@@ -1,0 +1,6 @@
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\Lambda Expressions\bin\Debug\LambdaExpressions.exe.config
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\Lambda Expressions\bin\Debug\LambdaExpressions.exe
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\Lambda Expressions\bin\Debug\LambdaExpressions.pdb
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\Lambda Expressions\obj\Debug\Lambda Expressions.csprojResolveAssemblyReference.cache
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\Lambda Expressions\obj\Debug\LambdaExpressions.exe
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\Lambda Expressions\obj\Debug\LambdaExpressions.pdb

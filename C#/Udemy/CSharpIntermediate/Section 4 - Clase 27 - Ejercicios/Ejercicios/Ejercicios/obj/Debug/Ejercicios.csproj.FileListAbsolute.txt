@@ -1,0 +1,5 @@
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\Section 4 - Clase 27 - Ejercicios\Ejercicios\Ejercicios\bin\Debug\Ejercicios.pdb
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\Section 4 - Clase 27 - Ejercicios\Ejercicios\Ejercicios\obj\Debug\Ejercicios.csprojResolveAssemblyReference.cache
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\Section 4 - Clase 27 - Ejercicios\Ejercicios\Ejercicios\obj\Debug\Ejercicios.pdb
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\Section 4 - Clase 27 - Ejercicios\Ejercicios\Ejercicios\bin\Debug\Ejercicios.exe
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\Section 4 - Clase 27 - Ejercicios\Ejercicios\Ejercicios\obj\Debug\Ejercicios.exe

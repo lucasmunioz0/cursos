@@ -1,0 +1,14 @@
+C:\Projects\CSharpIntermediate\CSharpIntermediate\bin\Debug\CSharpIntermediate.exe.config
+C:\Projects\CSharpIntermediate\CSharpIntermediate\bin\Debug\CSharpIntermediate.exe
+C:\Projects\CSharpIntermediate\CSharpIntermediate\bin\Debug\CSharpIntermediate.pdb
+C:\Projects\CSharpIntermediate\CSharpIntermediate\obj\Debug\CSharpIntermediate.csprojResolveAssemblyReference.cache
+C:\Projects\CSharpIntermediate\CSharpIntermediate\obj\Debug\CSharpIntermediate.exe
+C:\Projects\CSharpIntermediate\CSharpIntermediate\obj\Debug\CSharpIntermediate.pdb
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\CSharpIntermediate\bin\Debug\CSharpIntermediate.exe.config
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\CSharpIntermediate\obj\Debug\CSharpIntermediate.exe
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\CSharpIntermediate\obj\Debug\CSharpIntermediate.pdb
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\CSharpIntermediate\bin\Debug\CSharpIntermediate.exe
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\CSharpIntermediate\bin\Debug\CSharpIntermediate.pdb
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\CSharpIntermediate\obj\Debug\CSharpIntermediate.csprojResolveAssemblyReference.cache
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\CSharpIntermediate\obj\Debug\CSharpIntermediate.Formulario.resources
+D:\Facultad\Cursos\C#\Udemy\CSharpIntermediate\CSharpIntermediate\obj\Debug\CSharpIntermediate.csproj.GenerateResource.Cache

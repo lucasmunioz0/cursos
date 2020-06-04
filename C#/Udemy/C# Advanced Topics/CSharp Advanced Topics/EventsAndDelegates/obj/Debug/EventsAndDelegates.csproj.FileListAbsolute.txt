@@ -1,0 +1,6 @@
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\EventsAndDelegates\bin\Debug\EventsAndDelegates.exe.config
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\EventsAndDelegates\bin\Debug\EventsAndDelegates.exe
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\EventsAndDelegates\bin\Debug\EventsAndDelegates.pdb
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\EventsAndDelegates\obj\Debug\EventsAndDelegates.exe
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\EventsAndDelegates\obj\Debug\EventsAndDelegates.pdb
+D:\Programacion\Cursos\C#\Udemy\C# Advanced Topics\CSharp Advanced Topics\EventsAndDelegates\obj\Debug\EventsAndDelegates.csprojResolveAssemblyReference.cache

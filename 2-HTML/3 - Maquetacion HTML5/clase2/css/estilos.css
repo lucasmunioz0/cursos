@@ -60,3 +60,12 @@ p {
     height: 400px;
     border: 1px solid green;
 }
+
+#foto {
+    background-image: url(../foto-iframe.jpg);
+    background-color: black;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+}

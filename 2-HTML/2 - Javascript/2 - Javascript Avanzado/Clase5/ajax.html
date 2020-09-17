@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+
+    <div class="container">
+        <h1>Validación de Email:</h1>
+        <div class="form-row">
+            <div class="form-group col-4">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" class="form-control">
+            </div>
+            <div class="col-2" style="padding-top: 26px;">
+                <div class="spinner-border m-2 hide" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div class="alert alert-danger hide" role="alert">
+                El email ya se encuentra seleccionado
+            </div>
+            <div class="form-group col-4">
+                <label for="repemail">Repetir Email:</label>
+                <input type="text" name="repemail" id="repemail" class="form-control">
+            </div>
+        </div>
+        <hr>
+        <button class="btn btn-primary" type="button">Enviar</button>
+
+        <hr>
+        <h1>Listado de SuperHéroes</h1>
+        <div class="form-row">
+            <div class="form-group col-6">
+                <label for="">Seleccione un grupo de superhéroes</label>
+                <select name="grupo" id="grupo" class="form-control">
+                    <option value="0" selected>Seleccione...</option>
+                    <option value="1">DC</option>
+                    <option value="2">X Men</option>
+                    <option value="3">Avengers</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group" id="listado">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <form action="" method=""></form>
+    <script src="app.js"></script>
+</body>
+
+</html>

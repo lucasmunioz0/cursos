@@ -1,0 +1,34 @@
+table {
+    border: 2px dashed #333;
+    text-align: center;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    font-size: 18px;
+}
+
+tr {
+    background-color: #999;
+}
+
+tr:hover {
+    background-color: cornflowerblue;
+}
+
+iframe {
+    width: 400px;
+    height: 400px;
+    margin: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #BEBEBD;
+}
+
+a:hover {
+    color: blue;
+}

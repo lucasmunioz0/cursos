@@ -1,0 +1,32 @@
+body {
+    font-family: 'Lato';
+}
+
+h1,
+h2 {
+    color: #4FB7C8;
+}
+
+
+/* a {
+    text-decoration: none;
+} */
+
+#prueba h1 {
+    color: black;
+}
+
+#prueba {
+    background-color: grey;
+}
+
+#div1 {
+    color: white;
+    display: inline-block;
+    background-color: greenyellow;
+}
+
+#div2 {
+    display: inline-block;
+    background-color: hotpink;
+}

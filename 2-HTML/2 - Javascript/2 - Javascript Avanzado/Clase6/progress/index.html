@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Progress Ajax</h1>
+    <p>
+        <button class="xhr-success" type="button" name="xhr">Click para arrancar XHR(Success)</button>
+    </p>
+    <p>
+        <button class="xhr-error" type="button" name="xhr">Click para arrancar XHR(Error)</button>
+    </p>
+    <p>
+        <button class="xhr-abort" type="button" name="xhr">Click para arrancar XHR(Abort)</button>
+    </p>
+    <textarea name="log-evento" id="log-evento" cols="30" rows="10">
+    </textarea>
+
+    <progress id="file" value="32" max="100"></progress><label for="file" id="muestra"></label>
+
+    <script src="progress.js"></script>
+</body>
+
+</html>

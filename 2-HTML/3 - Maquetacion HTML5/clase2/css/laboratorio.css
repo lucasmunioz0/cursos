@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 90% 'Lato', sans-serif;
+    color: #333;
+}
+
+img {
+    width: 15%;
+}
+
+header img {
+    width: 50px;
+    float: left;
+}
+
+#logo {
+    background-image: url(../../laboratorios/images/logo.svg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+    background-attachment: scroll;
+    width: 50px;
+    height: 50px;
+}
+
+header h1 {
+    float: left;
+    color: #45351E;
+}
+
+header div {
+    float: left;
+    width: 20%;
+}
+
+nav {
+    float: right;
+    width: 20%;
+}
+
+header,
+footer {
+    background-color: #A9A9A9;
+    height: 90px;
+    padding: 1em;
+    width: 100%;
+}
+
+main {
+    height: 80%;
+    width: 100%;
+    background-color: lightgray;
+}
+
+main section,
+main article {
+    width: 100%;
+    overflow: hidden;
+}
+
+iframe {
+    width: 20%;
+    height: 20%;
+}
+
+#section-empresa {
+    background-color: lightgreen;
+}
+
+#section-empresa div {
+    float: left;
+    width: 50%;
+}
+
+#section-empresa+section {
+    background-color: pink;
+}
+
+#section-empresa+section img {
+    float: left;
+}
+
+#section-empresa img {
+    float: left;
+}
+
+article {
+    height: 800px;
+    background-color: lightblue;
+}

@@ -11,5 +11,122 @@ body {
     display: inline-block;
     border: 10px solid red;
     padding: 10px;
-    width: 40%;
+    width: 45%;
+    vertical-align: middle;
+    text-align: justify;
+}
+
+.container {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.container-flex,
+.container-flex2 {
+    margin: 400px 0;
+    border: 3px solid green;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* flex-flow: row wrap; */
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.col-flex {
+    width: 20%;
+    border: 3px solid orange;
+}
+
+.forth-col {
+    align-self: flex-start;
+    order: 2;
+}
+
+.first-col {
+    order: 3;
+}
+
+.second-col {
+    order: 1;
+}
+
+.third-col {
+    order: 4;
+}
+
+.container-flex2 .col-flex:first-child {
+    border: 10px solid skyblue;
+}
+
+.container-flex2 .col-flex:last-child {
+    background-color: #aaa;
+}
+
+.container-flex2 .col-flex:nth-child(2) {
+    border: 10px solid royalblue;
+}
+
+
+/* Ejercicio maquetado */
+
+.contenedor {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 100px 0;
+}
+
+.contenedor:nth-of-type(2) {
+    /* Sirve con :nth-child(2) tambien*/
+    flex-direction: row-reverse;
+    /* Si se usa el order, la imagen queda por encima del marco */
+    /* Tabmein se puede lograr con flex-direction: row-reverse*/
+}
+
+.contenedor:nth-of-type(2) .envoltorio-texto {
+    margin-right: -40px;
+    margin-left: 0;
+}
+
+.columna {
+    width: 45%;
+}
+
+.columna img {
+    max-width: 100%;
+}
+
+.envoltorio-texto {
+    border: 4px solid royalblue;
+    padding: 80px;
+    margin-left: -40px;
+}
+
+.envoltorio-texto .titulo {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    -height: 1.6;
+    font-size: 40px;
+    color: royalblue;
+    margin-top: 0;
+}
+
+.envoltorio-texto .descripcion {
+    line-height: 1.6;
+}
+
+.envoltorio-texto .boton {
+    background-color: royalblue;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.envoltorio-imagen {
+    margin-top: 40px;
+}
+
+img {
+    box-shadow: 10px 10px 5px #ccc;
 }

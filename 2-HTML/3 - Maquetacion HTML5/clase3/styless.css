@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.column {
+    /* Agrega espacio entre los elementos el inline-block y no se puede controlar */
+    display: inline-block;
+    border: 10px solid red;
+    padding: 10px;
+    width: 40%;
+}

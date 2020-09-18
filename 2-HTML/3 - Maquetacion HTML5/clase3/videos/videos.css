@@ -1,0 +1,30 @@
+#contenedor {
+    display: flex;
+    width: 900px;
+    height: 200px;
+    margin: auto;
+    background-color: grey;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+
+.items {
+    background-color: pink;
+    width: 200px;
+    height: 100px;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+}
+
+a {
+    color: red;
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    font-variant: small-caps;
+}

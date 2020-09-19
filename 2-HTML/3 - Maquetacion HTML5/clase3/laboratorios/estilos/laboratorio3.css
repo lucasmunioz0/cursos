@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,700i');
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    font: 80%/20px 'Lato', sans-serif;
+    color: #333;
+}
+
+#encabezado,
+#pie {
+    padding: 1em;
+    width: 100%;
+    height: 90px;
+    background-color: #ccc;
+}
+
+#encabezado {
+    background-color: transparent;
+    background-image: url(../../../imagenes/pattern-02.png);
+    background-size: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#encabezado nav {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#encabezado div {
+    width: 20%;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*afecta a todos los estados del vínculo*/
+
+#encabezado a {
+    margin-right: 1em;
+    font-variant: small-caps;
+}
+
+#encabezado a:hover {
+    text-decoration: underline;
+}
+
+
+/*afecta al vínculo cuando le paso el mouse por arriba*/
+
+#encabezado a:active {
+    color: #333;
+}
+
+
+/*afecta al vínculo cuando le hago click*/
+
+#encabezado button {
+    border: none;
+    padding: 0.5em;
+    width: 100px;
+    height: 30px;
+    text-transform: lowercase;
+    margin-left: auto;
+    align-self: flex-start;
+    font-variant: small-caps;
+}
+
+#encabezado button:hover {
+    color: white;
+}
+
+#encabezado img {
+    width: 50px;
+    float: left;
+}
+
+main {
+    width: 100%;
+    padding: 1em;
+}
+
+main img:hover {
+    opacity: 0.8;
+}
+
+main img {
+    width: 15%;
+}
+
+.imagen {
+    width: 40%;
+    margin-right: 1em;
+}
+
+main section,
+main article {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2em;
+}
+
+main section first-child {
+    min-height: 400px;
+}
+
+main iframe {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.centrado {
+    align-items: center;
+    justify-content: center;
+}
+
+.apilado {
+    flex-direction: column;
+    align-items: center;
+}
+
+.arriba {
+    align-items: flex-start;
+}
+
+.columna {
+    display: flex;
+}
+
+.flotado {
+    float: left;
+}
+
+article {
+    min-height: 200px;
+    padding: 2em;
+}
+
+article div {
+    border: 1em solid black;
+}
+
+article div,
+article p {
+    width: 30%;
+    margin-right: 2em;
+}
+
+h2 {
+    margin: 1em;
+    margin-left: 0;
+}
+
+h2::first-line {
+    text-decoration: underline;
+}
+
+h2::first-letter {
+    font-size: 3em;
+    color: #000;
+    background-color: lightblue;
+    text-decoration: none;
+}
+
+article p::first-line {
+    text-decoration: underline;
+    background-color: lightblue;
+    font-style: italic;
+    font-size: 95%;
+}

@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    counter-reset: columnas;
+}
+
+nav {
+    background-image: url(../../imagenes/pattern-02.png);
+    background-size: 100px;
+    width: 50%;
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #8A71AE;
+}
+
+a.desplegable::after {
+    content: url(../../imagenes/flecha.png);
+    margin-left: 10px;
+    margin-top: -10px;
+}
+
+nav a:last-child {
+    border: 2px dashed black;
+    height: 50px;
+    width: 200px;
+    line-height: 50px;
+    align-self: center;
+    text-align: center;
+    background: url(../../imagenes/sprite.png) no-repeat;
+    background-size: 200px;
+    background-position: 140px;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 10px 5px;
+}
+
+.contenedor h3 {
+    text-decoration: underline;
+    font-style: oblique;
+    background-color: #ABD6EA;
+    display: inline;
+}
+
+.contenedor h3::before {
+    counter-increment: columnas;
+    content: 'Columna ' counter(columnas, decimal-leading-zero);
+}
+
+.contenedor h3::after {
+    counter-increment: columnas;
+}

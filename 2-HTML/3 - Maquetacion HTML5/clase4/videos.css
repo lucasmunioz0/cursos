@@ -1,0 +1,43 @@
+ul {
+    list-style-position: inside;
+    list-style-image: url(../imagenes/check.png);
+}
+
+ol {
+    list-style: url(../imagenes/check.png) decimal;
+}
+
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #ccc;
+    padding: 20px;
+    display: flex;
+}
+
+footer a {
+    width: 55px;
+    height: 50px;
+    background: url(../imagenes/social-media.png) no-repeat;
+    background-position: 0px -21px;
+}
+
+footer #linkF {
+    background-position: -55px -21px;
+}
+
+footer #linkI {
+    background-position: -170px -21px;
+}
+
+#linkT:hover {
+    background-position: 0px -78px;
+}
+
+#linkF:hover {
+    background-position: -55px -78px;
+}
+
+#linkI:hover {
+    background-position: -170px -78px;
+}

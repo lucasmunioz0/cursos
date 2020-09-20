@@ -1,0 +1,95 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    counter-reset: vinculos;
+    background-image: url(imagenes/pattern.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    height: 90px;
+    margin: 50px;
+    line-height: 90px;
+}
+
+main {
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgba(0, 100, 255, 0.7);
+    padding: 15px;
+}
+
+nav h2 {
+    color: purple;
+    margin-bottom: 10px;
+}
+
+nav div {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 5px;
+    width: 45%;
+}
+
+div ul {
+    padding-left: 50px;
+}
+
+div div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+.link-content {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    line-height: 30px;
+    width: 100%;
+}
+
+a:link,
+a:visited {
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: orange;
+}
+
+a.link-content::after {
+    content: 'Clase ' counter(vinculos);
+}
+
+a.link-content::after {
+    counter-increment: vinculos;
+}
+
+.laboratorios {
+    counter-reset: laboratorios;
+}
+
+.laboratorios a::after {
+    content: 'Laboratorio ' counter(laboratorios);
+    counter-increment: laboratorios;
+}

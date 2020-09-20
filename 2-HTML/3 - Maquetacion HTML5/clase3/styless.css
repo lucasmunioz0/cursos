@@ -106,7 +106,7 @@ body {
 .envoltorio-texto .titulo {
     text-transform: uppercase;
     letter-spacing: 4px;
-    -height: 1.6;
+    line-height: 1.6;
     font-size: 40px;
     color: royalblue;
     margin-top: 0;

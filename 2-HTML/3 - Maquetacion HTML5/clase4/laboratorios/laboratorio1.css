@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-image: url(../../imagenes/pattern-02.png);
+    background-size: 100px;
+    width: 40%;
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #8A71AE;
+}
+
+a.desplegable::after {
+    content: url(../../imagenes/flecha.png);
+    margin-left: 10px;
+    margin-top: -10px;
+}

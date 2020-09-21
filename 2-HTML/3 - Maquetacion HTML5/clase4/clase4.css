@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding-bottom: 400px;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav .link {
+    text-transform: uppercase;
+    color: #333;
+    margin: 0 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper-logo img {
+    width: 250px;
+}
+
+.btn {
+    background-color: #D25144;
+    color: white;
+    padding: 10px;
+    border-radius: 25px;
+    width: 200px;
+    text-align: center;
+}
+
+.banner {
+    text-align: center;
+    background-color: lightsalmon;
+    background-image: linear-gradient(rgba(30, 30, 30, 0.7), rgba(30, 200, 75, 0.1)), url(../imagenes/background.jpg);
+    background-position: center center;
+    background-size: cover;
+    padding: 300px 20px;
+    color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li::before {
+    content: ' ';
+    background-image: url("https://icons.iconarchive.com/icons/icons8/christmas-flat-color/256/star-icon.png");
+    background-size: 100% auto;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+ol {
+    list-style: upper-alpha;
+}
+
+.pseudo {}
+
+.pseudo:before {
+    /* content: ' ';
+    background-image: url("https://icons.iconarchive.com/icons/icons8/christmas-flat-color/256/star-icon.png");
+    background-size: 100% auto;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle; */
+}
+
+.pseudo::after {
+    content: '';
+    background-color: red;
+    display: block;
+    width: 75px;
+    height: 3px;
+    margin-top: 10px;
+}
+
+.target {
+    /* border: 2px solid red; */
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+    background-image: url(../imagenes/sprite-social-large.png);
+    background-repeat: no-repeat;
+    background-size: 2200px auto;
+    background-position: 0 -200px;
+}
+
+.target-2 {
+    width: 30px;
+    height: 30px;
+    margin: 30px;
+    background-image: url(../imagenes/sprite-social-large.png);
+    background-repeat: no-repeat;
+    background-size: 1100% auto;
+    background-position: 40% center;
+}
+
+.target:hover {
+    background-position: 0 -400px;
+}
+
+.target-2:hover {
+    background-position: 40% bottom;
+}

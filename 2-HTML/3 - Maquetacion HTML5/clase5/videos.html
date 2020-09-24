@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="videos.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Clase 5 - Videos</title>
+
+    <script>
+        $(function() {
+            $("#abrir").click(abrirAlerta);
+            $(".alerta button").click(cerrarAlerta);
+        });
+
+        function abrirAlerta() {
+            $(".alerta").slideDown();
+        };
+
+        function cerrarAlerta() {
+            $(".alerta").slideUp();
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Ejercicio de efecto escalera -->
+    <!-- <div class="absolutos"></div>
+    <div class="absolutos segundo"></div>
+    <div class="absolutos tercero"></div>
+    <div class="absolutos cuarto"></div> -->
+    <!-- <div class="relativos"></div>
+    <div class="relativos segundo"></div>
+    <div class="relativos tercero"></div>
+    <div class="relativos cuarto"></div> -->
+
+    <!-- Ejercicio de modal -->
+    <!-- <main>
+        <h1>Nuestro Contenido</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A obcaecati exercitationem, sunt officia quos iusto illo sapiente quas praesentium aut omnis dolore recusandae quis quia nulla nostrum laudantium commodi similique?</p>
+        <div class="alerta-content">
+            <div class="alerta">
+                <p>Esta es una alerta cuidado</p>
+                <button>Cerrar</button>
+            </div>
+        </div>
+        <button id="abrir">Abrir alerta</button>
+    </main> -->
+
+    <!-- Ejercicio de boton de chat  -->
+
+    <!-- <h2>Nuestro ejemplo de position fixed</h2>
+    <div></div> -->
+
+
+    <!-- Ejercicio de Z-index -->
+    <!-- <div id="uno">Uno</div>
+    <div id="dos">Dos</div>
+    <div id="tres">Tres</div> -->
+
+    <!-- Generar lista con position -->
+    <nav>
+        <ul>
+            <li><a href="">Inicio</a></li>
+            <li class="desplegable"><a href="">Servicio</a>
+                <ul>
+                    <li><a href="#">Servicios 1</a></li>
+                    <li><a href="#">Servicios 2</a></li>
+                </ul>
+            </li>
+            <li><a href="">Contacto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="login">
+            <p>Login</p>
+        </div>
+        <h2>Mi Web</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In eligendi saepe totam illum officiis cumque rem odit, sapiente molestiae. Corporis numquam soluta distinctio. Doloribus similique quaerat provident accusantium rem at?</p>
+
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+            </tr>
+            <tr>
+                <td>
+                    <p>Juan</p>
+                </td>
+                <td>Perez</td>
+                <td>34</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Pedro</p>
+                </td>
+                <td>Ramirez</td>
+                <td></td>
+            </tr>
+        </table>
+    </main>
+
+</body>
+
+</html>

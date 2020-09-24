@@ -1,0 +1,298 @@
+/* Start Ejercicio absolutos y relativos*/
+
+
+/* div {
+    width: 50px;
+    height: 50px;
+    background: yellow;
+    top: 0;
+    left: 0;
+}
+
+
+/* Absolutos */
+
+
+/* .absolutos {
+    position: absolute;
+}
+
+.segundo {
+    background-color: lightgreen;
+    left: 50px;
+}
+
+.tercero {
+    background-color: lightblue;
+    left: 100px;
+}
+
+.cuarto {
+    background-color: black;
+    left: 150px;
+}
+
+
+/* Relativos */
+
+
+/* .relativos {
+    position: relative;
+}   */
+
+
+/******** End Ejercicio absolutos y relativos **********/
+
+
+/******** Start Ejercicio modal **********/
+
+
+/* body {
+    margin: 0;
+    font: Arial, Verdana, sans-serif 12px;
+}
+
+main {
+    width: 700px;
+    margin: 0 auto;
+    min-height: 300px;
+    padding: 10px;
+    border: 2px dashed gray;
+    position: relative;
+}
+
+.alerta {
+    width: 200px;
+    height: 50px;
+    color: white;
+    background: black;
+    padding: 5px;
+    line-height: 20px;
+    text-align: center;
+    font-variant: small-caps;
+    position: absolute;
+    left: 35%;
+    top: 25%;
+    display: none;
+}
+
+.alerta p {
+    margin: 0;
+} */
+
+
+/******** End Ejercicio absolutos y relativos **********/
+
+
+/******** Start Ejercicio position fixed boton chat **********/
+
+
+/* body {
+    height: 2000px;
+}
+
+div {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    left: 95%;
+    top: 100px;
+    background: url("https://cdn3.iconfinder.com/data/icons/communication-1/100/phone_contact_book-256.png") no-repeat 10px;
+    background-size: cover;
+    margin-right: 0;
+    padding-right: 0;
+    cursor: pointer;
+} */
+
+
+/******** Start Ejercicio position fixed boton chat **********/
+
+
+/******** Start Ejercicio Z-Index **********/
+
+
+/* div {
+    width: 50px;
+    height: 50px;
+    font-size: 12px;
+    background: black;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 50px;
+}
+
+#tres {
+    z-index: 2;
+    left: 20px;
+}
+
+#uno {
+    z-index: 3;
+    background: cornflowerblue;
+    left: 40px;
+}
+
+#dos {
+    z-index: 1;
+    background: limegreen;
+} */
+
+
+/******** End Ejercicio Z-Index **********/
+
+
+/******** Start Ejercicio Menu desplegable y Login **********/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: small-caps 12px Arial;
+    margin: 0;
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    width: 350px;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    color: white;
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: pink;
+    border: 1px dashed #333;
+}
+
+a:hover {
+    background: black;
+    color: white;
+    border-color: white;
+}
+
+.desplegable {
+    position: relative;
+    height: 90px;
+    top: 30px;
+}
+
+.desplegable ul {
+    position: absolute;
+    width: 100px;
+    flex-direction: column;
+    display: none;
+    left: 2px;
+    top: 45px;
+    z-index: 2;
+}
+
+.desplegable ul li {
+    margin-bottom: 5px;
+}
+
+.desplegable ul li a {
+    background: cornflowerblue;
+    color: lightblue
+}
+
+.desplegable ul li a:hover {
+    background: white;
+    color: pink;
+    border-color: pink;
+}
+
+.desplegable:hover ul {
+    display: flex;
+}
+
+main {
+    width: 900px;
+    margin: 10px auto;
+    border: 1px dashed gray;
+    background: lightgray;
+    color: #333;
+    padding: 10px;
+    position: relative;
+}
+
+#login {
+    width: 300px;
+    height: 300px;
+    border: 2px dashed #333;
+    padding: 10px;
+    position: absolute;
+    left: 35%;
+    top: 20px;
+    z-index: 3;
+    display: none;
+}
+
+
+/******** End Ejercicio Menu desplegable y Login **********/
+
+
+/******** Start Ejercicio Menu desplegable y Login **********/
+
+table,
+td,
+tr,
+th {
+    border: 1px dashed #333;
+    border-collapse: separate;
+    empty-cells: hide;
+}
+
+td,
+th {
+    height: 40px;
+    padding: 5px;
+}
+
+th {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+table tr:first-child {
+    background: limegreen;
+}
+
+table tr:first-child:hover {
+    background: white;
+}
+
+td {
+    vertical-align: top;
+}
+
+td p {
+    margin: 0;
+}
+
+td p::before {
+    content: 'El empleado tiene el siguiente nombre: ';
+    color: red;
+}

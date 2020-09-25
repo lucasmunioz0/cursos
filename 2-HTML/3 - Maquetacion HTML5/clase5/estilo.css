@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 2000px;
+}
+
+.target-1 {
+    height: 150px;
+    background: lightcoral;
+    width: 500px;
+    position: relative;
+    left: 100px;
+    top: 200px;
+}
+
+.target-2 {
+    background: lightblue;
+    height: 150px;
+    width: 350px;
+}
+
+.target-3 {
+    padding: 50px;
+    background: lightgreen;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.target-4 {
+    height: 150px;
+    background: red;
+}
+
+.contenedor {
+    padding: 50px;
+    border: 15px solid blue;
+    width: 600px;
+    height: 200px;
+    /* position: relative; */
+}
+
+.target-5 {
+    background-color: lightslategrey;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Spectral+SC');
+nav {
+    width: 100%;
+    height: 30px;
+    background-color: #333;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    color: white;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-variant: small-caps;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+* {
+    box-sizing: border-box;
+    color: #F00;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    color: #a9a9a9;
+}
+
+a {
+    color: cornflowerblue;
+}
+
+body {
+    color: #333;
+    font: 100% 'Spectral SC', serif;
+}
+
+h2,
+h1 {
+    color: lightgreen;
+    font-family: 'Oswald', sans-serif;
+    background: black;
+}
+
+h1 {
+    color: white;
+    background-image: url(../imagenes/background.jpg);
+}
+
+main {
+    color: #666;
+    width: 900px;
+    padding: 20px;
+    display: flex;
+    border: 4px solid red;
+    border-left: 2px double #999;
+    margin: 0 auto;
+}
+
+section p {
+    background-color: coral;
+    color: black;
+}
+
+main section:last-child p {
+    background: black;
+    color: orange;
+}
+
+section:last-child p {
+    background: lightblue;
+    color: #666;
+}
+
+.miEstilo {
+    color: #333;
+    background-color: blue;
+}
+
+.miParrafo {
+    color: cornflowerblue;
+    background-color: white !important;
+}
+
+h2 {
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    main,
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+    section,
+    main {
+        width: 100%;
+    }
+    h1 {
+        display: none;
+    }
+    nav {
+        height: auto;
+    }
+    nav a {
+        text-align: left;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 595px) {
+    body {
+        background: limegreen;
+    }
+}

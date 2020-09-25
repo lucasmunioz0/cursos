@@ -241,13 +241,13 @@ main {
 #login {
     width: 300px;
     height: 300px;
-    border: 2px dashed #333;
+    border: 1px red;
     padding: 10px;
     position: absolute;
     left: 35%;
     top: 20px;
-    z-index: 3;
-    display: none;
+    z-index: -1;
+    /* display: none; */
 }
 
 

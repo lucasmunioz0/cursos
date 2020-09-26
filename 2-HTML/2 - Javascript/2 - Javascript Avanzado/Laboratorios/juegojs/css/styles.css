@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    font-variant: small-caps;
+    width: 100%;
+    padding: 5px 10px;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+p {
+    margin: 10px 0;
+}
+
+main {
+    height: 100%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-size: 100% 100%;
+}
+
+main aside {
+    margin-right: auto;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+
+main div {
+    margin-left: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-variant: small-caps;
+}
+
+header h1 {
+    margin: 0 auto;
+}
+
+header div {
+    width: 100px;
+    height: 50px;
+    background: url(../images/logo-educacionit.png) no-repeat;
+    background-size: 100px 20px;
+    background-position: center;
+    margin: 0 auto;
+}
+
+button {
+    font-variant: small-caps;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 50%;
+    outline: none;
+    background: white;
+}
+
+button:hover {
+    color: white;
+}
+
+#btnNewGame:hover {
+    background-color: lightgreen;
+}
+
+#btnResetGame:hover {
+    background-color: lightblue;
+}
+
+#btnGiveUp:hover {
+    background-color: lightcoral;
+}
+
+#btnTryLuck:hover {
+    background-color: lightblue;
+    color: black;
+}
+
+nav {
+    width: 100%;
+    background-color: #EEEEEE;
+    padding: 10px;
+}
+
+nav div {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 20%;
+}
+
+section {
+    padding: 10px;
+}
+
+.game-input input {
+    height: 30px;
+    width: 40px;
+    border: 1px solid black;
+    margin: 20px 10px;
+    padding: 10px;
+}
+
+.game-input input:focus {
+    background-color: lightgreen;
+}
+
+.game-example::after {
+    content: '4567';
+    margin-left: 5px;
+    font-weight: bold;
+    color: blue;
+    letter-spacing: 10px;
+}
+
+ul {
+    padding-left: 20px;
+    line-height: 30px;
+}
+
+.warning {
+    background-color: lightyellow;
+    color: black;
+}
+
+.error {
+    background-color: red;
+    color: white;
+}
+
+.win-game {
+    background-color: green;
+    color: black;
+}
+
+.message {
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+:disabled {
+    pointer-events: none;
+}
+
+ol {
+    margin: 5px;
+    padding: 20px;
+}
+
+li span {
+    font-weight: bold;
+    position: relative;
+    left: 5px;
+    color: red;
+    margin-right: 20px;
+}
+
+#img {
+    height: 300px;
+    width: 300px;
+    background-size: 300px 300px;
+}
+
+.img-init {
+    background: url(../images/homero-playing.jpg) no-repeat;
+}
+
+.img-new-game {
+    background: url(../images/homero-thinking.png) no-repeat;
+}
+
+.img-wrong-input {
+    background: url(../images/homer-oficine.jpg) no-repeat;
+}
+
+.img-give-up {
+    background: url(../images/springfield-boom.jpg) no-repeat;
+}
+
+.img-win-game {
+    background: url(../images/homero-win.png) no-repeat;
+}
+
+#giveUp {
+    width: 100%;
+    height: 100%;
+    background: url(../images/springfield-boom.jpg) no-repeat;
+    background-size: auto auto;
+    background-position: 0px;
+    z-index: 9999;
+    position: fixed;
+}

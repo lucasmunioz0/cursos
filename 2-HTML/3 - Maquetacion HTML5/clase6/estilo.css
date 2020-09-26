@@ -1,0 +1,55 @@
+/* div {
+    background-color: lightcoral;
+    border: 2px solid orange;
+}
+
+.contenedor {
+    background-color: lightblue;
+}
+
+#container {
+    background-color: lightgray;
+}
+
+* {
+    background-color: rgb(159, 245, 141);
+} */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(123, 246, 123);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+    width: 100%;
+    border: 5px solid red;
+    padding: 10px;
+}
+
+@media (min-width: 500px) {
+    body {
+        background-color: rgb(253, 253, 113);
+    }
+    .column {
+        width: 50%;
+        padding: 20px;
+    }
+}
+
+@media (min-width: 1000px) {
+    body {
+        background-color: lightcoral;
+    }
+    .column {
+        width: 25%;
+        padding: 40px;
+    }
+}

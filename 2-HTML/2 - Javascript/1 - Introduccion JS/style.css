@@ -1,0 +1,41 @@
+body {
+    counter-reset: clases;
+    min-width: 240px;
+}
+
+div.classRoom h2:after {
+    counter-increment: clases;
+    content: 'Clase ' counter(clases);
+}
+
+a:after {
+    content: 'Clase';
+}
+
+.row a {
+    width: 100%;
+}
+
+.classRoom {
+    counter-reset: laboratorios;
+    display: flex;
+    flex-direction: column;
+}
+
+.classRoom a.lab::after {
+    counter-increment: laboratorios;
+    content: 'Laboratorio ' counter(laboratorios);
+}
+
+.classRoom h2 {
+    align-self: flex-start;
+    height: 15%;
+}
+
+.classRoom ul {
+    height: 75%;
+}
+
+.classRoom a {
+    align-self: flex-end;
+}

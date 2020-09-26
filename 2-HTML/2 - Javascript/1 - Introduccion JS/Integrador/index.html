@@ -4,30 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/integrador.js"></script>
+
     <title>Integrador</title>
     <style>
-        body{
+        body h1 {
             text-align: center;
         }
-        label{
-            padding-right: 140px;
+        
+        section {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            margin: 0 auto;
+        }
+        
+        label {
+            margin: 10px 0 0;
+        }
+        
+        section input[type="button"] {
+            margin: 10px;
         }
     </style>
 </head>
 
 <body>
     <h1>Integrador</h1>
-    <form>
-        <label>Rol</label><br>
-        <input type="text" name="rol" id="rol"><br>
-        <label>User</label><br>
-        <input type="text" name="usuario" id="usuario"><br>
-        <label>Clave</label><br>
-        <input type="password" name="clave" id="clave"><br><br>
+    <section>
+        <label for="rol">Rol</label>
+        <input type="text" name="rol" id="rol">
+        <label for="usuario">User</label>
+        <input type="text" name="usuario" id="usuario">
+        <label for="clave">Clave</label>
+        <input type="password" name="clave" id="clave">
         <input type="button" id="btnLogin" value="Login" onclick="login()">
-    </form>
-    <br><br>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>

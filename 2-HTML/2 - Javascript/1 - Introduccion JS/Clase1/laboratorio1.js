@@ -96,14 +96,14 @@ function ejercicio4() {
     var edad = prompt("Ingrese su edad");
     var nombre = prompt("Ingrese su nombre");
     var apellido = prompt("Ingrese su apellido");
-    document.getElementById("ejercicio4").innerHTML = "<p>El nombre del usuario completo es: " + apellido + ", " + nombre + " y tiene " + edad + " años.</p>";
+    document.getElementById("ejercicio4").innerHTML = "<p>El nombre del usuario completo es: " + apellido + ", " + nombre + ".<br>La edad del usuario es " + edad + " años.</p>";
 }
 
 function ejercicio5() {
     var sueldo = prompt("¿Cuál es tu sueldo?");
     var bonus = prompt("¿Cuánto fue tu bonus de este mes?");
     try {
-        if(Number.isNaN(parseFloat(sueldo)) || Number.isNaN(parseFloat(bonus))){
+        if (Number.isNaN(parseFloat(sueldo)) || Number.isNaN(parseFloat(bonus))) {
             throw error;
         }
         var resultado = parseFloat(sueldo) + parseFloat(bonus);
@@ -111,4 +111,24 @@ function ejercicio5() {
     } catch (error) {
         document.getElementById("ejercicio5").innerHTML = "<p style='color:red'>ERROR: Por favor ingrese solamente números.</p>";
     }
+}
+
+function mostrarTabla2() {
+    var divTabla = document.getElementById("tablaEjercicio2");
+    var boton = document.getElementById("btnEjercicio2");
+    if (divTabla.classList.contains("hidden")) {
+        var tabla = "<table><tr><th></th><th>Palabra 1</th><th>Palabra 2</th><th>Frase</th><th>Resultado</th></tr>"
+        tabla += '<tr><td>Test A</td><td>hola</td><td>chau</td><td>frase = palabra1 + " mundo"</td><td><b>hola mundo</b></td>';
+        tabla += '<tr><td>Test B</td><td>chau</td><td>chau</td><td>frase = "frase nueva"</td><td><b>frase nueva</b></td>';
+        tabla += '<tr><td>Test C</td><td>hola chau</td><td>chau chau</td><td>frase = palabra2 + " y " + palabra2</td><td><b>chau chau y chau chau</b></td>';
+        tabla += '<tr><td>Test D</td><td>1+1</td><td>2/0</td><td>frase = palabra1 + "=2"</td><td><b>1+1=2</b></td>';
+        tabla += "</table>";
+        divTabla.innerHTML = tabla;
+        boton.innerHTML = "Ocultar tabla";
+        divTabla.classList.remove("hidden");
+    } else {
+        divTabla.classList.add("hidden");
+        boton.innerHTML = "Mostrar tabla";
+    }
+
 }

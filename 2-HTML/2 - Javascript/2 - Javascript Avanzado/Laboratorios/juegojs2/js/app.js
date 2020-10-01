@@ -155,7 +155,7 @@ function showMessage(type, message) {
 }
 
 function addNewAttempt(numbers, goodDigits, regularDigits) {
-    var newRow = `<tr><td>${numbers.join(" - ")}</td><td>${regularDigits}</td><td>${goodDigits}</td></tr>`;
+    var newRow = `<tr><td>${numbers.join("")}</td><td>${regularDigits}</td><td>${goodDigits}</td></tr>`;
     tableBody.innerHTML = tableBody.innerHTML + newRow;
 }
 

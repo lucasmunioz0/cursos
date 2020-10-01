@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Alumnos</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Curso</h1>
+        <div class="d-flex">
+            <h4 class="col-5">Materia: <span id="span_materia"></span></h4>
+            <h4 class="col-5 col-offset-2">Profesor: <span id="span_profesor"></span></h4>
+        </div>
+        <div class="d-flex">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Documento</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+        <hr>
+
+        <form action="" id="form_alta">
+            <div class="d-flex">
+                <div class="form-group col-4">
+                    <label for="documento">DNI:</label>
+                    <input type="text" class="form-control" id="documento">
+                </div>
+                <div class="form-group col-4">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre">
+                </div>
+                <div class="form-group col-4">
+                    <label for="nombre">Apellido:</label>
+                    <input type="text" class="form-control" id="apellido">
+                </div>
+            </div>
+            <div class="d-flex">
+                <button class="btn btn-primary ml-3" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <script src="js/app1.js"></script>
+    <script src="js/app2.js"></script>
+    <script src="js/app3.js"></script>
+</body>
+
+</html>

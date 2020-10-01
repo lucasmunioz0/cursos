@@ -1,0 +1,8 @@
+body {
+    counter-reset: classRoom;
+}
+
+.classRoom h2:after {
+    counter-increment: classRoom;
+    content: 'Clase ' counter(classRoom);
+}

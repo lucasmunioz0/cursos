@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            width: 100%;
+        }
+        
+        #drop {
+            width: 90%;
+            border: 5px dashed #ccc;
+            height: 300px;
+            margin: 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            font-size: 5em;
+            color: #ccc;
+        }
+        
+        #drop:hover {
+            border: 5px dashed black;
+            color: black
+        }
+        
+        input {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" id="texto" multiple>
+    <div id="drop">
+        <label for="texto">Arraste sus archivos aquí o haga click</label>
+    </div>
+
+    <script src="formData3.js"></script>
+</body>
+
+</html>

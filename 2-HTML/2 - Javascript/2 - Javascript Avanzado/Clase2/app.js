@@ -35,3 +35,8 @@ function clickTercerBoton(e) {
     var id = e.target.id;
     console.log("Click en el boton con id: " + id);
 }
+
+function foo(e) { console.log(e.target, e.currentTarget) }
+document.querySelector("#uno").addEventListener("click", foo)
+document.querySelector("#dos").addEventListener("click", foo)
+document.querySelector("#tres").addEventListener("click", foo)

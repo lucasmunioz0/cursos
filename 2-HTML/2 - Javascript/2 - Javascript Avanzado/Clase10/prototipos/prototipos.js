@@ -8,4 +8,4 @@ function Menu(entrada) {
 Menu.prototype.plato_principal = "Milanesa con pure";
 Menu.prototype.postre = "Flan con dulce de leche";
 
-var menu1 = new Menu("Vittel Tone");;
+var menu1 = new Menu("Vittel Tone");

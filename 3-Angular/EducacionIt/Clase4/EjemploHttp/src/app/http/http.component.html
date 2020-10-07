@@ -1,0 +1,38 @@
+<style>
+    table,
+    td,
+    th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    td {
+        text-align: left;
+        padding-left: 5px;
+    }
+</style>
+
+id: {{usuario.id}}
+<br> codigo: {{usuario.codigo}}
+<br> permiso: {{usuario.permiso}}
+
+<br>
+<hr>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Codigo</th>
+        <th>Permiso</th>
+    </tr>
+    <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.codigo}}</td>
+        <td>{{usuario.permiso}}</td>
+    </tr>
+</table>
+<!-- <p *ngFor="let item of usuarios">
+    <b>{{item.id}}</b>: {{item.codigo}} - {{item.permiso}}
+</p> -->

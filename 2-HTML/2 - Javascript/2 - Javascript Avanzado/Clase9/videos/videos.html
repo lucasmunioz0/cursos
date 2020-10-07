@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Persona {
+            constructor(nombre, edad) {
+                this.edad = edad;
+                this.nombre = nombre;
+            }
+
+            saludo() {
+                console.log("Hola");
+            }
+
+            static metodoDeClase() {
+                console.log("Método de clase");
+            }
+        }
+
+        class Empleado extends Persona {
+            constructor(nombre, edad, sueldo) {
+                super(nombre, edad);
+                this.sueldo = sueldo;
+            }
+
+            trabajar() {
+                console.log("Trabajando...");
+            }
+        }
+
+        let empleado = new Empleado("Lucas", 25, 2);
+    </script>
+</body>
+
+</html>

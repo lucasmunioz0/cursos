@@ -1,0 +1,31 @@
+{
+    "usuario": [{
+            "id": 1,
+            "codigo": "lucasm",
+            "permiso": "ALTA"
+        },
+        {
+            "id": 2,
+            "codigo": "pepito",
+            "permiso": "MODIF"
+        },
+        {
+            "id": 3,
+            "codigo": "jorgito",
+            "permiso": "LECTURA"
+        }
+    ],
+    "permiso": [{
+            "codigo": "ALTA",
+            "descripcion": "Permite alta de Entidades"
+        },
+        {
+            "codigo": "MODIF",
+            "descripcion": "Permite modificar Entidades"
+        },
+        {
+            "codigo": "LECTURA",
+            "descripcion": "Permite leer Entidades"
+        }
+    ]
+}

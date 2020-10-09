@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Validación de Reactive Form</h2>
+    <div class="row">
+        <div class="col-6">
+            <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+                <h4>Registro</h4>
+                <br/>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="apellido" placeholder="Apellido" name="apellido">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" formControlName="email" placeholder="Email" name="email">
+                </div>
+                <div *ngIf="registroForm.valid">
+                    <div class="align-center">
+                        <button class="btn btn-primary" type="submit" id="registrar">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <pre>{{registroForm.value | json}}</pre>
+    <p>Formulario válido: {{registroForm.valid}}</p>
+</div>

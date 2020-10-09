@@ -21,10 +21,10 @@ arrayNombres.forEach(e => console.log(e));
 arrayNumeros2.forEach(e => console.log(e));
 
 enum DiaSemana {Lunes, Martes, Miercoles, Jueves, Viernes};
+enum Permisos {LOGIN = 1, AMBC_USER = 100};
 
 var hoy: DiaSemana = DiaSemana.Lunes;
-var otroDiaNumero :DiaSemana = 3;
+var otroDiaNumero: DiaSemana = 3;
 
 console.log(DiaSemana[hoy]);
 console.log(DiaSemana[otroDiaNumero]);
-

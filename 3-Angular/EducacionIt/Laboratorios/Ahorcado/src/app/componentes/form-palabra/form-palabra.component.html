@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="col-12">
+        <h2>ABMC Palabras</h2>
+    </div>
+    <div class="row">
+        <form (ngSubmit)="submit()" #formulario='ngForm'>
+            <div class="form-group">
+                <label for="dificultad">Dificultades: </label>
+                <select name="dificultad" [(ngModel)]="palabra.idDificultad" required class="form-control" #dificultad="ngModel">
+                  <option *ngFor="let dificultad of dificultades" [value]="dificultad.id">{{dificultad.descripcion}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="genero">Género: </label>
+                <select name="genero" [(ngModel)]="palabra.idGenero" class="form-control" #genero="ngModel" required>
+                  <option *ngFor="let genero of generos" [value]="genero.id">{{genero.descripcion}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="codigo">Código: </label>
+                <input type="text" name="codigo" id="codigo" class="form-control" [(ngModel)]="palabra.codigo" #codigo required>
+            </div>
+            <div class="form-group">
+                <label for="texto">Texto: </label>
+                <input type="text" name="texto" id="texto" class="form-control" [(ngModel)]="palabra.texto" #texto required>
+            </div>
+            <div class="form-group">
+                <label for="pista">Pista: </label>
+                <input type="text" name="pista" id="pista" class="form-control" [(ngModel)]="palabra.pista" #pista>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default btn-primary" [disabled]="!formulario.valid">Registrar</button>
+                <button type="reset" class="btn btn-danger">Limpiar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<pre>{{palabra | json}}</pre>
+<pre>{{formulario.valid}}</pre>

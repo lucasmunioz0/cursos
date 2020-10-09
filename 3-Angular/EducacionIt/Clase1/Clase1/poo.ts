@@ -4,16 +4,16 @@ interface IPersona{
     edad:number,
 
     saludar(): void;
-};
+}
 
-let pepe:IPersona = { 
+let pepe: IPersona = { 
     apellido : "Sanchez", 
     nombre: "Pepe", 
     edad: 40, 
     saludar : function() {
         console.log("Hola");
     }
-};
+}
 
 class Persona implements IPersona{
     public apellido: string;
@@ -41,7 +41,6 @@ class Empleado extends Persona{
         console.log("y soy " + this.cargo);
     }
 }
-
 
 pepe.saludar();
 let maria: Persona = new Persona("Lopez", "Maria", 45);

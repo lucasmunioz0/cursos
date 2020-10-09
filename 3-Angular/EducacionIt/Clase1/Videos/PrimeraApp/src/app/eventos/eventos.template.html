@@ -1,0 +1,17 @@
+<h1>Evento Click</h1>
+<button (click)="hicisteClick()">Hacé click sobre mí</button> {{mensaje}}
+<hr>
+<h3>Evento Keyboard</h3>
+<div>
+    <form>
+        <label for="">Utilizando un evento genérico</label>
+        <input type="text" (keyup)="onKey($event)"> {{valorUno}}
+    </form>
+</div>
+<hr>
+<div>
+    <form>
+        <label for="">Utilizando un evento específico (KeyboardEvent)</label>
+        <input type="text" (keyup)="validar($event)"> {{valorDos}}
+    </form>
+</div>

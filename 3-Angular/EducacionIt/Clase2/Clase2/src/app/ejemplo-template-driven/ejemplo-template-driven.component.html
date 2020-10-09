@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <form #form='ngForm' (ngSubmit)="submit(form)">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" [(ngModel)]="nombre" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="codigo">Código:</label>
+                <input type="text" name="codigo" id="codigo" [(ngModel)]="codigo" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control" [required]>
+            </div>
+            <div class="form-group">
+                <button type="submit">Aceptar</button>
+                <button (click)="cancelar()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    <pre>{{form.value | json}}</pre>
+</div>

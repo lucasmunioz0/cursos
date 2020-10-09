@@ -1,0 +1,47 @@
+<div class="container">
+    <h2>Validar Formulario Template-Driven</h2>
+    {{diagnostico | json}}
+
+    <form #formulario="ngForm" (ngSubmit)="registrar()">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="modelo.nombre" required #nombre="ngModel" autocomplete="off">
+            <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
+                El nombre es obligatorio.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Director:</label>
+            <input type="text" class="form-control" name="director" [(ngModel)]="modelo.director">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Género:</label>
+            <select name="genero" class="form-control" [(ngModel)]="modelo.genero">
+              <option>Seleccione...</option>
+              <option *ngFor="let genero of generos" [value]="genero">{{genero}}</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success" [disabled]="!formulario.form.valid">Registrar</button>
+        </div>
+    </form>
+
+    <div [hidden]="!submitted">
+        <h2>Se envió la siguiente información:</h2>
+        <div class="row">
+            <div class="col-xs-3">Nombre:</div>
+            <div class="col-xs-9 pull-left">{{modelo.nombre}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Genero:</div>
+            <div class="col-xs-9 pull-left">{{modelo.genero}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Director</div>
+            <div class="col-xs-9 pull-left">{{modelo.director}}</div>
+        </div>
+    </div>
+    <pre>
+      {{modelo | json}}
+    </pre>
+</div>

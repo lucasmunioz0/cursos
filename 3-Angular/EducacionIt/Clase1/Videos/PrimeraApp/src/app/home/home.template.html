@@ -1,0 +1,29 @@
+<div class="background" *ngIf="alumnoSeleccionado != null">
+    <div class="modal-container">
+        <div class="container">
+            <div>
+                <h1>Detalle alumno</h1>
+                <button (click)="cerrarModal()">Cerrar</button>
+            </div>
+            <hr>
+            <p>Nombre:{{alumnoSeleccionado.nombre}}</p>
+            <p>Apellido:{{alumnoSeleccionado.apellido}} </p>
+            <p>Curso: {{alumnoSeleccionado.curso}}</p>
+        </div>
+    </div>
+</div>
+<h1>{{titulo}}</h1>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Curso</th>
+        </tr>
+        <tr *ngFor="let alumno of alumnos; let i = index" [style.background-color]="i%2 === 0? 'lightblue' : '#ccc'" (click)="mostrarDetalleAlumno(alumno)">
+            <td>{{alumno.nombre}}</td>
+            <td>{{alumno.apellido}}</td>
+            <td>{{alumno.curso}}</td>
+        </tr>
+    </table>
+</div>

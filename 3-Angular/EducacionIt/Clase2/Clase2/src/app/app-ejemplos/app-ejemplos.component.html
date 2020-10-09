@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" appColorcito>
+            Mi nombre es: {{nombre}} y soy <b>{{cargo}}</b>
+        </div>
+
+        <div class="form-group col-12">
+            <input type="text" [disabled]="tituloDeshabilitado" name="titulo" class="form-control">
+        </div>
+        <div class="form-group col-12">
+            <input type="button" value="Habilitar/deshabilitar" (click)="habilitar()">
+        </div>
+        <div class="form-group col-12">
+            <input type="text" [(ngModel)]="nombre" name="nombre" class="form-control">
+        </div>
+    </div>
+    <pre>{{nombre}}</pre>
+</div>

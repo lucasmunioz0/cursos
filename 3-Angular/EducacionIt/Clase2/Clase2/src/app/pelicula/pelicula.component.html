@@ -1,0 +1,23 @@
+<div class="container" *ngIf="!peliculaSeleccionada">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Director</th>
+                <th>Año</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pelicula of peliculas" (click)="seleccionarPelicula(pelicula)">
+                <td>{{pelicula.nombre}}</td>
+                <td>{{pelicula.director}}</td>
+                <td>{{pelicula.anio}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="peliculaSeleccionada" class="container">
+    <app-pelicula-detalle [peliculaSeleccionada]="peliculaSeleccionada"></app-pelicula-detalle>
+    <br>
+    <button (click)="peliculaSeleccionada=null">Volver</button>
+</div>

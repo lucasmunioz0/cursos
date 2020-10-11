@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Custom Validator</h2>
+    <div class="row">
+        <form [formGroup]="formulario" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" formControlName="nombre" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" id="apellido" formControlName="apellido" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" name="telefono" id="telefono" formControlName="telefono" class="form-control" #telefono>
+                <div class="alert alert-danger" *ngIf="!formulario.get('telefono').valid">
+                    El teléfono no es válido
+                </div>
+            </div>
+            <div class="form-group" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+        </form>
+    </div>
+    <pre *ngIf="!hidden">{{formulario.value | json}}</pre>
+</div>

@@ -1,0 +1,30 @@
+<h3>Modificar Pelicula</h3>
+<form (ngSubmit)="guardarCambios()" #peliculaForm='ngForm'>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Título: </label>
+            <input type="text" name="titulo" [(ngModel)]="pelicula.titulo" class="form-control" required #titulo #spy> {{spy.className}}
+        </div>
+        <div [hidden]="titulo.valid || titulo.pristine" class="alert alert-danger col-2">
+            El título es obligatorio
+        </div>
+        <div class="form-group col-md-4">
+            <label>Género: </label>
+            <input type="text" name="genero" [(ngModel)]="pelicula.genero" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label>Director: </label>
+            <input type="text" name="director" [(ngModel)]="pelicula.director" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+            <img [src]="pelicula.foto" style="height: 80px;">
+        </div>
+    </div>
+    <div class="row buttons">
+        <button class="btn btn-primary" (click)="guardarCambios()">Aceptar</button>
+        <button class="btn btn-danger" (click)="cancelarEdicion()">Cancelar</button>
+    </div>
+</form>
+<!-- <button (click)="cancelar($event)">Cancelar</button> -->

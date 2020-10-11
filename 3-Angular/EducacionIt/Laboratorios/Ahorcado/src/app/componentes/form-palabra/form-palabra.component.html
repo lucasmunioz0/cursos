@@ -6,7 +6,7 @@
         <form (ngSubmit)="submit()" #formulario='ngForm'>
             <div class="form-group">
                 <label for="dificultad">Dificultades: </label>
-                <select name="dificultad" [(ngModel)]="palabra.idDificultad" required class="form-control" #dificultad="ngModel">
+                <select name="dificultad" [(ngModel)]="palabra.idDificultad" required class="form-control" #dificultad="ngModel" (change)="cambioDificultad()">
                   <option *ngFor="let dificultad of dificultades" [value]="dificultad.id">{{dificultad.descripcion}}</option>
                 </select>
             </div>
@@ -18,15 +18,20 @@
             </div>
             <div class="form-group">
                 <label for="codigo">Código: </label>
-                <input type="text" name="codigo" id="codigo" class="form-control" [(ngModel)]="palabra.codigo" #codigo required>
+                <input type="text" name="codigo" id="codigo" class="form-control" [(ngModel)]="palabra.codigo" #codigo="ngModel" required>
             </div>
             <div class="form-group">
                 <label for="texto">Texto: </label>
-                <input type="text" name="texto" id="texto" class="form-control" [(ngModel)]="palabra.texto" #texto required>
+                <input type="text" name="texto" id="texto" class="form-control" [(ngModel)]="palabra.texto" #texto="ngModel" required [minlength]="minimo" [maxlength]="maximo">
+            </div>
+            <div *ngIf="!texto.valid && texto.dirty" class="alert alert-danger">
+                <div *ngIf="texto.errors.required">El campo es requerido.</div>
+                <div *ngIf="texto.errors.minlength">El campo debe tener al menos {{minimo}} caracteres.</div>
+                <div *ngIf="texto.errors.maxlength">El campo debe tener como máximo {{maximo}} caracteres.</div>
             </div>
             <div class="form-group">
                 <label for="pista">Pista: </label>
-                <input type="text" name="pista" id="pista" class="form-control" [(ngModel)]="palabra.pista" #pista>
+                <input type="text" name="pista" id="pista" class="form-control" [(ngModel)]="palabra.pista" #pista="ngModel">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-default btn-primary" [disabled]="!formulario.valid">Registrar</button>

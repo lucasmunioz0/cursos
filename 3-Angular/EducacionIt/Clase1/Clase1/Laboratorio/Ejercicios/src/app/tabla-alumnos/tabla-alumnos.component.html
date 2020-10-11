@@ -1,0 +1,27 @@
+<div class="container" *ngIf="!alumnoSeleccionado">
+    <h2>Tabla Alumnos</h2>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let alumno of alumnos">
+                    <td>{{alumno.nombre}}</td>
+                    <td>{{alumno.apellido}}</td>
+                    <td>{{alumno.edad}}</td>
+                    <td><a class="btn btn-default" (click)="alumnoSeleccionado = alumno">Ver detalle</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container" *ngIf="alumnoSeleccionado">
+    <app-detalle-alumno [alumnoSeleccionado]="alumnoSeleccionado"></app-detalle-alumno>
+    <button class="btn btn-dark" (click)="alumnoSeleccionado=null">Volver</button>
+</div>

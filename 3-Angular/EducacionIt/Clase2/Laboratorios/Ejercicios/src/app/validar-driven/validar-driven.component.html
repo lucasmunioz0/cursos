@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <form #formulario='ngForm' (ngSubmit)="submit(formulario)">
+            <div class="form-group">
+                <label for="nombre">Nombre: </label>
+                <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="pelicula.nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="director">Director: </label>
+                <input type="text" name="director" id="director" class="form-control" [(ngModel)]="pelicula.director" required>
+            </div>
+            <div class="form-group">
+                <label for="genero">Genero: </label>
+                <select [(ngModel)]="pelicula.genero" class="form-control" name="genero">
+                  <option *ngFor="let genero of generos" [value]="genero">{{genero}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit" [disabled]="!formulario.valid">Registrar</button>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="!hidden">
+        <pre>{{pelicula | json}}</pre>
+    </div>
+</div>

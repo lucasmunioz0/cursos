@@ -1,3 +1,5 @@
+import { LoggerService } from './../../servicios/logger.service';
+import { AhorcadoService } from './../../servicios/ahorcado.service';
 import { Genero } from './../../entities/genero';
 import { Palabra } from './../../entities/palabra';
 import { Component, OnInit } from '@angular/core';
@@ -11,33 +13,42 @@ export class FormPalabraComponent implements OnInit {
   palabra: Palabra;
   generos: Array<Genero>;
   dificultades: Array<Dificultad>;
+  minimo: number;
+  maximo: number;
 
-  constructor() {
-
-  }
+  constructor(private _ahorcadoService: AhorcadoService) {}
 
   ngOnInit(): void {
     this.palabra = {
       codigo: '',
-      idDificultad: -1,
-      idGenero: -1,
+      idDificultad: null,
+      idGenero: null,
       texto: '',
       pista: ''
     };
 
-    this.dificultades = new Array<Dificultad>();
-    this.dificultades.push({id: 1, descripcion: 'Fácil', min: 3, max: 6});
-    this.dificultades.push({id: 2, descripcion: 'Medio', min: 7, max: 10});
-    this.dificultades.push({id: 3, descripcion: 'Difícil', min: 10, max: 15});
-
-    this.generos = new Array<Genero>();
-    this.generos.push({id: 1, descripcion: 'Peliculas'});
-    this.generos.push({id: 2, descripcion: 'Comidas'});
-    this.generos.push({id: 3, descripcion: 'Series'});
-    this.generos.push({id: 4, descripcion: 'Proceres'});
+    this._ahorcadoService.getDificultades()
+      .subscribe(data => {
+        this.dificultades = data;
+        this._ahorcadoService.getGeneros()
+          .subscribe(data2 => this.generos = data2);
+      });
   }
 
   submit(){
     console.log(this.palabra);
+  }
+
+  cambioDificultad(){
+    if (this.palabra.idDificultad !== 0){
+      const dificultad = this.dificultades.find(x => x.id == this.palabra.idDificultad);
+      if (dificultad){
+        this.minimo = dificultad.min;
+        this.maximo = dificultad.max;
+      }else{
+        this.minimo = 0;
+        this.maximo = 9999;
+      }
+    }
   }
 }

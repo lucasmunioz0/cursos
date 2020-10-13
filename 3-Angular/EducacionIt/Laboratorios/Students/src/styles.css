@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import url('https://use.fontawesome.com/releases/v5.7.0/css/all.css');
+header {
+    margin: 20px 0;
+}
+
+fieldset {
+    border: 2px outset lightgray;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+ul.abmc-icons {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+ul.abmc-icons li {
+    margin: 0 5px;
+    cursor: pointer;
+}

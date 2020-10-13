@@ -1,0 +1,59 @@
+<h2>{{title()}}</h2>
+<div [class]="alert">
+    <ul>
+        <li *ngFor="let message of messages">{{message}}</li>
+    </ul>
+</div>
+<div class="buttons mt-3">
+    <button class="btn btn-primary mr-1" *ngIf="action == 1 || action == 3" (click)="submit(form.form)">Save</button>
+    <button class="btn btn-danger mr-1" *ngIf="action == 4" (click)="delete()">Delete</button>
+    <button class="btn btn-secondary" (click)="back()">Back</button>
+</div>
+<fieldset [disabled]="action == 4 || action == 2" class="p-2">
+    <form #form='ngForm'>
+        <div class="form-row mt-1">
+            <div class="col">
+                <label>Name (*):</label>
+                <input type="text" name="name" [(ngModel)]="student.name" class="form-control" required minlength="3" maxlength="30">
+            </div>
+            <div class="col">
+                <label>Last Name (*):</label>
+                <input type="text" name="lastName" [(ngModel)]="student.lastName" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-row mt-1">
+            <div class="col">
+                <label>Adress:</label>
+                <input type="text" name="adress" [(ngModel)]="student.adress" class="form-control">
+            </div>
+        </div>
+        <div class="form-row mt-1">
+            <div class="col">
+                <label>Sex:</label>
+                <select [(ngModel)]="student.idSex" name="idSex" class="form-control">
+              <option *ngFor="let sex of sexs" [value]="sex.id">{{sex.name}}</option>
+            </select>
+            </div>
+            <div class="col">
+                <label>Course:</label>
+                <select [(ngModel)]="student.idCourse" name="idCourse" class="form-control">
+                  <option *ngFor="let course of courses" [value]="course.id">{{course.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row mt-1">
+            <div class="col">
+                <label>Country:</label>
+                <select class="form-control" name="country" (change)="changeCountry($event.target.value)" [ngModel]="countrySelected.id">
+                  <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
+                </select>
+            </div>
+            <div class="col">
+                <label>State/City (*):</label>
+                <select [(ngModel)]="student.idState" name="idState" class="form-control" required>
+                  <option *ngFor="let state of states" [value]="state.id">{{state.name}}</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</fieldset>

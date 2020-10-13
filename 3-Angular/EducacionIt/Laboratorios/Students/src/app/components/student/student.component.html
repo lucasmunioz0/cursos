@@ -1,0 +1,49 @@
+<div *ngIf="!action">
+    <h2>Students</h2>
+    <div [class]="alert">
+        {{message}}
+    </div>
+    <div class="buttons mt-3">
+        <button class="btn btn-primary test" (click)="on(1)">New</button>
+    </div>
+    <fieldset>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 3%;">#</th>
+                        <th>Name</th>
+                        <th>Last Name</th>
+                        <th>Address</th>
+                        <th>Course</th>
+                        <th style="width: 10%;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="students.length > 0">
+                    <tr *ngFor="let student of students">
+                        <td>{{student.id}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.lastName}}</td>
+                        <td>{{student.stateFormat()}}</td>
+                        <td>{{student.course}}</td>
+                        <td>
+                            <ul class="abmc-icons">
+                                <li title="Details"><i class="fas fa-laptop" (click)="on(2, student.id )"></i></li>
+                                <li title="Edit"><i class="fas fa-user-edit" (click)="on(3, student.id)"></i></li>
+                                <li title="Delete"><i class="fas fa-trash" (click)="on(4, student.id)"></i></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="students.length == 0">
+                    <tr class="text-center">
+                        <td colspan="6">Not student registered yet.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+</div>
+<div *ngIf="action">
+    <app-details [idStudent]="idStudent" [action]="action" (done)="done($event)"></app-details>
+</div>

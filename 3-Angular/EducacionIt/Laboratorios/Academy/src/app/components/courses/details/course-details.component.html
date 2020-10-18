@@ -1,0 +1,40 @@
+<div class="container text-center" *ngIf="loading">
+    <div class="spinner-border" role="status">
+        <span class="sr-only text-center">Loading...</span>
+    </div>
+</div>
+<div class="container-fluid portlet" *ngIf="!loading">
+    <div class="portlet-title">
+        <h4>{{title()}} Course</h4>
+        <hr>
+    </div>
+    <app-alert [type]="typeMessage" [messages]="messages" *ngIf="messages?.length > 0" class="mb-0"></app-alert>
+    <div class="mb-2">
+        <a class="btn btn-primary mb-1 mr-1" (click)="submit(form.form)" *ngIf="action == 1 || action == 3">Save</a>
+        <a class="btn btn-danger mb-1 mr-1" (click)="delete()" *ngIf="action == 4">Delete</a>
+        <a class="btn btn-secondary mb-1" (click)="back()">Back</a>
+    </div>
+    <fieldset [disabled]="action == 2 || action == 4">
+        <form #form="ngForm" (ngForm)="form">
+            <div class="form-row">
+                <div class="col-12 col-md-6" [hidden]="true">
+                    <input type="number" name="id" class="form-control" [(ngModel)]="entity.id">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label>Name (*):</label>
+                    <input type="text" name="name" class="form-control" [(ngModel)]="entity.name" required>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label>Lessons (*):</label>
+                    <input type="number" name="lessons" class="form-control" [(ngModel)]="entity.lessons" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <label>Description:</label>
+                    <textarea rows="3" name="description" class="form-control" [(ngModel)]="entity.description"></textarea>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+</div>

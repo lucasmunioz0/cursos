@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Sex } from './../interfaces/sex';
 import { Country } from './../interfaces/country';
 import { ConfigurationService } from 'src/app/services/configuration.service';
@@ -12,7 +13,9 @@ import { Course } from '../interfaces/course';
 })
 export class StudentService {
 
-  constructor(private _configSvc: ConfigurationService) { }
+  BASE_URL = 'http://localhost:3000/students';
+
+  constructor(private _configSvc: ConfigurationService, private _http: HttpClient) { }
 
   students = [
     new Student(1, 'Lucas', 'Muñoz', 'San Juan 1549', 1, 1, 2),
@@ -23,10 +26,11 @@ export class StudentService {
   ];
 
   getStudents(): Observable<Array<Student>> {
-    return new Observable<Array<Student>>((observer: Observer<Array<Student>>) => {
-      observer.next(this.students);
-      observer.complete();
-    });
+    return this._http.get<Array<Student>>(this.BASE_URL);
+    // return new Observable<Array<Student>>((observer: Observer<Array<Student>>) => {
+    //   observer.next(this.students);
+    //   observer.complete();
+    // });
   }
 
   getStudents2(): Observable<Array<StudentDto>> {
@@ -39,23 +43,25 @@ export class StudentService {
       this._configSvc.courses().subscribe(data => courses = data);
       this._configSvc.sexs().subscribe(data => sexs = data);
 
-      this.students.forEach(e => {
-        const studentDto = this._transform(e, countries, sexs, courses);
-        students.push(studentDto);
+      this.getStudents().subscribe(data => {
+        this.students = data;
+        this.students.forEach(e => {
+          const studentDto = this._transform(e, countries, sexs, courses);
+          students.push(studentDto);
+        });
+        observer.next(students);
+        observer.complete();
       });
-
-      observer.next(students);
-      observer.complete();
     });
   }
 
-  private _transform(e: Student, countries, sexs, courses): StudentDto{
+  private _transform(e: Student, countries, sexs, courses): StudentDto {
     const studentDto = new StudentDto(e);
     const country = countries.filter(x => x.states.filter(y => y.id == e.idState).length > 0).shift();
-    if (e.idSex){
+    if (e.idSex) {
       studentDto.sex = sexs.filter(x => x.id == e.idSex).shift().name;
     }
-    if (e.idCourse){
+    if (e.idCourse) {
       studentDto.course = courses.find(x => x.id == e.idCourse).name;
     }
     studentDto.country = country.name;
@@ -64,45 +70,54 @@ export class StudentService {
   }
 
   getStudent(id: number): Observable<Student> {
-    return new Observable<Student>((observer: Observer<Student>) => {
-      const student = this.students.filter(x => x.id == id).shift();
-      observer.next(student);
-      observer.complete();
-    });
+    return this._http.get<Student>(`${this.BASE_URL}/${id}`);
+    // return new Observable<Student>((observer: Observer<Student>) => {
+    //   const student = this.students.filter(x => x.id == id).shift();
+    //   observer.next(student);
+    //   observer.complete();
+    // });
   }
 
-  saveStudent(student: Student): Observable<boolean> {
-    return new Observable<boolean>((observer: Observer<boolean>) => {
-      let flag = true;
-      if (student.id > 0) {
-        const index = this.students.findIndex(x => x.id == student.id);
-        if (index >= 0) {
-          this.students[index] = student;
-        } else {
-          flag = false;
-        }
-      } else {
-        student.id = Number.parseInt((Math.random() * 10).toString(), 12);
-        this.students.push(student);
-      }
+  saveStudent(student: Student): Observable<Student> {
+    let result: Observable<Student>;
+    if (student.id > 0){
+      result = this._http.put<Student>(`${this.BASE_URL}/${student.id}`, student);
+    }else{
+      result = this._http.post<Student>(`${this.BASE_URL}`, student);
+    }
+    return result;
+    // return new Observable<boolean>((observer: Observer<boolean>) => {
+    //   let flag = true;
+    //   if (student.id > 0) {
+    //     const index = this.students.findIndex(x => x.id == student.id);
+    //     if (index >= 0) {
+    //       this.students[index] = student;
+    //     } else {
+    //       flag = false;
+    //     }
+    //   } else {
+    //     student.id = Number.parseInt((Math.random() * 10).toString(), 12);
+    //     this.students.push(student);
+    //   }
 
-      observer.next(flag);
-      observer.complete();
-    });
+    //   observer.next(flag);
+    //   observer.complete();
+    // });
   }
 
-  removeStudent(id: number): Observable<boolean> {
-    return new Observable<boolean>((observer: Observer<boolean>) => {
-      let flag = false;
-      if (id > 0) {
-        const index = this.students.findIndex(x => x.id === id);
-        if (index >= 0) {
-          this.students.splice(index, 1);
-          flag = true;
-        }
-      }
-      observer.next(flag);
-      observer.complete();
-    });
+  removeStudent(id: number): Observable<any> {
+    return this._http.delete<any>(`${this.BASE_URL}/${id}`);
+    // return new Observable<boolean>((observer: Observer<boolean>) => {
+    //   let flag = false;
+    //   if (id > 0) {
+    //     const index = this.students.findIndex(x => x.id === id);
+    //     if (index >= 0) {
+    //       this.students.splice(index, 1);
+    //       flag = true;
+    //     }
+    //   }
+    //   observer.next(flag);
+    //   observer.complete();
+    // });
   }
 }

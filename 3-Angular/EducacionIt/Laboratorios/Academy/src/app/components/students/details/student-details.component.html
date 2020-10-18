@@ -1,0 +1,72 @@
+<div class="container text-center" *ngIf="loading">
+    <div class="spinner-border" role="status">
+        <span class="sr-only text-center">Loading...</span>
+    </div>
+</div>
+<div class="container-fluid portlet" *ngIf="!loading">
+    <div class="portlet-title">
+        <h4>{{title()}} Student</h4>
+        <hr>
+    </div>
+    <app-alert [type]="typeMessage" [messages]="messages" *ngIf="messages?.length > 0" class="mb-0"></app-alert>
+    <div class="mb-2">
+        <a class="btn btn-primary mb-1 mr-1" (click)="submit(form.form)" *ngIf="action == 1 || action == 3">Save</a>
+        <a class="btn btn-danger mb-1 mr-1" (click)="delete()" *ngIf="action == 4">Delete</a>
+        <a class="btn btn-secondary mb-1" (click)="back()">Back</a>
+    </div>
+    <fieldset [disabled]="action == 2 || action == 4">
+        <form #form="ngForm" (ngForm)="form">
+            <div class="form-row">
+                <div class="col-12 col-md-6" [hidden]="true">
+                    <input type="number" name="id" class="form-control" [(ngModel)]="entity.id">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label>Name (*):</label>
+                    <input type="text" name="name" class="form-control" [(ngModel)]="entity.name" required>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label>Last Name (*):</label>
+                    <input type="text" name="lastName" class="form-control" [(ngModel)]="entity.lastName" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <label>Birthdate:</label>
+                    <input type="date" name="birthdate" class="form-control" [(ngModel)]="entity.birthdate">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label>Email (*):</label>
+                    <input type="text" name="email" class="form-control" [(ngModel)]="entity.email" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12">
+                    <label>Address:</label>
+                    <input type="text" name="address" class="form-control" [(ngModel)]="entity.address">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <label>Country:</label>
+                    <select name="country" class="form-control" (change)="countryChange($event.target.value)" [ngModel]="countrySelected.id">
+                      <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label>State/City (*):</label>
+                    <select name="idState" [(ngModel)]="entity.idState" class="form-control" *ngIf="states.length > 0">
+                    <option *ngFor="let state of states" [value]="state.id">{{state.name}}</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12">
+                    <label>Courses (*):</label>
+                    <select name="courses" class="form-control" multiple size="8" [(ngModel)]="entity.courses">
+                      <option *ngFor="let course of courses" [value]="course.id">{{course.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+</div>

@@ -1,4 +1,4 @@
-<div *ngIf="!action">
+<div [hidden]="action">
     <h2>Students</h2>
     <div [class]="alert">
         {{message}}
@@ -19,7 +19,7 @@
                         <th style="width: 10%;">Actions</th>
                     </tr>
                 </thead>
-                <tbody *ngIf="students.length > 0">
+                <tbody *ngIf="students?.length > 0">
                     <tr *ngFor="let student of students">
                         <td>{{student.id}}</td>
                         <td>{{student.name}}</td>
@@ -35,7 +35,7 @@
                         </td>
                     </tr>
                 </tbody>
-                <tbody *ngIf="students.length == 0">
+                <tbody *ngIf="students?.length == 0">
                     <tr class="text-center">
                         <td colspan="6">Not student registered yet.</td>
                     </tr>

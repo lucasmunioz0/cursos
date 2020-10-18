@@ -18,31 +18,39 @@ export class StudentComponent implements OnInit {
   alert: string;
   message: string;
 
-  constructor(private _studentSvc: StudentService, private _configSvc: ConfigurationService, private _stringUtilities: StringUtilities) {}
-
-  ngOnInit(): void {
+  constructor(private _studentSvc: StudentService, private _configSvc: ConfigurationService, private _stringUtilities: StringUtilities) {
     this._studentSvc.getStudents2()
       .subscribe(data => this.students = data);
+    console.log("hola mundo");
   }
 
-  on(action: number, idStudent?: number){
+  ngOnInit(): void { }
+
+  on(action: number, idStudent?: number) {
     this.action = action;
     this.idStudent = idStudent;
   }
 
-  done(action: boolean){
-    if (action){
-      this._notify('success', 'The changes were saved successfully.');
+  done(action: boolean) {
+    if (action) {
       this._studentSvc.getStudents2()
-      .subscribe(data => this.students = data);
-    }else{
+        .subscribe(
+          (data) => {
+            this.students = data;
+            this.action = null;
+          },
+          () => {
+            this._notify('success', 'The changes were saved successfully.');
+          }
+        );
+    } else {
       this.alert = null;
       this.message = null;
+      this.action = null;
     }
-    this.action = null;
   }
 
-  private _notify(alert: string, message: string){
+  private _notify(alert: string, message: string) {
     this.alert = 'alert ' + ALERTS_TYPE.find(x => x.includes(alert));
     this.message = message;
   }

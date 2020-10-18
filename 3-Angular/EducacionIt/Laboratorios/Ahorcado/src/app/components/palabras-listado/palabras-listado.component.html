@@ -1,0 +1,52 @@
+<div *ngIf="!palabraSeleccionada && !modo">
+    <div class="container mt-2">
+        <h2>Listado de Palabras {{message}}</h2>
+    </div>
+    <div class="container mt-2">
+        <div class="buttons">
+            <button class="btn btn-primary" (click)="agregarPalabra()">Nuevo</button>
+        </div>
+        <div class="table-responsive mt-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 3%;">#</th>
+                        <th>Texto</th>
+                        <th>Dificultad</th>
+                        <th>Genero</th>
+                        <th>Pista</th>
+                        <th style="width: 20%;">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="palabras?.length > 0 && !error">
+                    <tr *ngFor="let palabra of palabras">
+                        <td>{{palabra.id}}</td>
+                        <td>{{palabra.texto}}</td>
+                        <td>{{palabra.idDificultad}}</td>
+                        <td>{{palabra.idGenero}}</td>
+                        <td>{{palabra.pista}}</td>
+                        <td>
+                            <button class="btn btn-info mr-1" (click)="editarPalabra(palabra.id)">Editar</button>
+                            <button class="btn btn-danger" (click)="eliminarPalabra(palabra.id)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="palabras?.length == 0 && !error">
+                    <tr>
+                        <td class="alert alert-danger text-center" colspan="6">
+                            No hay palabras registradas.
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="error">
+                    <tr>
+                        <td class="alert alert-danger text-center" colspan="6">{{error}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="palabraSeleccionada || modo === 'A'">
+    <app-form-palabra [palabra]="palabraSeleccionada" [modo]="modo" (resultado)="resultado($event)"></app-form-palabra>
+</div>

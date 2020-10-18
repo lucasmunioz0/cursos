@@ -16,11 +16,11 @@ export class HttpComponent implements OnInit {
   public usuarios: Usuario[];
 
   ngOnInit(): void {
-    this.client.get<Usuario>("http://localhost:3000/usuario/1")
+    this.client.get<Usuario>('http://localhost:3000/usuario/1')
     .subscribe(
       (data) => {this.usuario = data; },
-      (error) => {console.log("Hubo un error: " + error); },
-      () => {console.log("termino"); }
+      (error) => {console.log('Hubo un error: ' + error); },
+      () => {console.log('termino'); }
     );
 
     this._servicio.getUsuarios()

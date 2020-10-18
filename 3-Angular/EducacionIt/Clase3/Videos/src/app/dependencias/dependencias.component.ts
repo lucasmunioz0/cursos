@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DependenciasComponent implements OnInit {
   mensajeString: string;
 
-  constructor(private autoService: AutoService) { }
+  constructor(@Optional() private autoService: AutoService) { }
 
   ngOnInit(): void {
   }

@@ -4,13 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpComponent } from './http/http.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PeliculaComponent } from './pelicula/pelicula.component';
+import { SimpleRequestComponent } from './simple-request/simple-request.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HttpComponent,
-    PeliculaComponent
+    SimpleRequestComponent
   ],
   imports: [
     BrowserModule,

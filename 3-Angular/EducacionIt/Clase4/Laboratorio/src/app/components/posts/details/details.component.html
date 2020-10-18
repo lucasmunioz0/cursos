@@ -1,0 +1,32 @@
+<div class="container mt-2">
+    <h4>Details</h4>
+    <hr>
+    <div>
+        <button class="btn btn-primary mr-1" (click)="save()">Save</button>
+        <button class="btn btn-secondary" (click)="back()">Back</button>
+    </div>
+    <form #form="ngForm">
+        <div class="form-row mt-1">
+            <div class="col">
+                <label>Id</label>
+                <input type="number" name="id" class="form-control" [(ngModel)]="post.id">
+            </div>
+            <div class="col">
+                <label>User Id</label>
+                <input type="number" name="userId" class="form-control" [(ngModel)]="post.userId">
+            </div>
+        </div>
+        <div class="form-row mt-1">
+            <div class="col">
+                <label>Title</label>
+                <input type="text" name="title" class="form-control" [(ngModel)]="post.title">
+            </div>
+        </div>
+        <div class="form-row mt-1">
+            <div class="col">
+                <label>Body</label>
+                <textarea name="body" class="form-control" rows="4" [(ngModel)]="post.body"></textarea>
+            </div>
+        </div>
+    </form>
+</div>

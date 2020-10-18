@@ -1,5 +1,5 @@
 export interface Palabra {
-  codigo: string;
+  id: number;
   idDificultad: number;
   idGenero: number;
   texto: string;

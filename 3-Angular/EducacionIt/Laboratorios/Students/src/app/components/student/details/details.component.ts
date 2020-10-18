@@ -35,8 +35,8 @@ export class DetailsComponent implements OnInit {
   messages: Array<string>;
   countrySelected: Country = { id: 0, name: '', states: [] };
 
-  constructor(private _studentSvc: StudentService, private _configSvc: ConfigurationService, private _stringUtilities: StringUtilities
-    , private _formUtilities: FormUtilities) {}
+  constructor(private _studentSvc: StudentService, private _configSvc: ConfigurationService, private _stringUtilities: StringUtilities,
+  private _formUtilities: FormUtilities) {}
 
   ngOnInit(): void {
     this._configSvc.sexs().subscribe(data => this.sexs = data);

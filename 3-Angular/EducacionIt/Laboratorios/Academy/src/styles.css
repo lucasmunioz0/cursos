@@ -1,0 +1,149 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import url('https://use.fontawesome.com/releases/v5.7.0/css/all.css');
+@import url('./app/components/footer/footer.style.css');
+body,
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+
+/* Structure */
+
+.main-structure {
+    height: 100%;
+    background-image: url('./assets/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-variant: small-caps;
+}
+
+.main-structure header {
+    height: 8%;
+    color: white;
+    background-color: rgba(50, 70, 82, 1);
+}
+
+.main-structure footer {
+    height: 5%;
+}
+
+.main-container {
+    height: 87%;
+}
+
+.main-container nav {
+    float: left;
+    width: 10%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(50, 70, 82, 0.6);
+}
+
+.main-container main {
+    position: relative;
+    z-index: 100;
+    padding-top: 20px;
+    height: 100%;
+    overflow-y: auto;
+    font-variant: normal;
+}
+
+.title {
+    padding-bottom: 10px;
+}
+
+
+/* End Structure  */
+
+.cape {
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+
+/* Nav Style */
+
+#sidebar a:hover {
+    text-decoration: none;
+    color: blue;
+}
+
+#sidebar {
+    padding: 10px 5px;
+    padding-top: 20px;
+}
+
+#sidebar a {
+    color: white;
+}
+
+.structure nav li.active a {
+    color: white;
+}
+
+
+/* END SIDEBAR */
+
+
+/* PORTLET ABMC */
+
+.portlet {
+    width: 99%;
+    min-height: 80%;
+    box-shadow: 0 2px 5px 1px rgba(0, 0, 0, .4);
+    border-width: 5px;
+    padding: 12px 20px 15px;
+    position: relative;
+    overflow: auto;
+}
+
+.form-row {
+    margin-top: 10px;
+}
+
+
+/* END ABMC */
+
+.buttons-crud {
+    text-align: right;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.fas {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+}
+
+.buttons-crud a {
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.row-crud>td {
+    vertical-align: middle;
+}
+
+option {
+    height: auto;
+    margin: 5px 0;
+    /* border: 1px solid black; */
+    padding: 4px;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .4);
+}
+
+
+/*
+ */

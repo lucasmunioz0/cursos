@@ -1,0 +1,54 @@
+<div class="container-fluid title">
+    <h2>Courses</h2>
+</div>
+<div class="container-fluid portlet" *ngIf="action == null">
+    <div class="portlet-title">
+        <h4>Courses List</h4>
+        <hr>
+    </div>
+    <app-alert [type]="typeMessage" [messages]="messages" *ngIf="messages.length > 0" class="mb-0"></app-alert>
+    <div class="mb-2">
+        <a class="btn btn-primary" (click)="do(1)">New</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Name</th>
+                    <th style="width: 50%;">Description</th>
+                    <th style="width: 20%;">Lessons</th>
+                    <th style="width: 10%;"></th>
+                </tr>
+            </thead>
+            <tbody *ngIf="entities?.length > 0">
+                <tr *ngFor="let course of entities" class="row-crud">
+                    <td>{{course.name}}</td>
+                    <td>{{course.description}}</td>
+                    <td>{{course.lessons}}</td>
+                    <td class="buttons-crud">
+                        <a class="btn btn-secondary" (click)="do(2, course.id)"><i class="fas fa-user"></i></a>
+                        <a class="btn btn-info" (click)="do(3, course.id)"><i class="fas fa-pencil-alt"></i></a>
+                        <a class="btn btn-danger" (click)="do(4, course.id)"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf=" entities?.length ==0 && !loading ">
+                <tr>
+                    <td colspan="5" class="text-center">No courses yet</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr class="container text-center" *ngIf="loading">
+                    <td colspan="5 ">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only text-center">Loading...</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div *ngIf="action != null">
+    <app-course-details [action]="action" [idEntity]="idEntity" (done)="done($event)"></app-course-details>
+</div>

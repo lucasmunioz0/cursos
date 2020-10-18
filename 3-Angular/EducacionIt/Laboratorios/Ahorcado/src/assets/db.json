@@ -1,0 +1,91 @@
+{
+  "palabras": [
+    {
+      "id": 1,
+      "texto": "Palabra",
+      "idGenero": 1,
+      "idDificultad": 2,
+      "pista": "pista de prueba"
+    },
+    {
+      "id": 2,
+      "idDificultad": "2",
+      "idGenero": "4",
+      "texto": "qweqwe",
+      "pista": ""
+    },
+    {
+      "id": 3,
+      "idDificultad": "2",
+      "idGenero": "2",
+      "texto": "qwewq",
+      "pista": ""
+    },
+    {
+      "id": 4,
+      "idDificultad": "3",
+      "idGenero": "4",
+      "texto": "qweqweqweqw",
+      "pista": ""
+    },
+    {
+      "id": 5,
+      "idDificultad": "2",
+      "idGenero": "4",
+      "texto": "qweqwe",
+      "pista": ""
+    },
+    {
+      "id": 6,
+      "idDificultad": "2",
+      "idGenero": "5",
+      "texto": "qweqew",
+      "pista": ""
+    },
+    {
+      "id": 7,
+      "idDificultad": "2",
+      "idGenero": "2",
+      "texto": "qweqwe",
+      "pista": ""
+    }
+  ],
+  "dificultades": [
+    {
+      "id": 1,
+      "descripcion": "Fácil",
+      "min": 2,
+      "max": 5
+    },
+    {
+      "id": 2,
+      "descripcion": "Medio",
+      "min": 5,
+      "max": 7
+    },
+    {
+      "id": 3,
+      "descripcion": "Difícil",
+      "min": 7,
+      "max": 9999
+    }
+  ],
+  "generos": [
+    {
+      "id": 1,
+      "descripcion": "Películas"
+    },
+    {
+      "id": 2,
+      "descripcion": "Nombres de Famosos"
+    },
+    {
+      "id": 4,
+      "descripcion": "Deporte"
+    },
+    {
+      "id": 5,
+      "descripcion": "Alimentos"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+<div class="container mt-4">
+    <h2>Posts</h2>
+    <div class="alert alert-danger" *ngIf="message">
+        {{message}}
+    </div>
+</div>
+<div class="container" *ngIf="!post && !action">
+    <div>
+        <button class="btn btn-primary my-1" (click)="new()">New</button>
+    </div>
+    <div class="table-responsive mt-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 3%">#</th>
+                    <th style="width: 3%">User</th>
+                    <th style="width: 24%">Title</th>
+                    <th style="width: 45%">Body</th>
+                    <th style="width: 35%;">Options</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="posts?.length > 0">
+                <tr *ngFor="let post of posts">
+                    <td>{{post.id}}</td>
+                    <td>{{post.userId}}</td>
+                    <td>{{post.title}}</td>
+                    <td>{{post.body}}</td>
+                    <td>
+                        <a class="btn btn-info mr-1" (click)="selectPost(post.id)">View</a>
+                        <a class="btn btn-secondary mr-1" (click)="edit(post.id)">Edit</a>
+                        <a class="btn btn-danger" (click)="delete(post.id)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="posts == null || posts.length == 0">
+                <tr>
+                    <td class="text-center" colspan="5">No post yet.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div *ngIf="post || action == 'New'">
+    <app-details [post]="post" [action]="action" (done)="done($event)"></app-details>
+</div>

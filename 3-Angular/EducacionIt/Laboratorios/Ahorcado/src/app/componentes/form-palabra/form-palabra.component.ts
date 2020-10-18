@@ -1,8 +1,9 @@
+import { ALTA } from './../../constantes';
 import { LoggerService } from './../../servicios/logger.service';
 import { AhorcadoService } from './../../servicios/ahorcado.service';
 import { Genero } from './../../entities/genero';
 import { Palabra } from './../../entities/palabra';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Dificultad } from 'src/app/entities/dificultad';
 
 @Component({
@@ -10,7 +11,14 @@ import { Dificultad } from 'src/app/entities/dificultad';
   templateUrl: './form-palabra.component.html'
 })
 export class FormPalabraComponent implements OnInit {
+  @Input()
+  modo: string;
+  @Input()
   palabra: Palabra;
+
+  @Output()
+  resultado: EventEmitter<any> = new EventEmitter();
+
   generos: Array<Genero>;
   dificultades: Array<Dificultad>;
   minimo: number;
@@ -19,13 +27,15 @@ export class FormPalabraComponent implements OnInit {
   constructor(private _ahorcadoService: AhorcadoService) {}
 
   ngOnInit(): void {
-    this.palabra = {
-      codigo: '',
-      idDificultad: null,
-      idGenero: null,
-      texto: '',
-      pista: ''
-    };
+    if (this.modo === 'A') {
+      this.palabra = {
+        id: null,
+        idDificultad: null,
+        idGenero: null,
+        texto: '',
+        pista: ''
+      };
+    }
 
     this._ahorcadoService.getDificultades()
       .subscribe(data => {
@@ -35,17 +45,25 @@ export class FormPalabraComponent implements OnInit {
       });
   }
 
-  submit(){
+  submit() {
+    if (this.modo === ALTA){
+      this._ahorcadoService.addPalabra(this.palabra).subscribe(
+        (data) => {
+          this.resultado.emit(true);
+        },
+        (error) => alert(`Se produjo un error: ${error.message}`)
+      );
+    }
     console.log(this.palabra);
   }
 
-  cambioDificultad(){
-    if (this.palabra.idDificultad !== 0){
+  cambioDificultad() {
+    if (this.palabra.idDificultad !== 0) {
       const dificultad = this.dificultades.find(x => x.id == this.palabra.idDificultad);
-      if (dificultad){
+      if (dificultad) {
         this.minimo = dificultad.min;
         this.maximo = dificultad.max;
-      }else{
+      } else {
         this.minimo = 0;
         this.maximo = 9999;
       }

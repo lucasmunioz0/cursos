@@ -1,0 +1,9 @@
+<nav id="sidebar">
+    <div>
+        <ul class="nav flex-column nav-pills">
+            <li *ngFor="let route of routes">
+                <a routerLink="/{{route.path}}" routerLinkActive="active" class="nav-link">{{route.path}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>

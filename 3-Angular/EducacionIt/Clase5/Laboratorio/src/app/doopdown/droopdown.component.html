@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="">Rutas Angular</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" *ngFor="let route of routes">
+                <a class="nav-link" [routerLink]="route.path" routerLinkActive='active'>{{route.path}}</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" routerLink="/contact" routerLinkActive='active'>Contacto</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/about" routerLinkActive='active'>Acerca...</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/aboutus" routerLinkActive='active'>Acerca de Nosotros</a>
+            </li> -->
+            <!-- <li class="nav-item dropdown" dropdown routerLinkActive='active'>
+                <a dropdownToggle class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Noticias
+      </a>
+                <ul *dropdownMenu class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="news/1">Noticia 1</a></li>
+                    <li><a class="dropdown-item" routerLink="news/2">Noticia 2</a></li>
+                    <li><a class="dropdown-item" routerLink="news/3">Noticia 3</a></li>
+                    <li><a class="dropdown-item" routerLink="news/4">Noticia 4</a></li>
+                </ul>
+            </li> -->
+        </ul>
+    </div>
+</nav>

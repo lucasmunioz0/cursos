@@ -1,0 +1,38 @@
+<h2>Simple Request</h2>
+<button class="btn btn-primary" (click)="makeRequest()">Make request</button>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>User</th>
+                <th>Title</th>
+                <th>Body</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="posts?.length > 0 && !error">
+            <tr *ngFor="let post of posts">
+                <td>{{post.id}}</td>
+                <td>{{post.userId}}</td>
+                <td>{{post.title}}</td>
+                <td>{{post.body}}</td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="posts?.length == 0">
+            <tr>
+                <td colspan="4">No posts yet.</td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="loading && !error">
+            <tr class="text-center">
+                <td colspan="4">Loading...</td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="error">
+            <tr class="text-center alert alert-danger">
+                <td colspan="4" class="alert alert-danger">{{error}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

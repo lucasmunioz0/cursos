@@ -1,0 +1,201 @@
+{
+    "students": [{
+            "id": 1,
+            "name": "Lucas",
+            "lastName": "Muñoz",
+            "birthdate": "1993-12-15",
+            "address": "San Juan 1549",
+            "idState": "1",
+            "courses": [
+                1,
+                2,
+                4,
+                5
+            ],
+            "email": "lucas.munioz@hotmail.com"
+        },
+        {
+            "id": 2,
+            "name": "Marcos",
+            "lastName": "Muñoz",
+            "birthdate": null,
+            "address": null,
+            "idState": "2",
+            "courses": [
+                3,
+                4
+            ],
+            "email": "m@hotmail.com"
+        }
+    ],
+    "roles": [{
+            "id": 1,
+            "name": "Administrator",
+            "description": "App Manager with full access",
+            "permissions": [
+                1,
+                3
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Secretary",
+            "description": null,
+            "permissions": [
+                2
+            ]
+        }
+    ],
+    "permissions": [{
+            "id": 1,
+            "name": "Homeee",
+            "description": "asdasd"
+        },
+        {
+            "id": 2,
+            "name": "Students"
+        },
+        {
+            "id": 3,
+            "name": "Users"
+        },
+        {
+            "id": 4,
+            "name": "asdasd"
+        },
+        {
+            "id": 5,
+            "name": "Prueba",
+            "description": "test"
+        }
+    ],
+    "users": [{
+            "id": 3,
+            "name": "Lucas Muñozz",
+            "idRol": "1",
+            "password": "qwe",
+            "user": "lmunoz",
+            "photo": null,
+            "rolDescription": null
+        },
+        {
+            "id": 4,
+            "name": "test",
+            "idRol": "2",
+            "password": "ateae",
+            "user": "test",
+            "photo": null,
+            "rolDescription": null
+        }
+    ],
+    "countries": [{
+            "id": 1,
+            "name": "Argentina",
+            "states": [{
+                    "id": 1
+                },
+                {
+                    "id": 2
+                },
+                {
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Brazil",
+            "states": [{
+                    "id": 4
+                },
+                {
+                    "id": 5
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Chile",
+            "states": [{
+                    "id": 6
+                },
+                {
+                    "id": 7
+                },
+                {
+                    "id": 8
+                }
+            ]
+        }
+    ],
+    "states": [{
+            "id": 1,
+            "name": "Córdoba",
+            "idCountry": 1
+        },
+        {
+            "id": 2,
+            "name": "Santa Fe",
+            "idCountry": 1
+        },
+        {
+            "id": 3,
+            "name": "Buenos Aires",
+            "idCountry": 1
+        },
+        {
+            "id": 4,
+            "name": "Copacabana",
+            "idCountry": 2
+        },
+        {
+            "id": 5,
+            "name": "Rio de Janeiro",
+            "idCountry": 2
+        },
+        {
+            "id": 6,
+            "name": "Santiago de Chile",
+            "idCountry": 3
+        },
+        {
+            "id": 7,
+            "name": "Viña del Mar",
+            "idCountry": 3
+        },
+        {
+            "id": 8,
+            "name": "Osorno",
+            "idCountry": 3
+        }
+    ],
+    "courses": [{
+            "id": 1,
+            "name": "Java",
+            "description": "Learn Java from 0 to 100",
+            "lessons": 3
+        },
+        {
+            "id": 2,
+            "name": "C#",
+            "description": "Build strong applications with C#",
+            "lessons": 2
+        },
+        {
+            "id": 3,
+            "name": "Angular",
+            "description": "Learn the most popular FrontEnd framework"
+        },
+        {
+            "id": 4,
+            "name": "HTML & CSS",
+            "description": "Be an professional designer"
+        }
+    ],
+    "attendances": [{
+        "id": 1,
+        "idStudent": 1,
+        "idCourse": 1,
+        "type": 1
+    }]
+}

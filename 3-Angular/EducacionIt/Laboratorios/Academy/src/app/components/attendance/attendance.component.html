@@ -40,9 +40,9 @@
                     <td>{{student.name}} {{student.lastName}}</td>
                     <td *ngFor="let attendance of attendances">
                         <div>
-                            <input type="radio" [name]="'name-'+ student.id" id="">P
-                            <input type="radio" [name]="'name-'+ student.id" id="">A
-                            <input type="radio" [name]="'name-'+ student.id" id="">N
+                            <input type="radio" [name]="'name-'+attendance.id+'-'+student.id" id="">P
+                            <input type="radio" [name]="'name-'+attendance.id+'-'+student.id" id="">A
+                            <input type="radio" [name]="'name-'+attendance.id+'-'+student.id" id="">N
                             <!-- <input type="radio" name="" id="">A
                             <input type="radio" name="" id="">N -->
                         </div>

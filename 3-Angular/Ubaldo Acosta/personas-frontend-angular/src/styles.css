@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+/* @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css'); */
+
 html {
     background-color: #2196F3;
     min-height: 1000px;
@@ -97,6 +100,7 @@ input[type="text"] {
 input[type="text"]:focus {
     outline: none;
     box-shadow: inset 0 -3px 0 0 #3F51B5;
+    transition: width 2s;
 }
 
 ::placeholder {

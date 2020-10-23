@@ -8,7 +8,7 @@
         <h4>{{title()}} Permission</h4>
         <hr>
     </div>
-    <app-alert [type]="typeError" [messages]="messages" *ngIf="messages.length > 0" class="mb-0"></app-alert>
+    <app-alert [type]="typeMessage" [messages]="messages" *ngIf="messages.length > 0" class="mb-0"></app-alert>
     <div class="mb-2">
         <a class="btn btn-primary mb-1 mr-1" (click)="submit(form.form)" *ngIf="action == 1 || action == 3">Save</a>
         <a class="btn btn-danger mb-1 mr-1" (click)="delete()" *ngIf="action == 4">Delete</a>
@@ -18,15 +18,15 @@
         <form #form="ngForm" (ngForm)="form">
             <div class="form-row">
                 <div class="col-12 col-md-6" [hidden]="true">
-                    <input type="number" name="id" class="form-control" [(ngModel)]="permission.id">
+                    <input type="number" name="id" class="form-control" [(ngModel)]="entity.id">
                 </div>
                 <div class="col-12 col-md-6">
                     <label>Name (*):</label>
-                    <input type="text" name="name" class="form-control" [(ngModel)]="permission.name" required>
+                    <input type="text" name="name" class="form-control" [(ngModel)]="entity.name" required>
                 </div>
                 <div class="col-12 col-md-6">
                     <label>Description:</label>
-                    <textarea name="description" class="form-control" [(ngModel)]="permission.description" required></textarea>
+                    <textarea name="description" class="form-control" [(ngModel)]="entity.description" required></textarea>
                 </div>
             </div>
         </form>

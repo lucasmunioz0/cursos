@@ -27,26 +27,28 @@ export class StudentsComponent extends ComponentBase<IStudent> implements OnInit
     this._studentSvc.getAll().subscribe(
       (data) => {
         this.entities = data;
-        let state: IState;
-        let country: ICountry;
         this.entities.forEach(student => {
+          let state: IState;
+          let country: ICountry;
           this._stateSvc.get(student.idState).subscribe(
-            (stateResp) => state = stateResp,
-            (error) => this.showError(error),
-            () => {
-              if (!states.find(x => x.id == state.id)){
+            (stateResp) => {
+              state = stateResp;
+              if (!states.find(x => x.id == state.id)) {
                 states.push(state);
               }
               this._countrySvc.get(state.idCountry).subscribe(
-                (countryResp) => country = countryResp,
-                (error2) => this.showError(error2),
-                () => {
-                  if (!countries.find(x => x.id == country.id)){
+                (countryResp) => {
+                  country = countryResp;
+                  if (!countries.find(x => x.id == country.id)) {
                     countries.push(country);
                   }
                   student.stateName = `(${state.name} - ${country.name})`;
-                }
+                },
+                (error2) => this.showError(error2)
               );
+            },
+            (error) => this.showError(error),
+            () => {
               this.loading = false;
             }
           );

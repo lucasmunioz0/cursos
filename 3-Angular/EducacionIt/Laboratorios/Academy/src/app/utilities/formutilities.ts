@@ -1,13 +1,12 @@
 import { toCapitalize } from 'src/app/utilities/stringutilities';
 import { FormGroup } from '@angular/forms';
 
-export const CRUD_ACTIONS = ['New', 'View', 'Update', 'Delete'];
+export const CRUD_ACTIONS = ['New', 'View', 'Edit', 'Delete'];
 
 export enum ATTENDANCE_TYPE {
   PRESENT = 1,
   AUSENT = 2
 }
-
 
 export function validateForm(form: FormGroup): string[]{
     const result = [];
@@ -16,6 +15,7 @@ export function validateForm(form: FormGroup): string[]{
       for (const c in form.controls){
         const control = form.get(c);
         const controlName = toCapitalize(_getPropertyName(c), true);
+        console.log(controlName)
         // tslint:disable-next-line: forin
         for (const e in control.errors){
           const error = control.getError(e);

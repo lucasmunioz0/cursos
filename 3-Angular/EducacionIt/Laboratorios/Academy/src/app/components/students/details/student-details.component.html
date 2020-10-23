@@ -52,9 +52,9 @@
                       <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
                     </select>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6" *ngIf="states.length > 0">
                     <label>State/City (*):</label>
-                    <select name="idState" [(ngModel)]="entity.idState" class="form-control" *ngIf="states.length > 0">
+                    <select name="idState" class="form-control" [(ngModel)]="entity.idState" required>
                     <option *ngFor="let state of states" [value]="state.id">{{state.name}}</option>
                   </select>
                 </div>

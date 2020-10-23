@@ -14,7 +14,7 @@ export class UsersComponent extends ComponentBase<IUser> implements OnInit {
 
   constructor(private _userSvc: UserService, private _rolSvc: RolService) {
     super();
-   }
+  }
 
   ngOnInit(): void {
     this.loading = true;

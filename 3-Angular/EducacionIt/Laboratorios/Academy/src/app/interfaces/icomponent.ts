@@ -28,7 +28,6 @@ export class ComponentBase<T extends IBase> {
   }
 
   showError(message: string){
-    console.log(message);
     this.messages = [];
     this.messages.push(message);
     this.typeMessage = ALERT_CLASS.danger;

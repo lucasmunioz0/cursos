@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { IPermission } from './../interfaces/ipermission';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';

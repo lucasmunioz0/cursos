@@ -38,21 +38,29 @@ export class AttendanceComponent implements OnInit {
     this.loading = true;
     this.course = this.courses.find(x => x.id == idCourse);
     this._studentSvc.getByCourse(this.course.id).subscribe(
-      (students) => this.students = students,
-      (error2) => console.log(error2),
-      () => {
+      (students) => {
+        this.students = students;
         this.attendances = new Array<IAttendance>(this.course.lessons);
-        this.loading = false;
-        // this._attendanceSvc.getByCourse(this.course.id).subscribe(
-        //   (attendances) => this.attendances = attendances,
-        //   (error) => console.log(error),
-        //   () => this.loading = false
-        // );
-      }
+        this._attendanceSvc.getByCourse(this.course.id).subscribe(
+          (attendances) => {
+            this.attendances = attendances;
+            this.loading = false;
+            if (this.attendances.length < this.course.lessons){
+              let diff = this.course.lessons - this.attendances.length;
+              for (let i = 0; i < diff; i++){
+                this.attendances.push({id: 0, name: null, idCourse: this.course.id, idStudent: null, type: 3});
+              }
+              this.loading = false;
+            }
+          },
+          (error) => console.log(error)
+        );
+      },
+      (error2) => console.log(error2)
     );
   }
 
-  logAttendance(idStudent: number, idLesson: number, type: number){
+  logAttendance(idStudent: number, idLesson: number, type: number) {
 
   }
 }

@@ -42,7 +42,7 @@ export class StudentDetailsComponent extends ComponentChild<IStudent> implements
     this._countrySvc.getAll().subscribe(
       (countries) => {
         this.countries = countries;
-        this.countries.unshift({ id: 0, name: 'Seleccione', states: [] });
+        this.countries.unshift({ id: 0, name: 'Select...', states: [] });
       },
       (error3) => this.showError(error3)
     );
@@ -65,13 +65,13 @@ export class StudentDetailsComponent extends ComponentChild<IStudent> implements
     this._stateSvc.getAll().subscribe(
       (states) => {
         this.states = states.filter(x => x.idCountry == country);
-        this.states.unshift({ id: 0, name: 'Seleccione', idCountry: country });
+        this.states.unshift({ id: 0, name: 'Select...', idCountry: country });
       },
       (error2) => this.showError(error2)
     );
 
     if (reset) {
-      this.entity.idState = 0;
+      this.entity.idState = null;
     }
   }
 

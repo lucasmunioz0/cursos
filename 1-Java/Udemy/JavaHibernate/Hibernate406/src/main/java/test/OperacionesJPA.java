@@ -13,14 +13,14 @@ public class OperacionesJPA {
         Persona persona = new Persona();
         persona.setNombre("Carlos");
         persona.setApellido("Lara");
-        persona.setEmail("cl2@gmail.com");
+//        persona.setEmail("cl2@gmail.com");
         
 //        dao.insert(persona);
-        persona.setIdPersona(2l);
+        persona = dao.get(12L);
         
         persona.setNombre("Carlos MODIFICADO");
-        dao.update(persona);
-        
+//        dao.update(persona);
+        dao.delete(persona);
         for (Persona persona2 : dao.getAll()) {
             System.out.println(persona2);
         }

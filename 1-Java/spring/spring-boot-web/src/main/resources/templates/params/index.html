@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title>Enviar parámetros a URL</title>
+</head>
+<body>
+	<h1>Enviar datos por URL</h1>
+	<ul>
+		<li><a th:href="@{/params/string(texto='Hola desde LI')}">/params/string?texto=Hola desde LI</a></li>
+		<li><a th:href="@{/params/string(texto='Hola y chau')}">/params/string?texto=Hola y chau</a></li>
+		<li><a th:href="@{/params/mix-params(saludo='Hola y chau', numero=5)}">/params/mix-params?texto=Hola y chau&numero=5</a></li>
+		<li><a th:href="@{/params/mix-params-request(saludo='Hola y chau', numero=5)}">/params/mix-params-request?texto=Hola Request&numero=5</a></li>
+	</ul>
+</body>
+</html>

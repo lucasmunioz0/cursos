@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title>Enviar parámetros a URL</title>
+</head>
+<body>
+	<h1>Enviar datos por el Path</h1>
+	<ul>
+		<li><a th:href="@{/variables/string/'Hola desde path'}">/variables/string/Hola desde path</a></li>
+		<li><a th:href="@{/variables/string/'Hola desde multiple'/7}">/variables/string/Hola desde multiple/7</a></li>
+	</ul>
+</body>
+</html>

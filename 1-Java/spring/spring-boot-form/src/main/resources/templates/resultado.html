@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title>Resultado</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div th:replace="componentes/tiempo :: interceptor">
+</div>
+	<div class="container">
+	<a th:href="@{/form}" class="btn btn-success my-3 btn-lg" >Volver</a>
+		<ul class="list-group my-3">
+			<li class="list-group-item active">[[${titulo}]]</li>
+			<li class="list-group-item">Identificador: [[${usuario.id}]]</li>
+			<li class="list-group-item">Habilitado: [[${usuario.habilitar}]]</li>
+			<li class="list-group-item">Genero: [[${usuario.genero}]]</li>
+			<li class="list-group-item">Roles: [[${usuario.roles}]]</li>
+			<li class="list-group-item">Nombre: [[${usuario.nombre}]]</li>
+			<li class="list-group-item">Apellido: [[${usuario.apellido}]]</li>
+			<li class="list-group-item">Username: [[${usuario.username}]]</li>
+			<li class="list-group-item">Password: [[${usuario.password}]]</li>
+			<li class="list-group-item">Email: [[${usuario.email}]]</li>
+			<li class="list-group-item">Cuenta: [[${usuario.cuenta}]]</li>
+			<li class="list-group-item">Fecha de Nacimiento:
+				[[${#dates.format(usuario.fechaNacimiento, 'dd/MM/yyyy')}]]</li>
+			<li class="list-group-item">País: [[${usuario.pais.id + " - " +
+				usuario.pais.codigo + " - " + usuario.pais.nombre}]]</li>
+			<li class="list-group-item">Valor Oculto:
+				[[${usuario.valorSecreto}]]</li>
+		</ul>
+		<ul class="list-group my-3">
+			<li class="list-group-item active">Roles</li>
+			<li th:each="rol : ${usuario.roles}" th:text="${rol}"
+				class="list-group-item"></li>
+		</ul>
+	</div>
+
+	<a th:href="@{/form}">Volver</a>
+</body>
+</html>

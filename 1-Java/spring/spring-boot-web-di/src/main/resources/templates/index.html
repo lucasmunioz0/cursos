@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h1>[[${titulo}]]</h1>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Factura</th>
+				<th>Cliente</th>
+				<th>Ver</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="factura, iter: ${facturas}">
+				<td>[[${factura.descripcion}]]</td>
+				<td>[[${factura.cliente.nombre} + ", " + ${factura.cliente.apellido}]]</td>
+				<td><a th:href="@{/facturas/ver(index=${iter.index})}"></a></td>
+			</tr>
+		</tbody>
+	</table>
+	
+</body>
+</html>
+

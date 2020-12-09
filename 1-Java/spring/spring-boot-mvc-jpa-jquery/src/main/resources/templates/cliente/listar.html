@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaft.org/extras/spring-security">
+<head th:replace="layout :: head">
+</head>
+<body>
+	<header th:replace="layout :: header"></header>
+	<div class="container py-4">
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<h4 class="card-title">
+					<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/clientes/form}" class="btn btn-primary btn-xs" th:text="#{text.cliente.crear}">Crear
+						cliente</a>
+						<a th:href="@{'/clientes'(format=csv)}" class="btn btn-success btn-xs float-right">CSV</a>
+						<a th:href="@{'/clientes'(format=xml)}" class="btn btn-outline-success btn-xs float-right">XML</a>
+						<a th:href="@{'/clientes'(format=json)}" class="btn btn-outline-warning btn-xs float-right">JSON</a>
+				</h4>
+
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th sec:authorize="hasRole('ROLE_USER')">#</th>
+								<th th:text="#{text.cliente.nombre}">Nombre</th>
+								<th th:text="#{text.cliente.apellido}">Apellido</th>
+								<th th:text="#{text.cliente.email}">Email</th>
+								<th th:text="#{text.cliente.createAt}">Fecha de Registro</th>
+								<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{text.cliente.acciones}">Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="cliente: ${clientes}" th:object="${cliente}">
+								<td sec:authorize="hasRole('ROLE_USER')">
+									<a th:href="@{/clientes/} + ${cliente.id}" class="btn btn-primary"
+										th:text="*{id}"></a>
+								</td>
+								<td>[[*{nombre}]]</td>
+								<td>[[*{apellido}]]</td>
+								<td>[[*{email}]]</td>
+								<td>[[*{createdAt}]]</td>
+								<td sec:authorize="hasRole('ROLE_ADMIN')">
+									<a th:href="@{/clientes/form/} + *{id}" class="btn btn-secondary btn-xs" th:text="#{text.cliente.editar}">Editar</a>
+									<a th:href="@{/clientes/eliminar/} + *{id}"
+										class="btn btn-danger btn-xs"
+										onclick="return confirm('¿Estás seguro que querés eliminar?')" th:text="#{text.cliente.eliminar}">Eliminar</a>
+									<a th:href="@{/facturas/form/} + *{id}"
+										class="btn btn-primary btn-xs" th:text="#{text.cliente.factura.crear}">Crear Factura</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<nav th:replace="paginatorNav :: paginator"></nav>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

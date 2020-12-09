@@ -1,0 +1,60 @@
+<div class="container-fluid portlet">
+    <div class="portlet-title d-flex justify-content-between mb-1">
+        <div>
+            <h4>Confirmar pedido</h4>
+        </div>
+        <div>
+            <button class="btn btn-danger mr-1">
+        Cancelar Pedido
+      </button>
+            <button class="btn btn-primary" (click)="confirmarPedido()">
+        Confirmar Pedido
+      </button>
+        </div>
+    </div>
+    <div class="mb-2"></div>
+    <fieldset class="border">
+        <div class="form-group">
+            <div>
+                <label>Mozo: {{pedido.mozo}}</label>
+            </div>
+            <div>
+                <label>Mesa: {{pedido.mesas}}</label>
+            </div>
+            <div>
+                <label>Titular: {{pedido.titular}}</label>
+            </div>
+            <div>
+                <label>Fecha: {{pedido.fecha | date:'short'}}</label>
+            </div>
+        </div>
+    </fieldset>
+
+    <h4 class="my-2">Productos seleccionados</h4>
+    <div style="height: 400px; overflow: auto">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th style="width: 55%">Producto</th>
+                    <th style="width: 10%">Precio</th>
+                    <th style="width: 10%">Cantidad</th>
+                    <th style="width: 10%">SubTotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let detalle of pedido.detalles">
+                    <td>{{detalle.id}}</td>
+                    <td>{{detalle.producto.nombre}}</td>
+                    <td>{{detalle.producto.precio | currency}}</td>
+                    <td>{{detalle.cantidad}}</td>
+                    <td>{{detalle.subTotal | currency}}</td>
+                </tr>
+                <tr class="font-weight-bold">
+                    <td colspan="4">Total</td>
+                    <td>{{pedido.obtenerTotal() | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

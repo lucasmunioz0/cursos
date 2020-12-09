@@ -1,0 +1,83 @@
+<div class="container-fluid portlet">
+    <div class="portlet-title">
+        <h4>{{title}}</h4>
+        <hr />
+    </div>
+    <div class="mb-2"></div>
+    <fieldset>
+        <form #form="ngForm" (ngForm)="form" autocomplete="off">
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <label>Nombre:</label>
+                    <input type="text" name="name" class="form-control" [(ngModel)]="entity.nombre" required />
+                </div>
+                <div class="col-12 col-md-6">
+                    <label>Apellido:</label>
+                    <input type="text" name="lastName" class="form-control" [(ngModel)]="entity.apellido" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <label>Tipo comensal:</label>
+                    <input type="radio" name="comensal" /> Con Reserva
+                    <input type="radio" name="comensal" /> Sin Reserva
+                </div>
+                <div class="col-12 col-md-6">
+                    <input type="text" name="lastName" class="form-control" (keyup)="letraInsertada($event.target)" />
+                    <button class="btn btn-primary" (click)="buscarTitular()">
+            Buscar
+          </button>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <label>Filtrar mesas:</label>
+                    <input type="text" (keyup)="buscarMesa($event.target)" />
+                </div>
+                <div class="col-12 col-md-6">
+                    <label>Cantidad de comensales</label>
+                    <input type="number" name="lastName" class="form-control" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <label>Mesas libres:</label>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>N° Mesa</th>
+                                    <th>Asignación</th>
+                                    <th>Sección</th>
+                                    <th>piso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let mesa of mesas">
+                                    <td>
+                                        <input type="checkbox" *ngIf="mesa.asignacion" (click)="agregarMesa(mesa)" (checked)="estaSeleccionada(mesa)" /> {{mesa.id}}
+                                    </td>
+                                    <td>{{mesa.asignacion? 'Libre' : 'Ocupada'}}</td>
+                                    <td>{{mesa.seccion}}</td>
+                                    <td>{{mesa.piso}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <button>Asignar mesas</button>
+                </div>
+                <div class="col-12 col-md-6">
+                    <button (click)="mostrarConsola()">Registrar Aperturaaa</button>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+</div>
+<div>
+    <h1>Hola</h1>
+
+</div>

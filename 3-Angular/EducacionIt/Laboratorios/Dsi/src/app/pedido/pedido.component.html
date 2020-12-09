@@ -1,0 +1,76 @@
+<div class="container-fluid portlet">
+    <div class="portlet-title d-flex justify-content-between mb-1">
+        <div>
+            <h4>Seleccione productos</h4>
+        </div>
+        <div>
+            <button class="btn btn-danger mr-1">Cancelar Pedido</button>
+            <button class="btn btn-primary" (click)="crearPedido()">
+        Crear Pedido
+      </button>
+        </div>
+    </div>
+    <div class="mb-2">
+        <input class="form-control" placeholder="Filtrar productos..." (keyup)="filtrarProductos($event.target)" />
+    </div>
+    <div style="height: 400px; overflow: auto">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 20%">Tipo</th>
+                    <th style="width: 55%">Producto</th>
+                    <th style="width: 10%">Precio</th>
+                    <th style="width: 15%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{producto.tipo}}</td>
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.precio | currency}}</td>
+                    <td class="d-flex justify-content-between">
+                        <div class="mr-auto">
+                            <input type="number" class="form-control " placeholder="Ingrese cantidad" #cantidad />
+                        </div>
+                        <div>
+                            <button class="mr-auto btn btn-primary" (click)="agregarProducto(cantidad, producto)">
+                +
+              </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4 class="my-2">Productos seleccionados</h4>
+    <div style="height: 400px; overflow: auto">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th style="width: 55%">Producto</th>
+                    <th style="width: 10%">Precio</th>
+                    <th style="width: 10%">Cantidad</th>
+                    <th style="width: 10%">SubTotal</th>
+                    <th style="width: 5%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let detalle of detalles">
+                    <td>{{detalle.id}}</td>
+                    <td>{{detalle.producto.nombre}}</td>
+                    <td>{{detalle.producto.precio | currency}}</td>
+                    <td>{{detalle.cantidad}}</td>
+                    <td>{{detalle.subTotal | currency}}</td>
+                    <td class="d-flex justify-content-between">
+                        <div>
+                            <button class="mr-auto btn btn-danger" (click)="eliminarDetalle(detalle)">
+                -
+              </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="my-4">
+    <h2>Reservas</h2>
+</div>
+<div class="my-2">
+    <button class="btn btn-primary" (click)="enviarRecordatorios()">Enviar Recordatorios</button>
+</div>
+<div class="form-inline">
+    <div class="border table-responsive form-group">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Titular</th>
+                    <th>Hora</th>
+                    <th>Comensales</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reserva of reservas; let i = index">
+                    <th>{{i}}</th>
+                    <th>{{reserva.cliente}}</th>
+                    <th>{{reserva.getFecha() | date:'short' }}</th>
+                    <th>{{reserva.comensales}}</th>
+                    <th>{{reserva.getEstado().nombre}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <ul>
+            <li *ngFor="let mensaje of mensajesEnviados">{{mensaje}}</li>
+        </ul>
+    </div>
+</div>

@@ -12,6 +12,7 @@
 	<groupId>com.datajpa</groupId>
 	<artifactId>spring-boot-data-jpa</artifactId>
 	<version>0.0.1</version>
+	<packaging>jar</packaging>
 	<name>spring-boot-data-jpa</name>
 	<description>Manejo de Data JPA</description>
 

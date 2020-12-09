@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+</head>
+<body>
+	<header th:replace="layout :: header"></header>
+	<div class="container py-4">
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body" th:object="${cliente}">
+				<img class="img-thumbnail rounded float-left"
+					style="max-width: 25%;" th:src="@{'/uploads/' + ${cliente.foto}}"
+					th:alt="${cliente.nombre}" th:if="${#strings.length(cliente.foto) > 0}" />
+				<ul class="list-group">
+					<li class="list-group-item" th:text="*{nombre}"></li>
+					<li class="list-group-item" th:text="*{apellido}"></li>
+					<li class="list-group-item" th:text="*{email}"></li>
+					<li class="list-group-item" th:text="*{createdAt}"></li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

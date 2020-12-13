@@ -2,6 +2,7 @@ package com.in28minutes.springbootjpa;
 
 import com.in28minutes.springbootjpa.entity.Course;
 import com.in28minutes.springbootjpa.repository.CourseRepository;
+import com.in28minutes.springbootjpa.repository.StudentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +15,8 @@ public class SpringBootJpaApplication implements CommandLineRunner {
 
     @Autowired
     private CourseRepository courseRepository;
+    @Autowired
+    private StudentRepository studentRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootJpaApplication.class, args);
@@ -21,10 +24,6 @@ public class SpringBootJpaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Course course = courseRepository.findById(10001L);
-        log.info("Course 10001 -> {}", course);
-        courseRepository.deleteById(10003L);
-        courseRepository.save(new Course("Microservices in 100 steps"));
-        courseRepository.playWithEntityManager();
+        studentRepository.saveStudentWithPassport();
     }
 }

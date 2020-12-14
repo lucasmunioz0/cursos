@@ -2,6 +2,7 @@ package com.in28minutes.springbootjpa;
 
 import com.in28minutes.springbootjpa.entity.Passport;
 import com.in28minutes.springbootjpa.entity.Student;
+import com.in28minutes.springbootjpa.repository.PassportRepository;
 import com.in28minutes.springbootjpa.repository.StudentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -16,10 +17,10 @@ import javax.transaction.Transactional;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Slf4j
-class StudentTest {
+class PassportTest {
 
     @Autowired
-    private StudentRepository studentRepository;
+    private PassportRepository passportRepository;
 
     @Autowired
     private EntityManager em;
@@ -35,10 +36,9 @@ class StudentTest {
     @Test
     @Transactional
     public void someTest(){
-        Student student = em.find(Student.class, 2001L);
-        Passport passport = student.getPassport();
-        passport.setNumber("E1234567");
-        student.setName(student.getName() + " - updated");
+        Passport passport = em.find(Passport.class, 40001L);
+        log.info("Passport -> {}", passport.toString());
+        log.info("Student -> {}", passport.getStudent().toString());
     }
 
 }

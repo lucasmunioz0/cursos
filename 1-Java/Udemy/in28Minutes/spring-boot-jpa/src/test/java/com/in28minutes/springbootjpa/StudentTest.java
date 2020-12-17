@@ -27,7 +27,7 @@ class StudentTest {
     @Test
     @Transactional
     public void retrieveStudentAndPassportDetails(){
-        Student student = em.find(Student.class, 2L);
+        Student student = em.find(Student.class, 20001L);
         log.info("Student -> {}", student.toString());
         log.info("Student -> {}", student.getPassport().toString());
     }
@@ -35,10 +35,18 @@ class StudentTest {
     @Test
     @Transactional
     public void someTest(){
-        Student student = em.find(Student.class, 2001L);
+        Student student = em.find(Student.class, 20001L);
         Passport passport = student.getPassport();
         passport.setNumber("E1234567");
         student.setName(student.getName() + " - updated");
+    }
+
+    @Test
+    @Transactional
+    public void retrieveStudentAndCourses(){
+        Student student = em.find(Student.class, 20003L);
+        log.info("Student -> {}", student.toString());
+        log.info("Courses -> {}", student.getCourses());
     }
 
 }

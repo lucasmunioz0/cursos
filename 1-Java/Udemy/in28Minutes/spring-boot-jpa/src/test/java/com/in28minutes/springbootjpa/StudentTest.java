@@ -1,5 +1,6 @@
 package com.in28minutes.springbootjpa;
 
+import com.in28minutes.springbootjpa.entity.Address;
 import com.in28minutes.springbootjpa.entity.Passport;
 import com.in28minutes.springbootjpa.entity.Student;
 import com.in28minutes.springbootjpa.repository.StudentRepository;
@@ -30,6 +31,15 @@ class StudentTest {
         Student student = em.find(Student.class, 20001L);
         log.info("Student -> {}", student.toString());
         log.info("Student -> {}", student.getPassport().toString());
+    }
+
+    @Test
+    @Transactional
+    public void setAddressDetails(){
+        Student student = em.find(Student.class, 20001L);
+        student.setAddress(new Address("Line1", "Line2", "City"));
+        em.flush();
+        log.info("Student -> {}", student.toString());
     }
 
     @Test

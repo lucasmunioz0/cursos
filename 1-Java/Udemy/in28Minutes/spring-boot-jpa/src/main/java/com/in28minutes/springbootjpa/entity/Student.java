@@ -18,6 +18,8 @@ public class Student {
     private String name;
     @OneToOne(fetch = FetchType.LAZY)
     private Passport passport;
+    @Embedded
+    private Address address;
     @ManyToMany
     @JoinTable(name = "STUDENT_COURSE", joinColumns = @JoinColumn(name = "ID_STUDENT"), inverseJoinColumns = @JoinColumn(name = "ID_COURSE"))
     private List<Course> courses;
@@ -37,5 +39,13 @@ public class Student {
 
     public void removeCourse(Course course){
         this.courses.remove(course);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", address=" + address +
+                '}';
     }
 }

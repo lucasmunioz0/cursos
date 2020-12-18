@@ -35,10 +35,19 @@ class CourseTest {
     }
 
     @Test
+    @Transactional
+    void firstLevelCache() {
+        Course course = courseRepository.findById(10001L);
+        log.info("Course -> {}", course);
+        Course course1 = courseRepository.findById(10001L);
+        log.info("Course1 -> {}", course1);
+    }
+
+    @Test
     @DirtiesContext
     void shouldDeleteCourseById(){
         courseRepository.deleteById(10002L);
-        assertNull(courseRepository.findById(10002L));
+        courseRepository.findById(10002L);
     }
 
     @Test

@@ -1,6 +1,4 @@
-<div class="container-fluid title">
-    <h2>Students</h2>
-</div>
+<app-abmc-title title="EStudiantes"></app-abmc-title>
 <div class="container-fluid portlet" *ngIf="action == null">
     <div class="portlet-title">
         <h4>Students List</h4>
@@ -23,7 +21,7 @@
             </thead>
             <tbody *ngIf="entities?.length > 0">
                 <tr *ngFor="let student of entities" class="row-crud">
-                    <td>{{student.name}}</td>
+                    <td>{{student['name']}}</td>
                     <td>{{student.lastName}}</td>
                     <td>{{student.address}}</td>
                     <td>{{student.stateName}}</td>

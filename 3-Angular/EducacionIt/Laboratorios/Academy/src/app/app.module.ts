@@ -20,6 +20,7 @@ import { RolesComponent } from './components/roles/roles.component';
 import { RolDetailsComponent } from './components/roles/roles-details/rol-details.component';
 import { PermissionDetailsComponent } from './components/permissions/details/permission-details.component';
 import { CourseDetailsComponent } from './components/courses/details/course-details.component';
+import { AbmcTitleComponent } from './components/abmc-title/abmc-title.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CourseDetailsComponent } from './components/courses/details/course-deta
     PermissionDetailsComponent,
     AlertComponent,
     RolesComponent,
-    RolDetailsComponent
+    RolDetailsComponent,
+    AbmcTitleComponent,
   ],
   imports: [
     BrowserModule,

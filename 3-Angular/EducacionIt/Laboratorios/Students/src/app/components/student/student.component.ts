@@ -14,14 +14,13 @@ import { Component, OnInit } from '@angular/core';
 export class StudentComponent implements OnInit {
   students: Array<StudentDto>;
   idStudent: number;
-  action: number;
+  action;
   alert: string;
   message: string;
 
   constructor(private _studentSvc: StudentService, private _configSvc: ConfigurationService, private _stringUtilities: StringUtilities) {
     this._studentSvc.getStudents2()
       .subscribe(data => this.students = data);
-    console.log("hola mundo");
   }
 
   ngOnInit(): void { }

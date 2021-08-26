@@ -68,7 +68,7 @@ public class FacturaController {
 	@GetMapping("/form/{idCliente}")
 	public String form(@PathVariable Long idCliente, Model model, RedirectAttributes flash) {
 		Cliente cliente = clienteService.findOne(idCliente);
-		
+
 		if(cliente == null) {
 			flash.addFlashAttribute("error", "El cliente no existe");
 			return "redirect:/listar";

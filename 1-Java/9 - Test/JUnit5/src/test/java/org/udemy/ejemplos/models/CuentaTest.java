@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeFalse;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 //@TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -185,7 +186,7 @@ class CuentaTest {
         @Test
         void testSaldoCuentaDev() {
             var esDev = "dev".equals(System.getProperty("ENV"));
-            assumeTrue(esDev);
+            assumeFalse(esDev);
             assertNotNull(cuenta.getSaldo());
             assertEquals(1000.12345, cuenta.getSaldo().doubleValue());
             assertFalse(cuenta.getSaldo().compareTo(BigDecimal.ZERO) < 0);
